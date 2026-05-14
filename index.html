@@ -1,0 +1,2909 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gli ETF sono SCAM? — Slide deck stockpickers.app</title>
+<meta name="description" content="Slide deck per video YouTube: perché gli ETF sono subottimali e come stockpickers.app + stock picking informato li batte di +15-25% CAGR.">
+<meta name="theme-color" content="#0f0f1a">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+
+<style>
+:root {
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #141428;
+  --bg-elevated: #1a1a36;
+  --bg-glass: rgba(20, 20, 40, 0.6);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-medium: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  --text-primary: #f0f0f5;
+  --text-secondary: #b0b0c0;
+  --text-muted: #7a7a90;
+  --accent-cyan: #00d9ff;
+  --accent-green: #00d26a;
+  --accent-red: #ff4757;
+  --accent-yellow: #ffa502;
+  --accent-blue: #3498db;
+  --accent-purple: #b388ff;
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --shadow-glow-cyan: 0 0 60px rgba(0, 217, 255, 0.18);
+  --shadow-glow-red: 0 0 60px rgba(255, 71, 87, 0.18);
+  --shadow-glow-green: 0 0 60px rgba(0, 210, 106, 0.18);
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background ambient */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(0, 217, 255, 0.08), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 90%, rgba(255, 71, 87, 0.05), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0, 210, 106, 0.03), transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+  z-index: 100;
+  width: 0%;
+  transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  box-shadow: 0 0 12px rgba(0, 217, 255, 0.6);
+}
+
+/* Branding header */
+.deck-brand {
+  position: fixed;
+  top: 16px;
+  left: 24px;
+  z-index: 50;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--accent-cyan);
+  text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+}
+.deck-brand .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+  box-shadow: 0 0 12px var(--accent-cyan);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Slide container */
+.deck {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 60px 120px;
+  opacity: 0;
+  transform: translateX(40px);
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.65, 0, 0.35, 1), transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.slide.is-active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+
+.slide.is-prev {
+  transform: translateX(-40px);
+}
+
+.slide-inner {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Eyebrow / chapter label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  padding: 6px 14px;
+  background: rgba(0, 217, 255, 0.08);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 100px;
+  width: fit-content;
+}
+
+/* Headings */
+.h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--text-primary);
+}
+
+.h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 4.5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 2.4vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.lead {
+  font-size: clamp(18px, 1.6vw, 24px);
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 920px;
+}
+
+.lead strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-family: var(--font-mono);
+}
+
+.accent-cyan { color: var(--accent-cyan); }
+.accent-green { color: var(--accent-green); }
+.accent-red { color: var(--accent-red); }
+.accent-yellow { color: var(--accent-yellow); }
+.accent-purple { color: var(--accent-purple); }
+
+.glitch {
+  position: relative;
+  color: var(--accent-red);
+  text-shadow: 0 0 30px rgba(255, 71, 87, 0.5);
+  animation: glitch-shift 4s infinite;
+}
+@keyframes glitch-shift {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -2px); }
+  80% { transform: translate(1px, 2px); }
+}
+
+/* Big number */
+.big-number {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(80px, 14vw, 220px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  display: inline-block;
+}
+
+.big-number--red {
+  color: var(--accent-red);
+  text-shadow: 0 0 80px rgba(255, 71, 87, 0.4);
+}
+.big-number--green {
+  color: var(--accent-green);
+  text-shadow: 0 0 80px rgba(0, 210, 106, 0.4);
+}
+.big-number--cyan {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 80px rgba(0, 217, 255, 0.4);
+}
+
+/* Cards / glass */
+.card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid var(--border-medium);
+  border-radius: 20px;
+  padding: 32px 36px;
+  box-shadow: var(--shadow-md);
+}
+
+.card--glow-red {
+  border-color: rgba(255, 71, 87, 0.3);
+  box-shadow: var(--shadow-glow-red);
+}
+.card--glow-green {
+  border-color: rgba(0, 210, 106, 0.3);
+  box-shadow: var(--shadow-glow-green);
+}
+.card--glow-cyan {
+  border-color: rgba(0, 217, 255, 0.3);
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+/* Comparison grid (vs) */
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.vs-grid .vs-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.vs-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  border-radius: 18px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+}
+
+.vs-card__label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.vs-card__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.vs-card__value {
+  font-family: var(--font-mono);
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.vs-card__sub {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.vs-card--loss { border-color: rgba(255, 71, 87, 0.25); }
+.vs-card--loss .vs-card__value { color: var(--accent-red); }
+.vs-card--win { border-color: rgba(0, 210, 106, 0.25); }
+.vs-card--win .vs-card__value { color: var(--accent-green); }
+
+/* Holdings table */
+.holdings {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+}
+
+.holdings-row {
+  display: grid;
+  grid-template-columns: 32px 1fr 100px 32px;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 18px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.holdings-row.is-bad {
+  border-color: rgba(255, 71, 87, 0.25);
+  background: rgba(255, 71, 87, 0.06);
+}
+
+.holdings-row.is-good {
+  border-color: rgba(0, 210, 106, 0.18);
+}
+
+.holdings-row__rank {
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.holdings-row__name {
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+}
+
+.holdings-row__weight {
+  text-align: right;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.holdings-row__verdict {
+  text-align: center;
+  font-size: 18px;
+}
+
+.holdings-row.is-bad .holdings-row__verdict { color: var(--accent-red); }
+.holdings-row.is-good .holdings-row__verdict { color: var(--accent-green); }
+
+/* Accordion holdings */
+.holdings-row[data-desc] {
+  cursor: pointer;
+  user-select: none;
+}
+.holdings-row[data-desc]:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 217, 255, 0.05);
+}
+.holdings-row[data-desc]::after {
+  content: '+';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+.holdings-row[data-desc] {
+  position: relative;
+  padding-right: 38px;
+}
+.holdings-row.is-expanded::after {
+  transform: translateY(-50%) rotate(45deg);
+  color: var(--accent-cyan);
+}
+.holdings-detail {
+  max-height: 0;
+  overflow: hidden;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  padding: 0 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+  background: rgba(0, 217, 255, 0.04);
+  border-left: 2px solid var(--accent-cyan);
+  border-radius: 0 8px 8px 0;
+  transition: max-height 0.3s cubic-bezier(0.65, 0, 0.35, 1), padding 0.3s ease, margin 0.3s ease;
+}
+.holdings-detail.is-open {
+  max-height: 200px;
+  padding: 12px 18px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+/* Data table */
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: var(--font-mono);
+  font-size: 16px;
+}
+.data-table th, .data-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.data-table th {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.data-table td.num {
+  text-align: right;
+  font-weight: 700;
+}
+.data-table tr.highlight td {
+  background: rgba(255, 71, 87, 0.08);
+  border-color: rgba(255, 71, 87, 0.2);
+}
+
+/* List */
+.bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: clamp(18px, 1.8vw, 26px);
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  list-style: none;
+}
+
+.bullet-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 14px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent-cyan);
+}
+
+.bullet-list li strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.bullet-list--numbered {
+  counter-reset: bullet;
+}
+.bullet-list--numbered li::before {
+  counter-increment: bullet;
+  content: counter(bullet, decimal-leading-zero);
+  width: auto;
+  height: auto;
+  margin-top: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  min-width: 36px;
+}
+
+/* Quote card */
+.quote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(28px, 3.2vw, 48px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  border-left: 4px solid var(--accent-cyan);
+  padding: 8px 28px;
+}
+
+.quote-author {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 16px;
+  display: block;
+}
+
+/* Crash table */
+.crash-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.crash-item {
+  padding: 28px 24px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+  border-radius: 16px;
+  text-align: center;
+}
+.crash-item__ticker {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.crash-item__value {
+  font-family: var(--font-mono);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+.crash-item__label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.crash-item--down .crash-item__value { color: var(--accent-red); }
+.crash-item--up .crash-item__value { color: var(--accent-green); }
+
+/* Chart container */
+.chart-wrapper {
+  width: 100%;
+  height: 420px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+  border-radius: 18px;
+  padding: 20px 24px;
+  position: relative;
+}
+
+/* Footer disclaimer */
+.disclaimer-tag {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  z-index: 30;
+  letter-spacing: 0.05em;
+}
+
+/* Navigation */
+.nav-controls {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 50;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+  border-radius: 100px;
+  padding: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+.nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: var(--accent-cyan);
+  color: var(--bg-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
+}
+
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nav-counter {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0 12px;
+  letter-spacing: 0.05em;
+  min-width: 64px;
+  text-align: center;
+}
+
+.nav-counter .current {
+  color: var(--accent-cyan);
+}
+
+/* Highlight emphasis box */
+.emphasis-box {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 8px;
+  background: rgba(0, 217, 255, 0.1);
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.emphasis-box--red {
+  background: rgba(255, 71, 87, 0.1);
+  border-color: rgba(255, 71, 87, 0.3);
+  color: var(--accent-red);
+}
+
+.emphasis-box--green {
+  background: rgba(0, 210, 106, 0.1);
+  border-color: rgba(0, 210, 106, 0.3);
+  color: var(--accent-green);
+}
+
+/* Specific layouts */
+.layout-center {
+  text-align: center;
+  align-items: center;
+}
+.layout-center .lead { margin: 0 auto; }
+
+.split-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.split-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Hero label badge */
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+  color: var(--bg-primary);
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.cta-badge:hover { transform: translateY(-2px); }
+
+/* Source citation */
+.source {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  font-style: italic;
+  margin-top: auto;
+}
+
+/* Tech analogy slide */
+.analogy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.analogy-card {
+  padding: 32px 28px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.analogy-card__icon {
+  font-size: 56px;
+  line-height: 1;
+}
+.analogy-card__era {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+}
+.analogy-card__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+.analogy-card__desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Print / fullscreen */
+@media print {
+  body { overflow: visible; }
+  .nav-controls, .progress-bar, .deck-brand, .disclaimer-tag { display: none; }
+  .slide {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    transform: none;
+    page-break-after: always;
+    min-height: 100vh;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .slide { padding: 60px 24px 100px; }
+  .vs-grid { grid-template-columns: 1fr; }
+  .vs-grid .vs-divider { padding: 8px 0; }
+  .crash-grid { grid-template-columns: repeat(2, 1fr); }
+  .split-2, .split-3, .analogy-grid { grid-template-columns: 1fr; }
+  .deck-brand { font-size: 12px; left: 16px; }
+  .nav-controls { right: 16px; bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="deck-brand">
+  <span class="dot"></span>stockpickers.app
+</div>
+
+<script id="crash-data" type="application/json">
+{"generated_at":"2026-05-08","params":{"pac_eur":1000.0,"slippage":0.001,"trade_cost_eur":1.0,"bollo_annual":0.002,"tax_rate":0.26,"ter_spy":0.0007,"ter_gld":0.004,"late_exit_extra_loss":0.04},"crashes":[{"id":"dotcom","name":"Dot-com Bubble","subtitle":"La fine dell'illusione internet (2000-2002)","peak_date":"2000-03-24","trough_date":"2002-10-09","duration_months":31,"shape":"Slow grind, 31 mesi di discesa","trigger":"Inflazione valuation tech, Greenspan rate hike, NASDAQ \u221278%, SPY \u221249%","avgo_available":false,"scenarios":[{"portfolio":"SPY","entry_offset":"1y_before","capital_invested":43000.0,"peak_value":33160.0,"peak_gain_pct":8.12,"trough_value":27709.0,"trough_gain_pct":-29.27,"drawdown_pct":37.39,"late_exit_value":28694.0,"late_exit_gain_pct":-33.27,"timeline_dates":["1999-04-01","1999-05-01","1999-06-01","1999-07-01","1999-08-01","1999-09-01","1999-10-01","1999-11-01","1999-12-01","2000-01-01","2000-02-01","2000-03-01","2000-04-01","2000-05-01","2000-06-01","2000-07-01","2000-08-01","2000-09-01","2000-10-01","2000-11-01","2000-12-01","2001-01-01","2001-02-01","2001-03-01","2001-04-01","2001-05-01","2001-06-01","2001-07-01","2001-08-01","2001-09-01","2001-10-01","2001-11-01","2001-12-01","2002-01-01","2002-02-01","2002-03-01","2002-04-01","2002-05-01","2002-06-01","2002-07-01","2002-08-01","2002-09-01","2002-10-01"],"timeline_values":[-0.2,2.24,-1.57,3.7,-0.08,0.27,-2.94,2.07,5.04,8.12,4.3,2.21,10.99,7.32,5.6,6.8,4.04,9.67,3.47,2.33,-4.82,-6.7,-0.13,-9.4,-16.09,-6.42,-6.44,-7.84,-9.04,-15.02,-20.91,-17.17,-13.08,-10.81,-12.69,-11.54,-10.38,-14.23,-17.57,-22.55,-28.44,-28.18,-29.27]},{"portfolio":"PESwitch","entry_offset":"1y_before","capital_invested":43000.0,"peak_value":81376.0,"peak_gain_pct":47.43,"trough_value":48741.0,"trough_gain_pct":18.13,"drawdown_pct":29.3,"late_exit_value":47496.0,"late_exit_gain_pct":10.46,"timeline_dates":["1999-04-01","1999-05-01","1999-06-01","1999-07-01","1999-08-01","1999-09-01","1999-10-01","1999-11-01","1999-12-01","2000-01-01","2000-02-01","2000-03-01","2000-04-01","2000-05-01","2000-06-01","2000-07-01","2000-08-01","2000-09-01","2000-10-01","2000-11-01","2000-12-01","2001-01-01","2001-02-01","2001-03-01","2001-04-01","2001-05-01","2001-06-01","2001-07-01","2001-08-01","2001-09-01","2001-10-01","2001-11-01","2001-12-01","2002-01-01","2002-02-01","2002-03-01","2002-04-01","2002-05-01","2002-06-01","2002-07-01","2002-08-01","2002-09-01","2002-10-01"],"timeline_values":[-0.3,-4.71,-6.88,-5.17,-4.28,16.71,-9.87,-8.76,24.14,47.43,21.62,19.79,18.13,31.11,54.51,55.94,48.1,85.33,81.22,43.53,41.86,39.78,107.58,91.18,128.76,211.15,201.39,189.66,175.04,150.63,72.22,68.31,83.16,113.04,103.58,83.67,82.1,60.8,62.99,23.85,20.67,20.67,20.33]},{"portfolio":"NoRot2","entry_offset":"1y_before","capital_invested":43000.0,"peak_value":156898.0,"peak_gain_pct":129.5,"trough_value":26907.0,"trough_gain_pct":-27.12,"drawdown_pct":156.62,"late_exit_value":29618.0,"late_exit_gain_pct":-31.12,"timeline_dates":["1999-04-01","1999-05-01","1999-06-01","1999-07-01","1999-08-01","1999-09-01","1999-10-01","1999-11-01","1999-12-01","2000-01-01","2000-02-01","2000-03-01","2000-04-01","2000-05-01","2000-06-01","2000-07-01","2000-08-01","2000-09-01","2000-10-01","2000-11-01","2000-12-01","2001-01-01","2001-02-01","2001-03-01","2001-04-01","2001-05-01","2001-06-01","2001-07-01","2001-08-01","2001-09-01","2001-10-01","2001-11-01","2001-12-01","2002-01-01","2002-02-01","2002-03-01","2002-04-01","2002-05-01","2002-06-01","2002-07-01","2002-08-01","2002-09-01","2002-10-01"],"timeline_values":[-0.3,-4.71,-6.9,-1.84,6.49,29.77,-2.78,13.99,60.64,92.16,53.17,129.5,169.69,200.42,260.31,257.59,230.15,322.19,307.06,208.12,119.01,49.68,142.24,120.65,172.62,281.94,268.69,252.71,233.51,200.67,95.06,238.98,280.72,361.46,331.0,270.77,187.71,133.42,107.32,19.57,-23.2,-25.32,-27.12]},{"portfolio":"NoRot2_TS","entry_offset":"1y_before","capital_invested":43000.0,"peak_value":81376.0,"peak_gain_pct":47.43,"trough_value":48741.0,"trough_gain_pct":18.13,"drawdown_pct":29.3,"late_exit_value":47496.0,"late_exit_gain_pct":10.46,"timeline_dates":["1999-04-01","1999-05-01","1999-06-01","1999-07-01","1999-08-01","1999-09-01","1999-10-01","1999-11-01","1999-12-01","2000-01-01","2000-02-01","2000-03-01","2000-04-01","2000-05-01","2000-06-01","2000-07-01","2000-08-01","2000-09-01","2000-10-01","2000-11-01","2000-12-01","2001-01-01","2001-02-01","2001-03-01","2001-04-01","2001-05-01","2001-06-01","2001-07-01","2001-08-01","2001-09-01","2001-10-01","2001-11-01","2001-12-01","2002-01-01","2002-02-01","2002-03-01","2002-04-01","2002-05-01","2002-06-01","2002-07-01","2002-08-01","2002-09-01","2002-10-01"],"timeline_values":[-0.3,-4.71,-6.88,-5.17,-4.28,16.71,-9.87,-8.76,24.14,47.43,21.62,19.79,18.13,31.11,54.51,55.94,48.1,85.33,81.22,43.53,41.86,39.78,107.58,91.18,128.76,211.15,201.39,189.66,175.04,150.63,72.22,68.31,83.16,113.04,103.58,83.67,82.1,60.8,62.99,23.85,20.67,20.67,20.33]},{"portfolio":"SPY","entry_offset":"1m_before","capital_invested":32000.0,"peak_value":23644.0,"peak_gain_pct":-0.2,"trough_value":21179.0,"trough_gain_pct":-27.36,"drawdown_pct":27.16,"late_exit_value":21965.0,"late_exit_gain_pct":-31.36,"timeline_dates":["2000-03-01","2000-04-01","2000-05-01","2000-06-01","2000-07-01","2000-08-01","2000-09-01","2000-10-01","2000-11-01","2000-12-01","2001-01-01","2001-02-01","2001-03-01","2001-04-01","2001-05-01","2001-06-01","2001-07-01","2001-08-01","2001-09-01","2001-10-01","2001-11-01","2001-12-01","2002-01-01","2002-02-01","2002-03-01","2002-04-01","2002-05-01","2002-06-01","2002-07-01","2002-08-01","2002-09-01","2002-10-01"],"timeline_values":[-0.2,4.54,1.02,-0.21,1.05,-1.12,4.07,-1.44,-2.16,-8.32,-9.5,-2.87,-11.35,-17.24,-7.43,-7.21,-8.37,-9.34,-14.99,-20.51,-16.48,-12.19,-9.79,-11.57,-10.31,-9.06,-12.87,-16.14,-21.04,-26.85,-26.4,-27.36]},{"portfolio":"PESwitch","entry_offset":"1m_before","capital_invested":32000.0,"peak_value":38466.0,"peak_gain_pct":-0.3,"trough_value":27305.0,"trough_gain_pct":-8.75,"drawdown_pct":8.45,"late_exit_value":27920.0,"late_exit_gain_pct":-12.75,"timeline_dates":["2000-03-01","2000-04-01","2000-05-01","2000-06-01","2000-07-01","2000-08-01","2000-09-01","2000-10-01","2000-11-01","2000-12-01","2001-01-01","2001-02-01","2001-03-01","2001-04-01","2001-05-01","2001-06-01","2001-07-01","2001-08-01","2001-09-01","2001-10-01","2001-11-01","2001-12-01","2002-01-01","2002-02-01","2002-03-01","2002-04-01","2002-05-01","2002-06-01","2002-07-01","2002-08-01","2002-09-01","2002-10-01"],"timeline_values":[-0.3,10.44,18.4,35.06,32.01,22.91,52.29,46.16,14.45,13.19,11.84,68.66,53.65,83.88,148.98,138.06,126.27,112.95,92.43,30.41,27.92,39.98,63.64,55.93,40.02,38.9,22.08,23.84,-7.19,-8.75,-8.46,-8.42]},{"portfolio":"NoRot2","entry_offset":"1m_before","capital_invested":32000.0,"peak_value":47710.0,"peak_gain_pct":-0.3,"trough_value":13293.0,"trough_gain_pct":-54.19,"drawdown_pct":53.89,"late_exit_value":13379.0,"late_exit_gain_pct":-58.19,"timeline_dates":["2000-03-01","2000-04-01","2000-05-01","2000-06-01","2000-07-01","2000-08-01","2000-09-01","2000-10-01","2000-11-01","2000-12-01","2001-01-01","2001-02-01","2001-03-01","2001-04-01","2001-05-01","2001-06-01","2001-07-01","2001-08-01","2001-09-01","2001-10-01","2001-11-01","2001-12-01","2002-01-01","2002-02-01","2002-03-01","2002-04-01","2002-05-01","2002-06-01","2002-07-01","2002-08-01","2002-09-01","2002-10-01"],"timeline_values":[-0.3,10.44,18.4,35.06,32.01,22.91,52.29,46.16,14.52,-12.32,-32.98,4.92,-1.56,20.59,65.82,60.62,54.56,47.21,34.64,-7.22,54.59,72.75,107.43,94.6,69.46,34.58,12.21,2.39,-35.73,-54.19,-53.5,-52.87]},{"portfolio":"NoRot2_TS","entry_offset":"1m_before","capital_invested":32000.0,"peak_value":38466.0,"peak_gain_pct":-0.3,"trough_value":27305.0,"trough_gain_pct":-8.75,"drawdown_pct":8.45,"late_exit_value":27920.0,"late_exit_gain_pct":-12.75,"timeline_dates":["2000-03-01","2000-04-01","2000-05-01","2000-06-01","2000-07-01","2000-08-01","2000-09-01","2000-10-01","2000-11-01","2000-12-01","2001-01-01","2001-02-01","2001-03-01","2001-04-01","2001-05-01","2001-06-01","2001-07-01","2001-08-01","2001-09-01","2001-10-01","2001-11-01","2001-12-01","2002-01-01","2002-02-01","2002-03-01","2002-04-01","2002-05-01","2002-06-01","2002-07-01","2002-08-01","2002-09-01","2002-10-01"],"timeline_values":[-0.3,10.44,18.4,35.06,32.01,22.91,52.29,46.16,14.45,13.19,11.84,68.66,53.65,83.88,148.98,138.06,126.27,112.95,92.43,30.41,27.92,39.98,63.64,55.93,40.02,38.9,22.08,23.84,-7.19,-8.75,-8.46,-8.42]}]},{"id":"gfc2008","name":"Global Financial Crisis","subtitle":"Lehman Brothers + collasso credito (2007-2009)","peak_date":"2007-10-31","trough_date":"2008-11-20","duration_months":13,"shape":"V-shape concentrato (70% del DD in 6 settimane Sept-Oct '08)","trigger":"Subprime + Lehman fail + freeze interbancario, VIX peak 80","avgo_available":false,"scenarios":[{"portfolio":"SPY","entry_offset":"1y_before","capital_invested":26000.0,"peak_value":21038.0,"peak_gain_pct":7.58,"trough_value":14806.0,"trough_gain_pct":-38.03,"drawdown_pct":45.61,"late_exit_value":15072.0,"late_exit_gain_pct":-42.03,"timeline_dates":["2006-11-01","2006-12-01","2007-01-01","2007-02-01","2007-03-01","2007-04-01","2007-05-01","2007-06-01","2007-07-01","2007-08-01","2007-09-01","2007-10-01","2007-11-01","2007-12-01","2008-01-01","2008-02-01","2008-03-01","2008-04-01","2008-05-01","2008-06-01","2008-07-01","2008-08-01","2008-09-01","2008-10-01","2008-11-01","2008-12-01"],"timeline_values":[-0.2,1.01,1.52,2.82,-0.13,1.15,4.9,7.58,5.68,1.72,3.19,6.66,4.03,1.56,0.15,-3.36,-7.15,-4.3,-1.11,-2.57,-9.07,-10.19,-8.53,-15.91,-28.48,-38.03]},{"portfolio":"PESwitch","entry_offset":"1y_before","capital_invested":26000.0,"peak_value":23650.0,"peak_gain_pct":48.15,"trough_value":21234.0,"trough_gain_pct":-17.1,"drawdown_pct":65.25,"late_exit_value":20514.0,"late_exit_gain_pct":-21.1,"timeline_dates":["2006-11-01","2006-12-01","2007-01-01","2007-02-01","2007-03-01","2007-04-01","2007-05-01","2007-06-01","2007-07-01","2007-08-01","2007-09-01","2007-10-01","2007-11-01","2007-12-01","2008-01-01","2008-02-01","2008-03-01","2008-04-01","2008-05-01","2008-06-01","2008-07-01","2008-08-01","2008-09-01","2008-10-01","2008-11-01","2008-12-01"],"timeline_values":[-0.3,4.45,3.47,-6.26,-5.84,-5.0,5.54,8.32,25.04,27.98,41.65,48.15,38.03,24.95,24.72,9.38,11.75,7.31,7.02,18.25,1.15,-0.28,1.5,-4.52,-11.33,-17.1]},{"portfolio":"NoRot2","entry_offset":"1y_before","capital_invested":26000.0,"peak_value":20391.0,"peak_gain_pct":47.58,"trough_value":10738.0,"trough_gain_pct":-54.06,"drawdown_pct":101.64,"late_exit_value":10904.0,"late_exit_gain_pct":-58.06,"timeline_dates":["2006-11-01","2006-12-01","2007-01-01","2007-02-01","2007-03-01","2007-04-01","2007-05-01","2007-06-01","2007-07-01","2007-08-01","2007-09-01","2007-10-01","2007-11-01","2007-12-01","2008-01-01","2008-02-01","2008-03-01","2008-04-01","2008-05-01","2008-06-01","2008-07-01","2008-08-01","2008-09-01","2008-10-01","2008-11-01","2008-12-01"],"timeline_values":[-0.3,4.45,3.47,-6.26,-5.82,-8.92,2.61,5.94,23.76,26.96,41.15,47.58,37.06,23.83,26.69,7.0,-9.46,-11.48,-9.89,1.95,-16.75,-42.56,-37.59,-41.66,-50.35,-54.06]},{"portfolio":"NoRot2_TS","entry_offset":"1y_before","capital_invested":26000.0,"peak_value":23650.0,"peak_gain_pct":48.15,"trough_value":21234.0,"trough_gain_pct":-17.1,"drawdown_pct":65.25,"late_exit_value":20514.0,"late_exit_gain_pct":-21.1,"timeline_dates":["2006-11-01","2006-12-01","2007-01-01","2007-02-01","2007-03-01","2007-04-01","2007-05-01","2007-06-01","2007-07-01","2007-08-01","2007-09-01","2007-10-01","2007-11-01","2007-12-01","2008-01-01","2008-02-01","2008-03-01","2008-04-01","2008-05-01","2008-06-01","2008-07-01","2008-08-01","2008-09-01","2008-10-01","2008-11-01","2008-12-01"],"timeline_values":[-0.3,4.45,3.47,-6.26,-5.84,-5.0,5.54,8.32,25.04,27.98,41.65,48.15,38.03,24.95,24.72,9.38,11.75,7.31,7.02,18.25,1.15,-0.28,1.5,-4.52,-11.33,-17.1]},{"portfolio":"SPY","entry_offset":"1m_before","capital_invested":15000.0,"peak_value":11141.0,"peak_gain_pct":-0.2,"trough_value":8932.0,"trough_gain_pct":-35.2,"drawdown_pct":35.0,"late_exit_value":9120.0,"late_exit_gain_pct":-39.2,"timeline_dates":["2007-10-01","2007-11-01","2007-12-01","2008-01-01","2008-02-01","2008-03-01","2008-04-01","2008-05-01","2008-06-01","2008-07-01","2008-08-01","2008-09-01","2008-10-01","2008-11-01","2008-12-01"],"timeline_values":[-0.2,-1.27,-2.39,-2.84,-5.2,-7.82,-4.51,-1.23,-2.52,-8.55,-9.24,-7.3,-14.3,-26.3,-35.2]},{"portfolio":"PESwitch","entry_offset":"1m_before","capital_invested":15000.0,"peak_value":11416.0,"peak_gain_pct":-0.3,"trough_value":11114.0,"trough_gain_pct":-25.09,"drawdown_pct":24.79,"late_exit_value":10637.0,"late_exit_gain_pct":-29.09,"timeline_dates":["2007-10-01","2007-11-01","2007-12-01","2008-01-01","2008-02-01","2008-03-01","2008-04-01","2008-05-01","2008-06-01","2008-07-01","2008-08-01","2008-09-01","2008-10-01","2008-11-01","2008-12-01"],"timeline_values":[-0.3,-2.59,-7.01,-4.76,-14.0,-10.37,-10.5,-8.57,2.7,-14.23,-13.69,-8.44,-15.53,-18.46,-25.09]},{"portfolio":"NoRot2","entry_offset":"1m_before","capital_invested":15000.0,"peak_value":8448.0,"peak_gain_pct":-0.3,"trough_value":6586.0,"trough_gain_pct":-50.85,"drawdown_pct":50.55,"late_exit_value":6772.0,"late_exit_gain_pct":-54.85,"timeline_dates":["2007-10-01","2007-11-01","2007-12-01","2008-01-01","2008-02-01","2008-03-01","2008-04-01","2008-05-01","2008-06-01","2008-07-01","2008-08-01","2008-09-01","2008-10-01","2008-11-01","2008-12-01"],"timeline_values":[-0.3,-2.59,-7.02,-2.56,-13.57,-22.57,-21.34,-17.86,-6.13,-22.0,-44.21,-37.2,-40.27,-47.7,-50.85]},{"portfolio":"NoRot2_TS","entry_offset":"1m_before","capital_invested":15000.0,"peak_value":11416.0,"peak_gain_pct":-0.3,"trough_value":11114.0,"trough_gain_pct":-25.09,"drawdown_pct":24.79,"late_exit_value":10637.0,"late_exit_gain_pct":-29.09,"timeline_dates":["2007-10-01","2007-11-01","2007-12-01","2008-01-01","2008-02-01","2008-03-01","2008-04-01","2008-05-01","2008-06-01","2008-07-01","2008-08-01","2008-09-01","2008-10-01","2008-11-01","2008-12-01"],"timeline_values":[-0.3,-2.59,-7.01,-4.76,-14.0,-10.37,-10.5,-8.57,2.7,-14.23,-13.69,-8.44,-15.53,-18.46,-25.09]}]},{"id":"memory2018","name":"Memory Glut + Trade War","subtitle":"Eccesso capacit\u00e0 DRAM/NAND + tariffe USA-Cina (2018)","peak_date":"2018-03-12","trough_date":"2018-12-24","duration_months":9,"shape":"Crash interno al settore semi (NAND/DRAM down -40%)","trigger":"Sovrapproduzione memory + Trump tariffs + Fed rate hikes","avgo_available":true,"scenarios":[{"portfolio":"SPY","entry_offset":"1y_before","capital_invested":22000.0,"peak_value":22581.0,"peak_gain_pct":12.34,"trough_value":19987.0,"trough_gain_pct":-3.01,"drawdown_pct":15.35,"late_exit_value":20458.0,"late_exit_gain_pct":-7.01,"timeline_dates":["2017-04-01","2017-05-01","2017-06-01","2017-07-01","2017-08-01","2017-09-01","2017-10-01","2017-11-01","2017-12-01","2018-01-01","2018-02-01","2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01"],"timeline_values":[-0.2,0.5,1.56,1.12,2.54,2.24,3.9,5.23,7.14,8.45,12.34,6.2,2.32,4.89,7.71,7.0,9.89,12.61,13.1,5.7,7.53,-3.01]},{"portfolio":"PESwitch","entry_offset":"1y_before","capital_invested":22000.0,"peak_value":24512.0,"peak_gain_pct":22.25,"trough_value":22607.0,"trough_gain_pct":5.66,"drawdown_pct":16.59,"late_exit_value":22270.0,"late_exit_gain_pct":1.23,"timeline_dates":["2017-04-01","2017-05-01","2017-06-01","2017-07-01","2017-08-01","2017-09-01","2017-10-01","2017-11-01","2017-12-01","2018-01-01","2018-02-01","2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01"],"timeline_values":[-0.6,1.01,7.31,1.54,7.37,9.73,8.06,16.09,13.69,14.39,22.25,17.52,11.75,13.67,22.28,18.07,22.26,29.27,29.01,15.03,12.17,5.66]},{"portfolio":"NoRot2","entry_offset":"1y_before","capital_invested":22000.0,"peak_value":23729.0,"peak_gain_pct":21.84,"trough_value":19105.0,"trough_gain_pct":-7.29,"drawdown_pct":29.13,"late_exit_value":19516.0,"late_exit_gain_pct":-11.29,"timeline_dates":["2017-04-01","2017-05-01","2017-06-01","2017-07-01","2017-08-01","2017-09-01","2017-10-01","2017-11-01","2017-12-01","2018-01-01","2018-02-01","2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01"],"timeline_values":[-0.4,-0.49,11.26,5.99,14.93,15.26,12.99,21.82,18.91,17.33,21.84,18.32,12.47,13.02,23.45,16.0,11.42,19.25,24.89,5.35,-3.12,-7.29]},{"portfolio":"NoRot2_TS","entry_offset":"1y_before","capital_invested":22000.0,"peak_value":23090.0,"peak_gain_pct":21.84,"trough_value":21424.0,"trough_gain_pct":0.68,"drawdown_pct":21.16,"late_exit_value":21270.0,"late_exit_gain_pct":-3.32,"timeline_dates":["2017-04-01","2017-05-01","2017-06-01","2017-07-01","2017-08-01","2017-09-01","2017-10-01","2017-11-01","2017-12-01","2018-01-01","2018-02-01","2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01"],"timeline_values":[-0.4,-0.49,11.26,5.99,14.93,15.26,12.99,21.82,18.91,17.33,21.84,18.32,12.47,13.02,23.45,16.0,11.4,18.41,21.52,0.68,1.62,3.29]},{"portfolio":"SPY","entry_offset":"1m_before","capital_invested":11000.0,"peak_value":10192.0,"peak_gain_pct":-0.2,"trough_value":9534.0,"trough_gain_pct":-7.47,"drawdown_pct":7.27,"late_exit_value":9738.0,"late_exit_gain_pct":-11.47,"timeline_dates":["2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01"],"timeline_values":[-0.2,-1.93,0.54,2.79,2.02,4.44,6.61,6.78,0.06,1.92,-7.47]},{"portfolio":"PESwitch","entry_offset":"1m_before","capital_invested":11000.0,"peak_value":10392.0,"peak_gain_pct":-0.6,"trough_value":10156.0,"trough_gain_pct":-5.53,"drawdown_pct":4.93,"late_exit_value":9952.0,"late_exit_gain_pct":-9.53,"timeline_dates":["2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01"],"timeline_values":[-0.6,-2.54,-0.22,6.24,2.94,6.48,11.59,11.02,0.44,-1.34,-5.53]},{"portfolio":"NoRot2","entry_offset":"1m_before","capital_invested":11000.0,"peak_value":9648.0,"peak_gain_pct":-0.4,"trough_value":9040.0,"trough_gain_pct":-12.29,"drawdown_pct":11.89,"late_exit_value":9208.0,"late_exit_gain_pct":-16.29,"timeline_dates":["2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01"],"timeline_values":[-0.4,-2.35,-0.91,6.93,1.17,-2.48,3.7,9.12,-5.52,-10.52,-12.29]},{"portfolio":"NoRot2_TS","entry_offset":"1m_before","capital_invested":11000.0,"peak_value":10922.0,"peak_gain_pct":-0.4,"trough_value":10240.0,"trough_gain_pct":-5.52,"drawdown_pct":5.12,"late_exit_value":9953.0,"late_exit_gain_pct":-9.52,"timeline_dates":["2018-03-01","2018-04-01","2018-05-01","2018-06-01","2018-07-01","2018-08-01","2018-09-01","2018-10-01","2018-11-01","2018-12-01","2019-01-01"],"timeline_values":[-0.4,-2.35,-0.91,6.93,1.17,-2.48,3.7,9.12,-5.52,-3.23,-0.71]}]},{"id":"rate2022","name":"Rate Hike + Post-COVID","subtitle":"Inflazione + Fed pivot hawkish (2021-2022)","peak_date":"2021-12-27","trough_date":"2022-10-13","duration_months":10,"shape":"Bear esteso 10 mesi + bond crash simultaneo (60/40 -17%)","trigger":"CPI 9% + Fed funds 0% \u2192 5%, growth stocks repricing","avgo_available":true,"scenarios":[{"portfolio":"SPY","entry_offset":"1y_before","capital_invested":22000.0,"peak_value":19948.0,"peak_gain_pct":11.11,"trough_value":19483.0,"trough_gain_pct":-11.29,"drawdown_pct":22.4,"late_exit_value":18636.0,"late_exit_gain_pct":-15.29,"timeline_dates":["2021-01-01","2021-02-01","2021-03-01","2021-04-01","2021-05-01","2021-06-01","2021-07-01","2021-08-01","2021-09-01","2021-10-01","2021-11-01","2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01"],"timeline_values":[-0.2,0.8,2.83,4.5,7.21,6.27,7.96,8.49,10.64,5.97,11.11,8.03,13.77,7.27,1.67,6.93,-2.05,-3.06,-8.92,-1.8,-5.01,-11.29]},{"portfolio":"PESwitch","entry_offset":"1y_before","capital_invested":22000.0,"peak_value":19876.0,"peak_gain_pct":29.71,"trough_value":19173.0,"trough_gain_pct":-12.06,"drawdown_pct":41.77,"late_exit_value":18467.0,"late_exit_gain_pct":-16.06,"timeline_dates":["2021-01-01","2021-02-01","2021-03-01","2021-04-01","2021-05-01","2021-06-01","2021-07-01","2021-08-01","2021-09-01","2021-10-01","2021-11-01","2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01"],"timeline_values":[-0.6,1.63,1.4,1.18,6.3,6.64,14.05,16.24,21.83,13.28,23.37,29.71,29.5,17.22,14.16,16.19,2.87,0.16,-0.22,-0.62,-8.14,-12.06]},{"portfolio":"NoRot2","entry_offset":"1y_before","capital_invested":22000.0,"peak_value":20558.0,"peak_gain_pct":40.39,"trough_value":17413.0,"trough_gain_pct":-17.64,"drawdown_pct":58.03,"late_exit_value":17239.0,"late_exit_gain_pct":-21.64,"timeline_dates":["2021-01-01","2021-02-01","2021-03-01","2021-04-01","2021-05-01","2021-06-01","2021-07-01","2021-08-01","2021-09-01","2021-10-01","2021-11-01","2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01"],"timeline_values":[-0.4,1.53,2.91,1.35,2.06,7.44,15.99,14.23,19.94,13.2,27.65,40.39,43.72,22.83,18.04,28.48,7.18,3.85,-12.0,1.42,-12.57,-17.64]},{"portfolio":"NoRot2_TS","entry_offset":"1y_before","capital_invested":22000.0,"peak_value":19738.0,"peak_gain_pct":40.39,"trough_value":17635.0,"trough_gain_pct":-18.24,"drawdown_pct":58.63,"late_exit_value":17107.0,"late_exit_gain_pct":-22.24,"timeline_dates":["2021-01-01","2021-02-01","2021-03-01","2021-04-01","2021-05-01","2021-06-01","2021-07-01","2021-08-01","2021-09-01","2021-10-01","2021-11-01","2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01"],"timeline_values":[-0.4,1.53,2.91,1.35,2.06,7.44,15.99,14.23,19.94,13.2,27.65,40.39,43.72,22.8,20.56,23.36,8.65,7.67,-6.63,-6.82,-17.46,-18.24]},{"portfolio":"SPY","entry_offset":"1m_before","capital_invested":11000.0,"peak_value":9655.0,"peak_gain_pct":-0.2,"trough_value":9638.0,"trough_gain_pct":-12.23,"drawdown_pct":12.03,"late_exit_value":9215.0,"late_exit_gain_pct":-16.23,"timeline_dates":["2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01"],"timeline_values":[-0.2,2.99,-1.65,-5.04,0.21,-6.96,-6.96,-11.44,-4.11,-6.75,-12.23]},{"portfolio":"PESwitch","entry_offset":"1m_before","capital_invested":11000.0,"peak_value":9044.0,"peak_gain_pct":-0.6,"trough_value":8979.0,"trough_gain_pct":-17.78,"drawdown_pct":17.18,"late_exit_value":8604.0,"late_exit_gain_pct":-21.78,"timeline_dates":["2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01"],"timeline_values":[-0.6,0.59,-4.61,-4.24,-2.38,-12.06,-11.92,-10.67,-9.81,-15.48,-17.78]},{"portfolio":"NoRot2","entry_offset":"1m_before","capital_invested":11000.0,"peak_value":8460.0,"peak_gain_pct":-0.4,"trough_value":8132.0,"trough_gain_pct":-23.09,"drawdown_pct":22.69,"late_exit_value":8020.0,"late_exit_gain_pct":-27.09,"timeline_dates":["2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01"],"timeline_values":[-0.4,3.11,-6.42,-6.54,2.09,-11.17,-11.66,-22.18,-9.52,-20.08,-23.09]},{"portfolio":"NoRot2_TS","entry_offset":"1m_before","capital_invested":11000.0,"peak_value":8202.0,"peak_gain_pct":-0.4,"trough_value":8065.0,"trough_gain_pct":-26.53,"drawdown_pct":26.13,"late_exit_value":7642.0,"late_exit_gain_pct":-30.53,"timeline_dates":["2021-12-01","2022-01-01","2022-02-01","2022-03-01","2022-04-01","2022-05-01","2022-06-01","2022-07-01","2022-08-01","2022-09-01","2022-10-01"],"timeline_values":[-0.4,3.11,-6.35,-4.97,-2.48,-12.87,-11.39,-21.01,-19.07,-26.53,-25.44]}]}]}
+</script>
+
+<main class="deck" id="deck">
+
+<!-- ============ SLIDE 01: TITLE ============ -->
+<section class="slide is-active layout-center" data-id="01">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;gap:48px;">
+  <div class="eyebrow">Investing reality check · 2026</div>
+  <h1 class="h1">Gli ETF<br>sono <span class="glitch">SCAM</span>?</h1>
+  <p class="lead" style="text-align:center;">
+    Una analisi onesta su perché il PAC mensile su VWCE
+    sta lasciando <strong>milioni di euro sul tavolo</strong>
+    — e quali sono le alternative.
+  </p>
+  <div class="muted">stockpickers.app · 42 slide · 12 min</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 02: HOOK ============ -->
+<section class="slide" data-id="02">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow accent-red" style="border-color:rgba(255,71,87,0.3);background:rgba(255,71,87,0.08);color:var(--accent-red);">⚠ Hook</div>
+  <h2 class="h2" style="text-align:center;">Quanto ti sta costando<br>il tuo PAC su SPY?</h2>
+  <div class="big-number big-number--red" data-counter="18652623" data-prefix="−€" data-suffix="">−€0</div>
+  <p class="lead" style="text-align:center;max-width:780px;">
+    Differenza tra <strong>SPY PAC 16 anni</strong> (€675K finale)
+    e <strong>NVDA + AVGO + zero rotazioni</strong> (€19,33M finale).<br>
+    <span class="muted" style="font-size:15px;">Stesso periodo. Stesso PAC €1k/mese. Tasse 26% incluse.</span>
+  </p>
+  <div class="source">Fonte: backtest 2010-2025, PAC €1k/mese regime dichiarativo · guides/strategie/no_rotation_focused_pool_apr2026.md</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 03: AGENDA ============ -->
+<section class="slide" data-id="03">
+<div class="slide-inner">
+  <div class="eyebrow">I 7 capitoli</div>
+  <h2 class="h2">Cosa scoprirai<br>nei prossimi 12 minuti.</h2>
+  <ul class="bullet-list bullet-list--numbered">
+    <li><strong>Il TER è una tassa invisibile</strong> — €240.000 regalati a BlackRock in 30 anni</li>
+    <li><strong>Il rebalancing distrugge il CAGR</strong> — −33pp se vendi i winner</li>
+    <li><strong>Top 1-3 batte qualsiasi ETF</strong> — €675K vs €19,33M (16y)</li>
+    <li><strong>L'ETF momentum è scam mascherato da scienza</strong> — 349 holdings, Google duplicato, J&amp;J in momentum</li>
+    <li><strong>La diversificazione è una bugia in crash</strong> — 2022: tutto crolla insieme</li>
+    <li><strong>I tematici sono trappole di marketing</strong> — ARKK -67%, Cannabis -90%, KWEB -80%</li>
+    <li><strong>Quando l'ETF È la scelta giusta</strong> — il plot twist finale (rispetto)</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ SLIDE 04: TER table ============ -->
+<section class="slide" data-id="04">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 1 · TER</div>
+  <h2 class="h2">«Solo 0,07%? È quasi gratis.»<br><span class="accent-red">Falso.</span></h2>
+  <table class="data-table">
+    <thead>
+      <tr><th>ETF</th><th>Tipo</th><th class="num">TER</th><th class="num">Costo cumulato 30y*</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>SPY</strong></td><td>S&amp;P 500</td><td class="num">0,03–0,07%</td><td class="num accent-cyan">€30.000</td></tr>
+      <tr><td>QQQ</td><td>Nasdaq 100</td><td class="num">0,20%</td><td class="num">€85.000</td></tr>
+      <tr><td>MTUM</td><td>Momentum factor</td><td class="num">0,15%</td><td class="num">€65.000</td></tr>
+      <tr><td>SMH</td><td>Semiconductor</td><td class="num">0,35%</td><td class="num">€140.000</td></tr>
+      <tr><td>GLD</td><td>Gold</td><td class="num">0,40%</td><td class="num">€155.000</td></tr>
+      <tr class="highlight"><td><strong>LIT</strong></td><td>Lithium thematic</td><td class="num accent-red">0,75%</td><td class="num accent-red">€240.000</td></tr>
+      <tr><td>URA</td><td>Uranium thematic</td><td class="num accent-red">0,71%</td><td class="num accent-red">€230.000</td></tr>
+    </tbody>
+  </table>
+  <p class="lead">*Su un PAC da €1.000/mese a 7,5% CAGR composto. <strong>Una macchina nuova ogni 5 anni</strong>, regalata a chi gestisce l'ETF.</p>
+  <div class="source">Fonte: guides/strategie/03_sp500.md · guides/commodities/13_STRUMENTI_ETF.md</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 4B: TOP 15 SPY composition + YTD ============ -->
+<section class="slide" data-id="04b" style="padding-top:60px;padding-bottom:90px;">
+<div class="slide-inner" style="gap:18px;">
+  <div class="eyebrow">Capitolo 1B · Cosa c'è davvero dentro</div>
+  <h2 class="h2" style="font-size:clamp(28px,3.4vw,48px);">Top 15 dell'S&amp;P 500. <span class="accent-cyan">Il 36% del peso</span>. Gli altri 485 sono rumore.</h2>
+  <div class="split-2" style="gap:24px;">
+    <div>
+      <table class="data-table" style="font-size:12px;">
+        <thead>
+          <tr><th style="padding:8px 12px;">#</th><th style="padding:8px 12px;">Ticker</th><th class="num" style="padding:8px 12px;">Peso</th><th class="num" style="padding:8px 12px;">YTD '26</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:7px 12px;">01</td><td style="padding:7px 12px;"><strong>MSFT</strong></td><td class="num" style="padding:7px 12px;">7,0%</td><td class="num accent-green" style="padding:7px 12px;">+8%</td></tr>
+          <tr><td style="padding:7px 12px;">02</td><td style="padding:7px 12px;"><strong>AAPL</strong></td><td class="num" style="padding:7px 12px;">6,5%</td><td class="num" style="padding:7px 12px;">+1%</td></tr>
+          <tr class="highlight"><td style="padding:7px 12px;">03</td><td style="padding:7px 12px;"><strong>NVDA</strong></td><td class="num" style="padding:7px 12px;">5,0%</td><td class="num accent-green" style="padding:7px 12px;">+28%</td></tr>
+          <tr><td style="padding:7px 12px;">04</td><td style="padding:7px 12px;">AMZN</td><td class="num" style="padding:7px 12px;">3,5%</td><td class="num accent-green" style="padding:7px 12px;">+6%</td></tr>
+          <tr><td style="padding:7px 12px;">05</td><td style="padding:7px 12px;">GOOGL</td><td class="num" style="padding:7px 12px;">2,5%</td><td class="num accent-green" style="padding:7px 12px;">+9%</td></tr>
+          <tr><td style="padding:7px 12px;">06</td><td style="padding:7px 12px;">META</td><td class="num" style="padding:7px 12px;">1,7%</td><td class="num accent-green" style="padding:7px 12px;">+12%</td></tr>
+          <tr><td style="padding:7px 12px;">07</td><td style="padding:7px 12px;">BRK-B</td><td class="num" style="padding:7px 12px;">1,6%</td><td class="num accent-green" style="padding:7px 12px;">+4%</td></tr>
+          <tr><td style="padding:7px 12px;">08</td><td style="padding:7px 12px;">TSLA</td><td class="num" style="padding:7px 12px;">1,4%</td><td class="num accent-red" style="padding:7px 12px;">−15%</td></tr>
+          <tr><td style="padding:7px 12px;">09</td><td style="padding:7px 12px;">LLY</td><td class="num" style="padding:7px 12px;">1,4%</td><td class="num accent-red" style="padding:7px 12px;">−10%</td></tr>
+          <tr class="highlight"><td style="padding:7px 12px;">10</td><td style="padding:7px 12px;"><strong>AVGO</strong></td><td class="num" style="padding:7px 12px;">1,3%</td><td class="num accent-green" style="padding:7px 12px;">+22%</td></tr>
+          <tr><td style="padding:7px 12px;">11</td><td style="padding:7px 12px;">JPM</td><td class="num" style="padding:7px 12px;">1,2%</td><td class="num accent-green" style="padding:7px 12px;">+3%</td></tr>
+          <tr><td style="padding:7px 12px;">12</td><td style="padding:7px 12px;">V</td><td class="num" style="padding:7px 12px;">1,1%</td><td class="num" style="padding:7px 12px;">+2%</td></tr>
+          <tr><td style="padding:7px 12px;">13</td><td style="padding:7px 12px;">UNH</td><td class="num" style="padding:7px 12px;">1,1%</td><td class="num accent-red" style="padding:7px 12px;">−8%</td></tr>
+          <tr><td style="padding:7px 12px;">14</td><td style="padding:7px 12px;">XOM</td><td class="num" style="padding:7px 12px;">1,0%</td><td class="num accent-green" style="padding:7px 12px;">+5%</td></tr>
+          <tr><td style="padding:7px 12px;">15</td><td style="padding:7px 12px;">MA</td><td class="num" style="padding:7px 12px;">0,9%</td><td class="num" style="padding:7px 12px;">+2%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="chart-wrapper" style="height:380px;">
+        <canvas id="chart-spy-ytd"></canvas>
+      </div>
+      <p class="lead" style="font-size:15px;margin-top:14px;line-height:1.45;">
+        <strong>NVDA + MSFT + AAPL + AMZN + GOOGL = 24,5%</strong> del totale.
+        Il "fondo diversificato" è un <span class="emphasis-box">betting concentrato sui top 5 tech</span>,
+        diluito da 485 titoli che oscillano poco. Compri SPY = compri 5 titoli.
+      </p>
+    </div>
+  </div>
+  <div class="source">Fonte: SPDR SSGA holdings 2026-05-08 · stime YTD market data · core/market_data/etf_config.py</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 05: LIT counter ============ -->
+<section class="slide" data-id="05">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow accent-red" style="border-color:rgba(255,71,87,0.3);background:rgba(255,71,87,0.08);color:var(--accent-red);">LIT · TER 0,75%</div>
+  <h2 class="h2" style="text-align:center;">Tema "litio": ti costa<br>una <span class="accent-red">macchina ogni 5 anni</span>.</h2>
+  <div class="big-number big-number--red" data-counter="240000" data-prefix="−€" data-suffix="">−€0</div>
+  <p class="lead" style="text-align:center;">
+    Solo per il TER. <strong>Niente in cambio</strong>: l'ETF litio (LIT) ha
+    <span class="emphasis-box--red">−60% dal picco 2021</span> mentre Albemarle (il leader
+    diretto del settore) ha pure perso valore — ma almeno senza pagarci 0,75% all'anno.
+  </p>
+  <div class="source">PAC €1k/mese · 30y · 7,5% CAGR · TER drag composto</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 06: Contango DBO ============ -->
+<section class="slide" data-id="06">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 1B · Contango drag</div>
+  <h2 class="h2">ETF su commodities futures:<br><span class="accent-red">CAGR strutturalmente negativo</span>.</h2>
+  <div class="split-2">
+    <div class="card card--glow-red">
+      <h3 class="h3" style="margin-bottom:8px;">DBO · Petrolio futures</h3>
+      <p class="lead" style="font-size:18px;">
+        Il fondo deve <strong>rollare</strong> i contratti futures ogni mese.
+        Il prezzo del future a 3 mesi è quasi sempre più alto del front month.
+        Risultato: <span class="emphasis-box--red">−5/−10% di drag strutturale all'anno</span>.
+      </p>
+      <p class="muted" style="margin-top:16px;">10 anni di petrolio piatto = 10 anni di −7%/anno per chi compra DBO.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3" style="margin-bottom:8px;">In pratica</h3>
+      <ul class="bullet-list" style="font-size:18px;">
+        <li>Brent $80 oggi, $80 fra 10 anni</li>
+        <li><strong>DBO holder</strong>: −50% sul capitale</li>
+        <li><strong>Direct holder</strong> (impossibile per retail): pari</li>
+        <li><strong>Lezione</strong>: <span class="accent-red">tutti gli ETF su futures</span> (oil, gas, soft commodities) hanno questo problema. Bevi solo ETC fisici (oro, argento).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="source">Fonte: guides/strategie/archive/ricerche_documentate_feb2026.md</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 07: Index inclusion pump ============ -->
+<section class="slide" data-id="07">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 2 · Rebalancing</div>
+  <h2 class="h2">Index inclusion:<br>il pump che <span class="accent-yellow">paghi tu</span>.</h2>
+  <div class="split-2" style="align-items:center;">
+    <div>
+      <p class="lead">
+        Quando un titolo viene aggiunto allo S&amp;P 500, succede sempre la stessa cosa:
+      </p>
+      <ul class="bullet-list" style="margin-top:24px;">
+        <li><strong>+3-8% di rally</strong> nei giorni prima dell'inclusione</li>
+        <li>Tutti i fondi passivi <strong>devono comprare</strong> al close del giorno X</li>
+        <li>Gli hedge fund <strong>front-runnano</strong> l'evento</li>
+        <li>I pension fund pagano <span class="emphasis-box--red">$16 miliardi/anno</span> di drag globalmente</li>
+      </ul>
+    </div>
+    <div class="card card--glow-cyan" style="text-align:center;">
+      <div class="muted" style="margin-bottom:14px;">DRAG MECCANICO ANNUALE</div>
+      <div class="big-number big-number--cyan" style="font-size:120px;">8 bps</div>
+      <p class="lead" style="margin-top:18px;">
+        Pari allo <strong>0,08%</strong> del NAV.<br>
+        Aggiunti al TER. Aggiunti al bid-ask. Aggiunti alle tasse.<br>
+        Cumulati a 30 anni: <span class="accent-red">−2,4% sul capitale finale</span>.
+      </p>
+    </div>
+  </div>
+  <div class="source">Fonte: algorithm/03_index_etf_rebalancing.md · guides/MOC_PUMP_GUIDA.md:231</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 08: Stop loss devastates ============ -->
+<section class="slide" data-id="08">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 2B · Vendere i winner</div>
+  <h2 class="h2">Stop loss "prudente":<br>−33 punti di CAGR.</h2>
+  <p class="lead">
+    Backtest momentum strategy 2010-2025. Stessa selezione di titoli, sola differenza: cosa fai quando un titolo scende.
+  </p>
+  <div class="chart-wrapper" style="height:320px;">
+    <canvas id="chart-stop-loss"></canvas>
+  </div>
+  <p class="lead" style="margin-top:8px;">
+    Vendere i winner per "limitare il rischio" <strong>distrugge i mega-vincitori</strong>:
+    NVIDIA fa +500%, ma se la stoppi a -15% l'hai persa per sempre.
+    <span class="emphasis-box--red">Gli ETF lo fanno per design</span> — vendono i top performer per mantenere la weighting dell'indice.
+  </p>
+  <div class="source">Fonte: guides/strategie/dynamic_momentum_tuning.md:127-135</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 09: HEART NoRot2 vs SPY 15y ============ -->
+<section class="slide" data-id="09">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow accent-green" style="border-color:rgba(0,210,106,0.3);background:rgba(0,210,106,0.08);color:var(--accent-green);">★ Capitolo 3 · Il cuore del video</div>
+  <h2 class="h2" style="text-align:center;">16 anni di PAC.<br>Stessi €1.000 al mese.</h2>
+  <div class="vs-grid" style="width:100%;max-width:1100px;">
+    <div class="vs-card vs-card--loss">
+      <span class="vs-card__label">Strategia mainstream</span>
+      <span class="vs-card__title">SPY · S&amp;P 500 PAC</span>
+      <span class="vs-card__value" data-counter="675182" data-prefix="€" data-suffix="">€0</span>
+      <span class="vs-card__sub">+8,18% CAGR · MaxDD −34,2%</span>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="vs-card vs-card--win">
+      <span class="vs-card__label">Concentrazione winners</span>
+      <span class="vs-card__title">NVDA + AVGO · zero rotazioni</span>
+      <span class="vs-card__value" data-counter="19327805" data-prefix="€" data-suffix="">€0</span>
+      <span class="vs-card__sub">+33,41% CAGR · MaxDD −56,5%</span>
+    </div>
+  </div>
+  <div class="card card--glow-green" style="margin-top:20px;text-align:center;padding:24px 36px;">
+    <div class="muted">DELTA SU 16 ANNI</div>
+    <div class="big-number big-number--green" style="font-size:96px;margin-top:8px;">+€18,65M</div>
+  </div>
+  <div class="source">Backtest unico · PAC €1k/mese · realistic mode · regime dichiarativo · tasse 26% · slippage · costi €1/trade · bollo 0,2% · 2010-2025</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 9B: SPY vs QQQ vs NoRot2 CAGR bar chart ============ -->
+<section class="slide" data-id="09b" style="padding-top:60px;padding-bottom:90px;">
+<div class="slide-inner" style="gap:16px;">
+  <div class="eyebrow">Capitolo 3B · Bar chart definitivo</div>
+  <h2 class="h2" style="font-size:clamp(28px,3.4vw,46px);">SPY · QQQ · Top2 · P/E Switch · NVDA+AVGO. <span class="accent-cyan">Pure il NASDAQ lascia €18,3M sul tavolo</span>.</h2>
+  <div class="chart-wrapper" style="height:300px;">
+    <canvas id="chart-cagr-3way"></canvas>
+  </div>
+  <div class="split-3" style="gap:12px;grid-template-columns:repeat(5, 1fr);">
+    <div class="card" style="padding:14px;text-align:center;">
+      <div class="muted" style="font-size:10px;">SPY · S&amp;P 500</div>
+      <div class="big-number" style="font-size:30px;color:var(--accent-red);line-height:1;margin:6px 0;">€675K</div>
+      <div class="muted" style="font-size:11px;">+8,18% CAGR</div>
+    </div>
+    <div class="card" style="padding:14px;text-align:center;">
+      <div class="muted" style="font-size:10px;">QQQ · NASDAQ 100</div>
+      <div class="big-number" style="font-size:30px;color:var(--accent-yellow);line-height:1;margin:6px 0;">€1,07M</div>
+      <div class="muted" style="font-size:11px;">+11,32% CAGR</div>
+    </div>
+    <div class="card card--glow-cyan" style="padding:14px;text-align:center;">
+      <div class="muted" style="font-size:10px;">Top2-EW-Hyst</div>
+      <div class="big-number" style="font-size:30px;color:#00d9ff;line-height:1;margin:6px 0;">€1,63M</div>
+      <div class="muted" style="font-size:11px;">+14,30% CAGR</div>
+    </div>
+    <div class="card" style="padding:14px;text-align:center;">
+      <div class="muted" style="font-size:10px;">P/E Switch + oro</div>
+      <div class="big-number" style="font-size:30px;color:var(--accent-blue);line-height:1;margin:6px 0;">€6,36M</div>
+      <div class="muted" style="font-size:11px;">+24,46% CAGR</div>
+    </div>
+    <div class="card card--glow-green" style="padding:14px;text-align:center;">
+      <div class="muted" style="font-size:10px;">NoRot2 · NVDA + AVGO</div>
+      <div class="big-number big-number--green" style="font-size:30px;line-height:1;margin:6px 0;">€19,33M</div>
+      <div class="muted" style="font-size:11px;">+33,41% CAGR</div>
+    </div>
+  </div>
+  <p class="lead" style="font-size:15px;line-height:1.4;">
+    Non è "SPY contro stock picking". È <span class="emphasis-box">qualunque ETF</span> contro <span class="emphasis-box--green">i veri winner</span>.
+    QQQ — l'ETF più growth, tech-heavy — perde <strong>€18,3M</strong> contro 2 titoli + zero rotazioni.
+    <span class="accent-cyan">Top2-EW-Hyst</span> — tieni i 2 titoli più grandi dell'S&amp;P 500, ribilanci 2 volte in 16 anni — fa già <strong>+€950K oltre SPY</strong> senza scegliere nulla.
+  </p>
+  <div class="source">Fonte: backtest unico PAC €1k/mese realistic mode 2010-2025 (SPY/QQQ/Top2 ricalcolati) · no_rotation_focused_pool_apr2026.md · sp1_dumb_strategy_test.py</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 9C: PAC growth line chart ============ -->
+<section class="slide" data-id="09c" style="padding-top:60px;padding-bottom:90px;">
+<div class="slide-inner" style="gap:16px;">
+  <div class="eyebrow">Capitolo 3C · La traiettoria del PAC</div>
+  <h2 class="h2" style="font-size:clamp(28px,3.4vw,46px);">16 anni di PAC. €1.000 al mese. <span class="accent-cyan">Cinque traiettorie completamente diverse</span>.</h2>
+  <div class="chart-wrapper" style="height:440px;">
+    <canvas id="chart-pac-growth"></canvas>
+  </div>
+  <p class="lead" style="font-size:16px;line-height:1.4;">
+    Fino al <strong>2019</strong> le cinque linee sono ravvicinate — la differenza è qualche centinaio di migliaia di euro.
+    Poi il <span class="emphasis-box--green">compounding esplode</span>: NoRot2 si stacca esponenzialmente, <span class="accent-cyan">Top2-EW-Hyst</span> e P/E Switch tengono la rotta intermedia, SPY resta indietro.
+    Il 2022 (drawdown) colpisce tutti, ma chi è più in alto recupera con curve più ripide. <strong>È matematica del lungo periodo</strong>.
+  </p>
+  <div class="source">Tutte equity curve reali da un unico backtest · PAC €1k/mese · realistic mode · regime dichiarativo · 2010-2025 · P/E Switch = us_only (i ticker nativi asiatici non hanno dati nel 2010)</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 09D: Concentrazione → CAGR ============ -->
+<section class="slide" data-id="09d" style="padding-top:60px;padding-bottom:90px;">
+<div class="slide-inner" style="gap:18px;">
+  <div class="eyebrow">Capitolo 3D · La regola della concentrazione</div>
+  <h2 class="h2" style="font-size:clamp(28px,3.4vw,46px);">500 titoli &rarr; 100 &rarr; 2. <span class="accent-cyan">Più concentri, più sale il CAGR</span>.</h2>
+  <div class="chart-wrapper" style="height:300px;">
+    <canvas id="chart-concentration"></canvas>
+  </div>
+  <div class="split-3" style="gap:16px;">
+    <div class="card" style="padding:16px;text-align:center;">
+      <div class="muted" style="font-size:11px;">S&amp;P 500 · 500 titoli</div>
+      <div class="big-number" style="font-size:40px;color:var(--accent-red);line-height:1;margin:6px 0;">+8,18%</div>
+      <div class="muted" style="font-size:12px;">CAGR · PAC finale €675K</div>
+    </div>
+    <div class="card" style="padding:16px;text-align:center;">
+      <div class="muted" style="font-size:11px;">NASDAQ 100 · 100 titoli</div>
+      <div class="big-number" style="font-size:40px;color:var(--accent-yellow);line-height:1;margin:6px 0;">+11,32%</div>
+      <div class="muted" style="font-size:12px;">CAGR · PAC finale €1,07M</div>
+    </div>
+    <div class="card card--glow-cyan" style="padding:16px;text-align:center;">
+      <div class="muted" style="font-size:11px;">Top2-EW-Hyst · 2 titoli</div>
+      <div class="big-number" style="font-size:40px;color:#00d9ff;line-height:1;margin:6px 0;">+14,30%</div>
+      <div class="muted" style="font-size:12px;">CAGR · PAC finale €1,63M</div>
+    </div>
+  </div>
+  <p class="lead" style="font-size:16px;line-height:1.45;">
+    Ogni titolo che togli dall'indice è <span class="emphasis-box">rumore in meno</span>: le 498 aziende mediocri dell'S&amp;P 500 non fanno diversificazione, fanno <strong>diluizione</strong>.
+    Diluiscono i 2-3 veri vincitori in mezzo a centinaia di mediocri.
+    <span class="accent-cyan">Top2-EW-Hyst</span> non sceglie nulla — tiene i 2 titoli più grandi dell'indice e ribilancia 2 volte in 16 anni — eppure <strong>quasi raddoppia il CAGR dell'S&amp;P 500</strong>.
+  </p>
+  <div class="source">Backtest unico · PAC €1k/mese · realistic mode (slippage 0,1% · €1/trade · bollo 0,2% · tasse 26% dichiarativo) · 2010-2025 · sp1_dumb_strategy_test.py</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 10: Top1ByVol ============ -->
+<section class="slide" data-id="10">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 3B · Concentration alpha</div>
+  <h2 class="h2">Stesso pool. Stessi titoli.<br>Solo concentrazione.</h2>
+  <div class="vs-grid">
+    <div class="vs-card vs-card--loss">
+      <span class="vs-card__label">Equal-weight Top 3</span>
+      <span class="vs-card__title">3 titoli, 33% ognuno</span>
+      <span class="vs-card__value" style="color:var(--accent-yellow);">+34,6%</span>
+      <span class="vs-card__sub">CAGR 8 anni · €1,03M finale · Sharpe 1,05</span>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="vs-card vs-card--win">
+      <span class="vs-card__label">Top1ByVol concentration</span>
+      <span class="vs-card__title">100% sul winner ATR×Vol</span>
+      <span class="vs-card__value">+50,7%</span>
+      <span class="vs-card__sub">CAGR 8 anni · €2,55M finale · Sortino 2,28</span>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:24px;">
+    <strong>+16,1 punti di CAGR di delta</strong>, solo per non diluire il capitale su titoli mediocri.
+    Concentrazione informata <span class="accent-cyan">batte sempre</span> "diversificazione" su 3-5 titoli.
+  </p>
+  <div class="source">Fonte: guides/strategie/adopted/top1_by_vol.md · backtest 8y 2018-2025 · realistic mode</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 11: ETF momentum holdings reali ============ -->
+<section class="slide" data-id="11">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 4 · ETF momentum</div>
+  <h2 class="h2">«Compro l'ETF momentum».<br>Sai <span class="accent-cyan">cosa</span> stai comprando?</h2>
+  <p class="lead">Top 10 holdings reali di un ETF momentum factor UCITS oggi (5 maggio 2026):</p>
+  <div class="holdings">
+    <div class="holdings-row is-good"><span class="holdings-row__rank">01</span><span class="holdings-row__name">NVIDIA Corp</span><span class="holdings-row__weight">5,04%</span><span class="holdings-row__verdict">✓</span></div>
+    <div class="holdings-row is-good"><span class="holdings-row__rank">02</span><span class="holdings-row__name">Broadcom Inc</span><span class="holdings-row__weight">4,49%</span><span class="holdings-row__verdict">✓</span></div>
+    <div class="holdings-row is-good"><span class="holdings-row__rank">03</span><span class="holdings-row__name">Micron Technology</span><span class="holdings-row__weight">2,82%</span><span class="holdings-row__verdict">✓</span></div>
+    <div class="holdings-row is-bad"><span class="holdings-row__rank">04</span><span class="holdings-row__name">Alphabet, Inc. A</span><span class="holdings-row__weight">2,54%</span><span class="holdings-row__verdict">✕</span></div>
+    <div class="holdings-row is-good"><span class="holdings-row__rank">05</span><span class="holdings-row__name">ASML Holding NV</span><span class="holdings-row__weight">2,27%</span><span class="holdings-row__verdict">✓</span></div>
+    <div class="holdings-row is-bad"><span class="holdings-row__rank">06</span><span class="holdings-row__name">Alphabet, Inc. C  <span class="muted" style="font-size:13px;">← stessa azienda di sopra</span></span><span class="holdings-row__weight">2,11%</span><span class="holdings-row__verdict">✕</span></div>
+    <div class="holdings-row is-bad"><span class="holdings-row__rank">07</span><span class="holdings-row__name">Johnson &amp; Johnson  <span class="muted" style="font-size:13px;">← beta 0,5, defensive!</span></span><span class="holdings-row__weight">1,86%</span><span class="holdings-row__verdict">✕</span></div>
+    <div class="holdings-row"><span class="holdings-row__rank">08</span><span class="holdings-row__name">GE Vernova</span><span class="holdings-row__weight">1,82%</span><span class="holdings-row__verdict">~</span></div>
+    <div class="holdings-row is-good"><span class="holdings-row__rank">09</span><span class="holdings-row__name">Lam Research</span><span class="holdings-row__weight">1,81%</span><span class="holdings-row__verdict">✓</span></div>
+    <div class="holdings-row is-bad"><span class="holdings-row__rank">10</span><span class="holdings-row__name">Caterpillar Inc  <span class="muted" style="font-size:13px;">← industrial heavy machinery</span></span><span class="holdings-row__weight">1,56%</span><span class="holdings-row__verdict">✕</span></div>
+  </div>
+  <div class="source">Fonte: dato live 2026-05-08 · ETF momentum factor UCITS · 349 holdings totali</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 12: Alphabet duplicato ============ -->
+<section class="slide" data-id="12">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow accent-red" style="border-color:rgba(255,71,87,0.3);background:rgba(255,71,87,0.08);color:var(--accent-red);">⚠ Anomalia #1</div>
+  <h2 class="h2" style="text-align:center;">Alphabet appare<br><span class="accent-red">due volte.</span></h2>
+  <div class="split-2" style="width:100%;max-width:900px;gap:16px;">
+    <div class="card card--glow-red" style="text-align:center;">
+      <div class="muted">Posizione #04</div>
+      <div class="vs-card__title">Alphabet, Inc. A</div>
+      <div class="vs-card__value" style="color:var(--accent-red);font-size:64px;">2,54%</div>
+    </div>
+    <div class="card card--glow-red" style="text-align:center;">
+      <div class="muted">Posizione #06</div>
+      <div class="vs-card__title">Alphabet, Inc. C</div>
+      <div class="vs-card__value" style="color:var(--accent-red);font-size:64px;">2,11%</div>
+    </div>
+  </div>
+  <div class="big-number big-number--red" style="font-size:140px;">= 4,65%</div>
+  <p class="lead" style="text-align:center;max-width:760px;">
+    Stessa azienda. Due classi di azioni.<br>
+    <strong>Hai appena comprato Google due volte</strong> in un ETF che ti vende "momentum".
+    Class A e Class C combinati superano persino Micron e ASML.
+  </p>
+</div>
+</section>
+
+<!-- ============ SLIDE 13: J&J e Caterpillar ============ -->
+<section class="slide" data-id="13">
+<div class="slide-inner">
+  <div class="eyebrow accent-red" style="border-color:rgba(255,71,87,0.3);background:rgba(255,71,87,0.08);color:var(--accent-red);">⚠ Anomalia #2</div>
+  <h2 class="h2"><span class="accent-red">Johnson &amp; Johnson</span><br>in un ETF <em>momentum</em>?</h2>
+  <div class="split-2">
+    <div class="card card--glow-red">
+      <h3 class="h3" style="margin-bottom:12px;">Johnson &amp; Johnson — 1,86%</h3>
+      <ul class="bullet-list" style="font-size:17px;">
+        <li><strong>Beta 0,5</strong> (metà della volatilità del mercato)</li>
+        <li>Pharma legacy, dividend aristocrat</li>
+        <li>Return 12m: <span class="accent-yellow">+8%</span> (vs NVDA +85%)</li>
+        <li><strong>Ė l'opposto del momentum.</strong> È quello che compri quando vuoi proteggerti, non quando insegui i winner.</li>
+      </ul>
+    </div>
+    <div class="card card--glow-red">
+      <h3 class="h3" style="margin-bottom:12px;">Caterpillar — 1,56%</h3>
+      <ul class="bullet-list" style="font-size:17px;">
+        <li><strong>Industrial heavy machinery</strong></li>
+        <li>Beta 1,2 ma cyclical, non secular</li>
+        <li>Classic value stock, P/E 16</li>
+        <li><strong>Cosa fa qui?</strong> Riempie la quota industrial della metodologia MSCI. Niente a che fare con momentum.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:8px;">
+    L'ETF non sta scegliendo i veri momentum. Sta seguendo una <strong>metodologia con sector cap</strong>
+    che gli impone di prendere rappresentanti da ogni settore — anche quelli che non hanno momentum.
+  </p>
+</div>
+</section>
+
+<!-- ============ SLIDE 14: 349 holdings closet indexing ============ -->
+<section class="slide" data-id="14">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow accent-red" style="border-color:rgba(255,71,87,0.3);background:rgba(255,71,87,0.08);color:var(--accent-red);">⚠ Anomalia #3</div>
+  <h2 class="h2" style="text-align:center;">«ETF momentum».<br>Numero di holdings:</h2>
+  <div class="big-number big-number--red" data-counter="349" data-prefix="" data-suffix="">0</div>
+  <p class="lead" style="text-align:center;max-width:840px;">
+    Trecentoquarantanove. È il <strong>70% dell'S&amp;P 500</strong>.<br>
+    Si chiama <span class="emphasis-box--red">closet indexing</span>: un ETF che ti vende un fattore
+    ma in realtà replica l'indice broad market — solo con TER 5 volte più alto.
+  </p>
+  <div class="split-2" style="width:100%;max-width:760px;margin-top:16px;">
+    <div class="card" style="text-align:center;">
+      <div class="muted">SPY · benchmark</div>
+      <div class="big-number big-number--cyan" style="font-size:80px;">503</div>
+      <div class="muted" style="margin-top:8px;">TER 0,07%</div>
+    </div>
+    <div class="card card--glow-red" style="text-align:center;">
+      <div class="muted">ETF "momentum"</div>
+      <div class="big-number big-number--red" style="font-size:80px;">349</div>
+      <div class="muted" style="margin-top:8px;">TER 0,15-0,30%</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ============ SLIDE 14B: Top 15 vero momentum globale ============ -->
+<section class="slide" data-id="14b" style="padding-top:50px;padding-bottom:80px;">
+<div class="slide-inner" style="gap:14px;">
+  <div class="eyebrow">Capitolo 4B · Confronto diretto · clicca le righe per dettagli</div>
+  <h2 class="h2" style="font-size:clamp(26px,3vw,42px);">Cosa <span class="accent-red">l'ETF momentum compra</span> vs cosa è <span class="accent-green">veramente momentum</span>.</h2>
+  <div class="split-2" style="gap:20px;">
+    <div>
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;color:var(--accent-red);">⚠ Top 10 ETF momentum (UCITS)</div>
+      <div class="holdings" style="font-size:13px;">
+        <div class="holdings-row is-good" data-desc="nvda"><span class="holdings-row__rank">01</span><span class="holdings-row__name">NVIDIA · 🇺🇸</span><span class="holdings-row__weight">5,04%</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">GPU per data center AI training/inference. Quasi monopolio nel settore (CUDA ecosystem). Valuation premium ma giustificato da growth +60%/anno. <strong>Pure momentum legit</strong>.</div>
+        <div class="holdings-row is-good" data-desc="avgo"><span class="holdings-row__rank">02</span><span class="holdings-row__name">Broadcom · 🇺🇸</span><span class="holdings-row__weight">4,49%</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">Networking + custom ASIC per data center (Apple wireless, Google TPU). Acquisizione VMware completata 2023. Top 1 frequency in NoRot2 backtest 16y. <strong>Secular winner</strong>.</div>
+        <div class="holdings-row is-good" data-desc="mu"><span class="holdings-row__rank">03</span><span class="holdings-row__name">Micron · 🇺🇸</span><span class="holdings-row__weight">2,82%</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">Memory NAND/DRAM, 1 dei 3 player globali. HBM3e per AI training. Cyclical (3-4 anni di alti e bassi) ma momentum forte oggi. <strong>Pure semi memory</strong>.</div>
+        <div class="holdings-row is-bad" data-desc="googla"><span class="holdings-row__rank">04</span><span class="holdings-row__name">Alphabet A · 🇺🇸</span><span class="holdings-row__weight">2,54%</span><span class="holdings-row__verdict">✕</span></div>
+        <div class="holdings-detail">Google search/YouTube/Cloud. Mega-cap defensive, $2T market cap. <strong>Beta 1.0, no momentum reale</strong>: è un index inhabitant. Gemini AI cerca di rincorrere.</div>
+        <div class="holdings-row is-good" data-desc="asml"><span class="holdings-row__rank">05</span><span class="holdings-row__name">ASML · 🇳🇱</span><span class="holdings-row__weight">2,27%</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">Litografia EUV — monopolio mondiale. Senza ASML non si fanno chip <5nm. TSMC, Samsung, Intel sono dipendenti. <strong>Toll booth della rivoluzione AI</strong>.</div>
+        <div class="holdings-row is-bad" data-desc="googlc"><span class="holdings-row__rank">06</span><span class="holdings-row__name">Alphabet C · 🇺🇸</span><span class="holdings-row__weight">2,11%</span><span class="holdings-row__verdict">✕</span></div>
+        <div class="holdings-detail"><strong>Stessa azienda di Alphabet A</strong>. Class C = niente diritti di voto. L'ETF la detiene perché è nell'indice MSCI. <strong>Combinato con A: 4,65% del peso ETF in Google</strong>.</div>
+        <div class="holdings-row is-bad" data-desc="jnj"><span class="holdings-row__rank">07</span><span class="holdings-row__name">J&amp;J · 🇺🇸</span><span class="holdings-row__weight">1,86%</span><span class="holdings-row__verdict">✕</span></div>
+        <div class="holdings-detail">Pharma legacy, dividend aristocrat 60+ anni consecutivi. <strong>Beta 0,5 — l'opposto del momentum</strong>. Recovery limitata, non growth. Cosa fa qui? Sector cap della metodologia.</div>
+        <div class="holdings-row" data-desc="gev"><span class="holdings-row__rank">08</span><span class="holdings-row__name">GE Vernova · 🇺🇸</span><span class="holdings-row__weight">1,82%</span><span class="holdings-row__verdict">~</span></div>
+        <div class="holdings-detail">Spin-off energy 2024 da General Electric (turbine, grid, nucleare). Beneficia AI power demand. <strong>Story stock recente</strong>, momentum sì ma fragile.</div>
+        <div class="holdings-row is-good" data-desc="lrcx"><span class="holdings-row__rank">09</span><span class="holdings-row__name">Lam Research · 🇺🇸</span><span class="holdings-row__weight">1,81%</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">Semi equipment per etching/deposition. Fornitore TSMC + Samsung. <strong>Picks &amp; shovels della corsa AI chip</strong>. Cycle stock ma in upcycle.</div>
+        <div class="holdings-row is-bad" data-desc="cat"><span class="holdings-row__rank">10</span><span class="holdings-row__name">Caterpillar · 🇺🇸</span><span class="holdings-row__weight">1,56%</span><span class="holdings-row__verdict">✕</span></div>
+        <div class="holdings-detail">Macchinari pesanti (escavatori, mining, costruzioni). <strong>Industrial cyclical, classic value</strong>, P/E 16. Non è momentum — è il riempitivo della categoria "industrial" nella metodologia.</div>
+      </div>
+      <p class="muted" style="margin-top:8px;font-size:11px;">Solo US + 1 EU (ASML). Sector caps + region caps della metodologia.</p>
+    </div>
+    <div>
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;color:var(--accent-green);">✓ Top 15 vero momentum (Clenow score)</div>
+      <div class="holdings" style="font-size:12px;">
+        <div class="holdings-row is-good" data-desc="sndk"><span class="holdings-row__rank">01</span><span class="holdings-row__name">SanDisk (SNDK) · 🇺🇸</span><span class="holdings-row__weight">3.620</span><span class="holdings-row__verdict">★</span></div>
+        <div class="holdings-detail">Memory NAND. <strong>Spin-off da Western Digital (Feb 2025)</strong>, è esplosa post-spinoff: +49% momentum 12-1, +2.677% dal bottom Apr 2025. Inclusione S&amp;P 500 Nov 2025. Best Clenow score globale.</div>
+        <div class="holdings-row is-good" data-desc="sksquare"><span class="holdings-row__rank">02</span><span class="holdings-row__name">SK Square · 🇰🇷</span><span class="holdings-row__weight">1.278</span><span class="holdings-row__verdict">★</span></div>
+        <div class="holdings-detail">Holding company sudcoreana che possiede <strong>SK Hynix</strong> (#2 memory globale dopo Samsung). HBM3e leader, fornitore primario NVIDIA. R² 0.95 — trend chiaro.</div>
+        <div class="holdings-row is-good" data-desc="wdc"><span class="holdings-row__rank">03</span><span class="holdings-row__name">Western Digital · 🇺🇸</span><span class="holdings-row__weight">868</span><span class="holdings-row__verdict">★</span></div>
+        <div class="holdings-detail">Hard disk drive HDD enterprise. Post-spinoff SNDK ha focus su HDD per data center storage. <strong>R² 0.99 — il trend più pulito del ranking</strong>. AI data growth driver.</div>
+        <div class="holdings-row is-good" data-desc="nanya"><span class="holdings-row__rank">04</span><span class="holdings-row__name">Nanya Technology · 🇹🇼</span><span class="holdings-row__weight">632</span><span class="holdings-row__verdict">★</span></div>
+        <div class="holdings-detail">DRAM Taiwan, #4 mondiale nel mercato memory. Beneficia upcycle DRAM 2025-2026. <strong>L'ETF momentum non la tocca per region cap</strong> (Asia ex-Giappone limitata).</div>
+        <div class="holdings-row is-good" data-desc="mu2"><span class="holdings-row__rank">05</span><span class="holdings-row__name">Micron · 🇺🇸</span><span class="holdings-row__weight">500</span><span class="holdings-row__verdict">★</span></div>
+        <div class="holdings-detail">Stesso ticker della top 3 ETF, ma qui il Clenow score parla del trend reale. <strong>Solo player US in DRAM</strong>, contratti governativi CHIPS Act. Pure semi cyclical.</div>
+        <div class="holdings-row is-good" data-desc="destek"><span class="holdings-row__rank">06</span><span class="holdings-row__name">Destek · 🇹🇷</span><span class="holdings-row__weight">489</span><span class="holdings-row__verdict">★</span></div>
+        <div class="holdings-detail">Conglomerate Turkey (servizi finanziari + retail). <strong>Outlier geografico nel Clenow score</strong> — momentum positivo grazie a contesto macro turco e lira instabile (paradossalmente positivo).</div>
+        <div class="holdings-row is-good" data-desc="kioxia"><span class="holdings-row__rank">07</span><span class="holdings-row__name">Kioxia · 🇯🇵</span><span class="holdings-row__weight">489</span><span class="holdings-row__verdict">★</span></div>
+        <div class="holdings-detail">Ex-Toshiba memory (NAND giapponese). <strong>IPO Tokyo Dec 2024</strong>, momentum +25.8% in 6 mesi. Joint venture con Western Digital per fab in Giappone. Pure NAND play.</div>
+        <div class="holdings-row is-good" data-desc="kingyuan"><span class="holdings-row__rank">08</span><span class="holdings-row__name">King Yuan · 🇹🇼</span><span class="holdings-row__weight">232</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">Semi <strong>testing &amp; assembly</strong> Taiwan. Fornitore TSMC, Broadcom, MediaTek. Beneficia AI chip volume — più chip = più test. Niche ma essential.</div>
+        <div class="holdings-row is-good" data-desc="winway"><span class="holdings-row__rank">09</span><span class="holdings-row__name">WinWay · 🇹🇼</span><span class="holdings-row__weight">205</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">Test interface (probe cards) per wafer testing. Mercato di nicchia ma <strong>oligopolio</strong>. Ogni nuovo node semi richiede nuove probe cards = upgrade cycle.</div>
+        <div class="holdings-row is-good" data-desc="samsung"><span class="holdings-row__rank">10</span><span class="holdings-row__name">Samsung Electronics · 🇰🇷</span><span class="holdings-row__weight">184</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail"><strong>#1 memory globale</strong> + foundry alternative a TSMC + smartphone. Conglomerato gigante. Momentum modesto (+4%) ma R² 0.96 (trend molto pulito).</div>
+        <div class="holdings-row" data-desc="arwr"><span class="holdings-row__rank">11</span><span class="holdings-row__name">Arrowhead Pharma · 🇺🇸</span><span class="holdings-row__weight">181</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">Biotech RNAi therapeutics. <strong>Unica pharma nel ranking</strong> (vs J&amp;J nell'ETF — pharma sì ma momentum no). Pipeline trial fase 3 cardiovascolare.</div>
+        <div class="holdings-row is-good" data-desc="vicr"><span class="holdings-row__rank">12</span><span class="holdings-row__name">Vicor Corp · 🇺🇸</span><span class="holdings-row__weight">179</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">Power conversion modules per data center (48V to chip). <strong>NVIDIA Hopper/Blackwell richiedono Vicor power</strong>. Niche play ma high margin.</div>
+        <div class="holdings-row is-good" data-desc="lasertec"><span class="holdings-row__rank">13</span><span class="holdings-row__name">Lasertec · 🇯🇵</span><span class="holdings-row__weight">148</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">EUV photomask inspection. <strong>Quasi monopolio</strong> per ispezione mask delle fab ASML. Senza Lasertec, ASML non funziona. Toll booth della toll booth.</div>
+        <div class="holdings-row is-good" data-desc="tsmc"><span class="holdings-row__rank">14</span><span class="holdings-row__name">TSMC · 🇹🇼</span><span class="holdings-row__weight">141</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail"><strong>Foundry leader globale</strong>: produce chip per Apple, NVIDIA, AMD, Qualcomm. Quasi monopolio sui nodi avanzati (3nm, 2nm). R² 0.97 — il trend più pulito + più scalabile.</div>
+        <div class="holdings-row is-good" data-desc="jx"><span class="holdings-row__rank">15</span><span class="holdings-row__name">JX Adv. Metals · 🇯🇵</span><span class="holdings-row__weight">140</span><span class="holdings-row__verdict">✓</span></div>
+        <div class="holdings-detail">Materiali metallici (rame, nichel, cobalto) per semi/EV. Spinoff JX Holdings 2024. <strong>Picks &amp; shovels della elettrificazione</strong>: ogni chip e ogni batteria richiedono i loro materiali.</div>
+      </div>
+      <p class="muted" style="margin-top:8px;font-size:11px;">🇺🇸 5 · 🇹🇼 5 · 🇯🇵 3 · 🇰🇷 2 · 🇹🇷 1. Tutti semi/memory + 1 pharma + 1 finance.</p>
+    </div>
+  </div>
+  <p class="lead" style="font-size:14px;line-height:1.45;">
+    Il vero momentum globale è dominato da <span class="emphasis-box--green">memory + foundry asiatici</span>. L'ETF momentum non li tocca per region cap MSCI: ti tieni Google duplicato + J&amp;J, perdi SanDisk (+49%), Kioxia (+25.8%), Samsung, TSMC.
+  </p>
+  <div class="source">Fonte: data/scanner_history/scanner_2026-05-08.json · Clenow = momentum × R² · skip 21d (growth) / 15d (non-growth)</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 15: REFRAME — l'idea è giusta ============ -->
+<section class="slide" data-id="15">
+<div class="slide-inner">
+  <div class="eyebrow accent-cyan">Reframe importante</div>
+  <h2 class="h2">L'idea momentum è <span class="accent-green">giusta</span>.<br>L'ETF la realizza <span class="accent-red">male</span>.</h2>
+  <div class="split-2">
+    <div class="card card--glow-green">
+      <h3 class="h3" style="margin-bottom:14px;color:var(--accent-green);">L'idea: corretta</h3>
+      <p class="lead" style="font-size:18px;">
+        Comprare i winner del decennio è statisticamente la strategia migliore.
+        <strong>Jegadeesh &amp; Titman 1993</strong>: premio momentum +7-8% annuo.<br><br>
+        I dati lo confermano: NVDA + AVGO + zero rotazioni →
+        <span class="accent-green">+33,41% CAGR su 16 anni</span>.
+      </p>
+    </div>
+    <div class="card card--glow-red">
+      <h3 class="h3" style="margin-bottom:14px;color:var(--accent-red);">L'esecuzione: rotta</h3>
+      <p class="lead" style="font-size:18px;">
+        Per regulation, sector cap, tracking error constraint, l'ETF deve:<br><br>
+        • includere 349 titoli (non i 2-3 veri winner)<br>
+        • duplicare le mega-cap (Alphabet ×2)<br>
+        • bilanciarsi con defensive (J&amp;J, CAT)<br>
+        • <strong>diluire</strong> il fattore puro fino al closet indexing.
+      </p>
+    </div>
+  </div>
+  <p class="lead" style="text-align:center;margin-top:8px;">
+    Non sto dicendo "non comprare momentum". Sto dicendo:
+    <span class="emphasis-box">l'ETF non è il modo per farlo</span>.
+  </p>
+</div>
+</section>
+
+<!-- ============ SLIDE 16: ALL-TIME WINNERS thesis ============ -->
+<section class="slide" data-id="16">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 5 · La tesi di lungo termine</div>
+  <h2 class="h2">Esistono <span class="accent-cyan">all-time winners</span><br>matematici.</h2>
+  <p class="lead">
+    Una verità scomoda: <strong>il mondo è sempre più tech-related</strong>.
+    Non è una previsione, è una constatazione di trend di 70 anni.
+    Chi fornisce l'<em>hardware</em> di questo trend, al netto dei cicli, va su.
+  </p>
+  <div class="analogy-grid">
+    <div class="analogy-card">
+      <div class="analogy-card__icon">🖥️</div>
+      <div class="analogy-card__era">1970</div>
+      <div class="analogy-card__title">La potenza di calcolo del tuo smartphone</div>
+      <div class="analogy-card__desc">…era un mainframe IBM che riempiva una stanza, costava $5M, era riservata a NASA e governi.</div>
+    </div>
+    <div class="analogy-card">
+      <div class="analogy-card__icon">🧺</div>
+      <div class="analogy-card__era">2026</div>
+      <div class="analogy-card__title">La tua lavatrice ha più CPU power</div>
+      <div class="analogy-card__desc">…di tutti i computer Apollo combinati. Ed è ancora poca: una Tesla ha la potenza di un datacenter del 2010.</div>
+    </div>
+    <div class="analogy-card">
+      <div class="analogy-card__icon">⌚</div>
+      <div class="analogy-card__era">2040</div>
+      <div class="analogy-card__title">Il tuo orologio = datacenter anni '90</div>
+      <div class="analogy-card__desc">Sensori, AI on-device, edge inference. Ogni dispositivo "smart" inghiotte chip. Il trend non si inverte.</div>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:16px;">
+    Chi vende le pale durante una corsa all'oro? <strong>Nvidia, Broadcom, Micron, ASML, TSMC</strong>.
+    Hardware providers <span class="emphasis-box">matematicamente</span> beneficiari di questa traiettoria.
+  </p>
+</div>
+</section>
+
+<!-- ============ SLIDE 17: AVGO secret weapon ============ -->
+<section class="slide" data-id="17">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 5B · Pattern 16 anni</div>
+  <h2 class="h2">AVGO è il <span class="accent-cyan">secret winner</span><br>di cui nessuno parla.</h2>
+  <div class="split-2">
+    <div>
+      <p class="lead">
+        Backtest 2010-2025, pool {NVDA, AVGO, MU}.
+        Quale titolo è stato top1 per più mesi?
+      </p>
+      <ul class="bullet-list" style="margin-top:24px;">
+        <li><strong class="accent-cyan">AVGO: 121 mesi su 192</strong> (63%) — secular dominator silente</li>
+        <li><strong>NVDA: 50 mesi</strong> (26%) — domina solo dal 2023</li>
+        <li><strong>MU: 19 mesi</strong> (10%) — cicli memory brevi</li>
+      </ul>
+      <p class="lead" style="margin-top:24px;">
+        Mentre tutti parlavano di NVIDIA dal 2023, <strong>AVGO accumulava silenziosamente</strong>
+        per 13 anni: data center networking, embedded, custom ASIC, Apple wireless chips.
+      </p>
+    </div>
+    <div class="card card--glow-cyan">
+      <div class="muted">DOMINANCE PATTERN · 16Y</div>
+      <div class="big-number big-number--cyan" style="font-size:120px;line-height:1;margin:20px 0;">63%</div>
+      <p class="lead" style="font-size:18px;">
+        dei mesi totali AVGO è stato il top performer del pool.
+        È il <strong>compounder più sottostimato del decennio</strong>.<br><br>
+        Pool {NVDA, AVGO} 16y: <span class="accent-green">€19,33M finali</span>.<br>
+        Sortino <strong>1,79</strong> — il più alto del set di 50 pool testati.
+      </p>
+    </div>
+  </div>
+  <div class="source">Fonte: backtest 50 pool combinatorial · guides/strategie/no_rotation_focused_pool_apr2026.md:108</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 18: Sempre comprare > timing ============ -->
+<section class="slide" data-id="18">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 6 · Timing vs accumulo</div>
+  <h2 class="h2">Comprare sempre.<br>Come l'oro, <span class="accent-cyan">senza seghe mentali</span>.</h2>
+  <div class="split-2">
+    <div>
+      <p class="lead">
+        Strategia "compra sotto MA200" sui leader hardware tech: <strong>sottoperforma</strong> di -1,25% / anno il "buy always" PAC fisso.
+      </p>
+      <ul class="bullet-list" style="margin-top:20px;">
+        <li><strong>Timing on/off</strong>: stai fuori dal mercato 30-40% del tempo</li>
+        <li>I migliori 10 giorni di rendimento sono <strong>concentrati subito dopo i crash</strong>: se sei fuori, perdi</li>
+        <li>200-day MA: win rate <span class="accent-red">31%</span> vs buy-and-hold</li>
+        <li>CAPE timing: <span class="accent-red">−1,25% CAGR</span></li>
+      </ul>
+    </div>
+    <div class="card card--glow-cyan">
+      <h3 class="h3" style="margin-bottom:16px;">L'analogia con l'oro</h3>
+      <p class="lead" style="font-size:18px;">
+        Per l'oro tutti accettano il <strong>PAC fisso mensile</strong>. Quota costante, non guardi il prezzo, accumuli.<br><br>
+        <span class="emphasis-box">Per i secular tech compounders</span> dovresti fare uguale.
+        AVGO a $1.200 nel 2026 sembra "caro". A 10 anni guardandolo a $4.000 sembrerà
+        un'occasione persa.<br><br>
+        <strong>Stay in market</strong>. Sempre. Il momentum (P/E Switch, Top1ByVol) è
+        opzionale per chi vuole più CAGR accettando più rischio — ma il PAC sui winner è il base case.
+      </p>
+    </div>
+  </div>
+  <div class="source">Fonte: guides/strategie/03_sp500.md:65-96 · guides/strategie/09_lezioni.md</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 19: Sector rotation FAILED ============ -->
+<section class="slide" data-id="19">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 6B · Backtest reali</div>
+  <h2 class="h2">Ruotare tra ETF settoriali:<br><span class="accent-red">−14,3 punti di CAGR</span>.</h2>
+  <p class="lead">
+    Backtest 2023-2025, 14 ETF settoriali (XLK, XLF, XLE, XLV, XLI, XLY, XLP, XLU, XLRE, XLB, XLC, QQQ, SMH, GLD).
+    Strategia "compra il top 1 per momentum, ruota mensilmente".
+  </p>
+  <div class="vs-grid">
+    <div class="vs-card vs-card--win">
+      <span class="vs-card__label">Buy &amp; Hold semplice</span>
+      <span class="vs-card__title">SPY, niente rotazioni</span>
+      <span class="vs-card__value">+23,5%</span>
+      <span class="vs-card__sub">CAGR · MaxDD −28% · Sharpe 1,45 · €1,98M</span>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="vs-card vs-card--loss">
+      <span class="vs-card__label">Sector rotation top1</span>
+      <span class="vs-card__title">14 ETF, ruota mensile</span>
+      <span class="vs-card__value">+9,2%</span>
+      <span class="vs-card__sub">CAGR · MaxDD −45% · Sharpe 0,58 · €1,19M</span>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:8px;">
+    Cinque varianti testate. <strong>Tutte perdono contro hold semplice di SPY</strong>.
+    Le tasse 26% per ogni rotazione cristallizzano i gain prima del compounding,
+    e nessuna strategia di timing recupera quel drag.
+  </p>
+  <div class="source">Fonte: backtest/etf_rotation_backtest.py:691 · realistic mode · costi €1 + slip 0,1% + bollo 0,2%</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 20: Tematici trap ============ -->
+<section class="slide" data-id="20">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 7 · Tematici</div>
+  <h2 class="h2">Litio. Uranio. Cannabis. EV. AI.<br><span class="accent-red">Tutti gli ETF tematici</span> seguono lo stesso copione.</h2>
+  <table class="data-table">
+    <thead>
+      <tr><th>Tema</th><th>Ticker</th><th class="num">Periodo</th><th class="num">Drawdown da picco</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Cannabis</td><td>MJ</td><td class="num">2018-2023</td><td class="num accent-red">−90%</td></tr>
+      <tr><td>SPAC craze</td><td>SPAK</td><td class="num">2021-2023</td><td class="num accent-red">−85%</td></tr>
+      <tr><td>China Tech</td><td>KWEB</td><td class="num">2021-2023</td><td class="num accent-red">−80%</td></tr>
+      <tr><td>Uranium pre-Fukushima</td><td>URA</td><td class="num">2008-2010</td><td class="num accent-red">−90%</td></tr>
+      <tr class="highlight"><td><strong>ARKK (Cathie Wood)</strong></td><td>ARKK</td><td class="num">2022</td><td class="num accent-red">−67%</td></tr>
+      <tr><td>Lithium</td><td>LIT</td><td class="num">2021-2024</td><td class="num accent-red">−60%</td></tr>
+      <tr><td>Clean Energy</td><td>ICLN</td><td class="num">2021-2023</td><td class="num accent-red">−50%</td></tr>
+    </tbody>
+  </table>
+  <p class="lead">
+    Il pattern è sempre lo stesso: il tema fa rally per 2-3 anni, i media lo amplificano,
+    BlackRock o Global X <strong>lanciano l'ETF al picco di hype</strong>, retail compra,
+    poi il cycle gira. Drawdown -50/-90%. <span class="emphasis-box--red">"Megatrend" è una parola di marketing</span>.
+  </p>
+</div>
+</section>
+
+<!-- ============ SLIDE 21: Cathie Wood case ============ -->
+<section class="slide" data-id="21">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 7B · Case study</div>
+  <h2 class="h2">ARKK: il caso da manuale.<br><span class="accent-red">"Value destroyer"</span> · Morningstar 2024.</h2>
+  <div class="split-2">
+    <div>
+      <p class="lead">Performance ARKK anno per anno:</p>
+      <table class="data-table" style="margin-top:16px;">
+        <tbody>
+          <tr><td><strong>2020</strong></td><td class="num accent-green">+152%</td><td>pandemic boom</td></tr>
+          <tr><td>2021</td><td class="num accent-red">−24%</td><td>già rottura</td></tr>
+          <tr class="highlight"><td><strong>2022</strong></td><td class="num accent-red"><strong>−67%</strong></td><td>vs SPY −18%</td></tr>
+          <tr><td>2023</td><td class="num accent-green">+68%</td><td>rimbalzo</td></tr>
+          <tr><td><strong>2024</strong></td><td class="num accent-yellow">+11%</td><td>vs SPY +24% (lag −13pp)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card card--glow-red">
+      <div class="muted">AUM</div>
+      <div class="big-number big-number--red" style="font-size:88px;">$15B</div>
+      <p class="lead" style="font-size:17px;margin-top:14px;">
+        di retail che ha creduto al "disruptive innovation" framework di Cathie Wood.<br><br>
+        Filosofia: compra aziende non profittevoli, ignora la valuation, focus su TAM.<br><br>
+        <strong>Risultato</strong>: drawdown 67% nel 2022, recovery incompleto.
+        Il fondo non ha mai recuperato i livelli del febbraio 2021.
+      </p>
+    </div>
+  </div>
+  <div class="source">Fonte: guides/investors/GROWTH_INVESTORS_E_FONDI.md:206-244</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 22: 2022 falsa diversificazione ============ -->
+<section class="slide" data-id="22" style="padding-top:60px;padding-bottom:90px;">
+<div class="slide-inner" style="gap:16px;">
+  <div class="eyebrow">Capitolo 8 · Diversificazione</div>
+  <h2 class="h2" style="font-size:clamp(28px,3.4vw,46px);">2022: il "sacro graal" che <span class="accent-red">non ha protetto nessuno</span>.</h2>
+  <p class="lead" style="font-size:16px;line-height:1.45;">
+    «Compra VWCE e dormi sereno.» Tutti i consulenti consigliano un <strong>portafoglio diversificato 60/40</strong>: 60% azioni (SPY) + 40% bond (AGG/TLT). L'idea: quando crollano le azioni, salgono i bond. Vediamo cosa è successo nell'anno del doppio bear.
+  </p>
+  <div class="crash-grid">
+    <div class="crash-item crash-item--down">
+      <div class="crash-item__ticker">SPY</div>
+      <div class="crash-item__value">−18,1%</div>
+      <div class="crash-item__label">Equity US · S&amp;P 500</div>
+      <div class="muted" style="font-size:11px;margin-top:8px;line-height:1.4;">L'ETF azionario più diffuso al mondo. Tracker dei 500 titoli US a maggior cap.</div>
+    </div>
+    <div class="crash-item crash-item--down">
+      <div class="crash-item__ticker">AGG</div>
+      <div class="crash-item__value">−13,0%</div>
+      <div class="crash-item__label">Bond aggregate</div>
+      <div class="muted" style="font-size:11px;margin-top:8px;line-height:1.4;">iShares <strong>Core US Aggregate Bond</strong>. Mix di Treasuries, corporate IG, MBS. Durata media 6-7 anni. <strong>Il "bond ETF" base del 60/40</strong>.</div>
+    </div>
+    <div class="crash-item crash-item--down">
+      <div class="crash-item__ticker">TLT</div>
+      <div class="crash-item__value">−31,2%</div>
+      <div class="crash-item__label">Long Treasury</div>
+      <div class="muted" style="font-size:11px;margin-top:8px;line-height:1.4;">iShares <strong>20+ Year Treasury</strong>. Bond del Tesoro USA a 20-30 anni. <strong>Durata 17 anni → ipersensibile ai tassi</strong>: ogni +1% Fed → −15% prezzo.</div>
+    </div>
+    <div class="crash-item crash-item--up">
+      <div class="crash-item__ticker">GLD</div>
+      <div class="crash-item__value">+0,8%</div>
+      <div class="crash-item__label">Oro fisico</div>
+      <div class="muted" style="font-size:11px;margin-top:8px;line-height:1.4;">SPDR Gold Trust. Oro fisico custodito a Londra. Hedge reale contro inflazione + svalutazione monetaria. <strong>Unico in verde</strong> nel 2022.</div>
+    </div>
+  </div>
+  <p class="lead" style="font-size:15px;line-height:1.45;margin-top:8px;">
+    Il 2022 è stato il <strong>doppio bear</strong>: la Fed ha alzato i tassi da 0% a 5% per combattere l'inflazione 9%.
+    Quando i tassi salgono, sia azioni (multipli compressi) <strong>sia bond</strong> (prezzo inverso al rendimento) crollano. <strong>TLT ha fatto peggio dell'azionario</strong>.
+    L'allocation 60/40 SPY+TLT — la "pensione sicura" — ha perso <strong>−17%</strong>.
+    <span class="emphasis-box--red">Vera diversificazione = asset class non correlate</span> (equity + oro fisico + cash), non 100 ETF azionari diversi.
+  </p>
+  <div class="source">Fonte: guides/strategie/04_multi_asset.md:89-101 · BlackRock fact sheet 2022 (AGG, TLT) · World Gold Council</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 22B: Diversificazione VWCE/EM/Europe ============ -->
+<section class="slide" data-id="22b" style="padding-top:50px;padding-bottom:80px;">
+<div class="slide-inner" style="gap:14px;">
+  <div class="eyebrow">Capitolo 8B · La diversificazione globale è una bugia</div>
+  <h2 class="h2" style="font-size:clamp(26px,3vw,42px);">VWCE è "il mondo"? <span class="accent-red">No, è S&amp;P 500 travestito</span>.</h2>
+  <p class="lead" style="font-size:15px;line-height:1.4;">
+    «VWCE diversifica su 4.000 titoli mondiali». Vediamo cosa c'è davvero dentro Vanguard FTSE All-World UCITS Acc.
+  </p>
+  <div class="split-3" style="gap:14px;">
+    <div class="card" style="padding:16px;">
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-red);margin-bottom:10px;">⚠ VWCE composizione geografica</div>
+      <table style="width:100%;font-family:var(--font-mono);font-size:13px;">
+        <tr><td style="padding:3px 0;color:var(--text-secondary);">🇺🇸 Stati Uniti</td><td style="text-align:right;color:var(--accent-red);font-weight:700;">~64%</td></tr>
+        <tr><td style="padding:3px 0;color:var(--text-secondary);">🇯🇵 Giappone</td><td style="text-align:right;">~5,7%</td></tr>
+        <tr><td style="padding:3px 0;color:var(--text-secondary);">🇬🇧 Regno Unito</td><td style="text-align:right;">~3,4%</td></tr>
+        <tr><td style="padding:3px 0;color:var(--text-secondary);">🇨🇳 Cina</td><td style="text-align:right;">~3,0%</td></tr>
+        <tr><td style="padding:3px 0;color:var(--text-secondary);">🇨🇦 Canada</td><td style="text-align:right;">~2,8%</td></tr>
+        <tr><td style="padding:3px 0;color:var(--text-secondary);">🇨🇭 Svizzera</td><td style="text-align:right;">~2,4%</td></tr>
+        <tr><td style="padding:3px 0;color:var(--text-secondary);">🇫🇷 Francia</td><td style="text-align:right;">~2,2%</td></tr>
+        <tr><td style="padding:3px 0;color:var(--text-secondary);">🇩🇪 Germania</td><td style="text-align:right;">~2,0%</td></tr>
+        <tr><td style="padding:3px 0;color:var(--text-secondary);">🇹🇼 Taiwan</td><td style="text-align:right;">~2,0%</td></tr>
+      </table>
+      <p class="muted" style="font-size:11px;margin-top:10px;line-height:1.4;">Top holdings: Apple 4,5% / NVIDIA 4,5% / Microsoft 4,2% / Amazon 2,4% / Meta 1,5% / Google 1,5%. <strong>Le top 10 sono tutte US tech</strong>.</p>
+    </div>
+    <div class="card card--glow-red" style="padding:16px;">
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-red);margin-bottom:10px;">⚠ EEM (Emerging Markets) top 10</div>
+      <table style="width:100%;font-family:var(--font-mono);font-size:12px;">
+        <tr><td style="padding:3px 0;color:var(--text-primary);font-weight:700;">🇹🇼 TSMC</td><td style="text-align:right;color:var(--accent-red);font-weight:700;">14,4%</td></tr>
+        <tr><td style="padding:3px 0;">🇰🇷 Samsung Elec</td><td style="text-align:right;color:var(--accent-yellow);">6,1%</td></tr>
+        <tr><td style="padding:3px 0;">🇰🇷 SK Hynix</td><td style="text-align:right;color:var(--accent-yellow);">4,0%</td></tr>
+        <tr><td style="padding:3px 0;">🇨🇳 Tencent</td><td style="text-align:right;">3,3%</td></tr>
+        <tr><td style="padding:3px 0;">🇨🇳 Alibaba</td><td style="text-align:right;">2,4%</td></tr>
+        <tr><td style="padding:3px 0;">🇹🇼 Delta Electronics</td><td style="text-align:right;">1,1%</td></tr>
+        <tr><td style="padding:3px 0;">🇹🇼 MediaTek</td><td style="text-align:right;">1,1%</td></tr>
+        <tr><td style="padding:3px 0;">🇨🇳 China Construction</td><td style="text-align:right;">0,9%</td></tr>
+        <tr><td style="padding:3px 0;">🇮🇳 HDFC Bank</td><td style="text-align:right;">0,8%</td></tr>
+        <tr><td style="padding:3px 0;">🇮🇳 Reliance</td><td style="text-align:right;">0,8%</td></tr>
+      </table>
+      <p class="muted" style="font-size:11px;margin-top:10px;line-height:1.4;">
+        <strong style="color:var(--accent-red);">TSMC + Samsung + SK Hynix + Delta + MediaTek = 27%</strong> dell'EEM è <strong>semi/AI supply chain US</strong>. È un finto Emerging Markets.
+        Compri <strong>NVIDIA travestita da Taiwan</strong>: TSMC produce i chip per NVIDIA, Apple, AMD; SK Hynix fa la HBM3e per H100.
+      </p>
+    </div>
+    <div class="card card--glow-red" style="padding:16px;">
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-red);margin-bottom:10px;">⚠ Europa vs USA · 15 anni</div>
+      <table class="data-table" style="font-size:12px;">
+        <thead>
+          <tr><th style="padding:6px 8px;">ETF</th><th class="num" style="padding:6px 8px;">CAGR 15y</th><th class="num" style="padding:6px 8px;">Total</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:5px 8px;"><strong>SPY</strong> · S&amp;P 500</td><td class="num accent-green" style="padding:5px 8px;">+13,67%</td><td class="num accent-green" style="padding:5px 8px;">+584%</td></tr>
+          <tr><td style="padding:5px 8px;">VGK · FTSE Europe</td><td class="num accent-yellow" style="padding:5px 8px;">+5,22%</td><td class="num" style="padding:5px 8px;">+115%</td></tr>
+          <tr><td style="padding:5px 8px;">EZU · MSCI Eurozone</td><td class="num accent-yellow" style="padding:5px 8px;">+4,16%</td><td class="num" style="padding:5px 8px;">+84%</td></tr>
+          <tr><td style="padding:5px 8px;">VWO · FTSE EM</td><td class="num accent-red" style="padding:5px 8px;">+3,07%</td><td class="num accent-red" style="padding:5px 8px;">+57%</td></tr>
+          <tr><td style="padding:5px 8px;"><strong>EEM</strong> · MSCI EM</td><td class="num accent-red" style="padding:5px 8px;">+2,02%</td><td class="num accent-red" style="padding:5px 8px;">+35%</td></tr>
+        </tbody>
+      </table>
+      <p class="muted" style="font-size:11px;margin-top:10px;line-height:1.4;">
+        Europa ha sottoperformato gli US di <strong style="color:var(--accent-red);">−8,45 punti CAGR</strong> per 15 anni consecutivi.
+        Emerging Markets di <strong style="color:var(--accent-red);">−11,65 pp</strong>. Diversificare geograficamente costa 8-12 punti di CAGR ogni anno.
+      </p>
+    </div>
+  </div>
+  <p class="lead" style="font-size:15px;line-height:1.45;">
+    La <span class="emphasis-box--red">"diversificazione globale" è una bugia di marketing</span>. VWCE è 64% US tech mega-cap. EEM è 27% supply chain semi US. Europa e EM hanno sottoperformato per 15 anni.
+    Quando crolla il S&amp;P, crolla tutto: TSMC dipende dai dollari di NVIDIA, Samsung dai dollari di Apple, l'Europa dalle esportazioni US.
+  </p>
+  <div class="source">Fonte: Vanguard fact sheet 2025-Q3 (VWCE) · iShares EEM holdings live · backtest yfinance 2010-2024</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 23: Algorithm cascade ============ -->
+<section class="slide" data-id="23" style="padding-top:60px;padding-bottom:90px;">
+<div class="slide-inner" style="gap:16px;">
+  <div class="eyebrow">Capitolo 8B · Why crashes happen</div>
+  <h2 class="h2" style="font-size:clamp(28px,3.4vw,46px);">Quando crolla, crolla tutto. <span class="accent-yellow">$120 miliardi</span> di selling meccanico.</h2>
+  <div class="chart-wrapper" style="height:320px;">
+    <canvas id="chart-volcontrol"></canvas>
+  </div>
+  <p class="lead" style="font-size:15px;line-height:1.45;">
+    I fondi <strong>Vol Control</strong> (target volatilità) vendono meccanicamente quando il VIX sale.
+    A questo si aggiungono Risk Parity ($200-400B AUM) e CTA trend-following ($350B AUM).
+    <span class="emphasis-box--red">Stessi trigger, stesso giorno</span> → cascade selling.
+    Gli ETF amplificano questo movimento perché sono il veicolo passivo che gli algoritmi usano per liquidare.
+  </p>
+  <div class="source">Fonte: algorithm/04_vol_control.md:67-80 · stime Morgan Stanley/Kolanovic</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 24: UPRO disaster ============ -->
+<section class="slide" data-id="24">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow accent-red" style="border-color:rgba(255,71,87,0.3);background:rgba(255,71,87,0.08);color:var(--accent-red);">Capitolo 9 · Leverage</div>
+  <h2 class="h2" style="text-align:center;">UPRO (S&amp;P 500 leva 3×).<br>COVID 2020.</h2>
+  <div class="big-number big-number--red" data-counter="96.4" data-prefix="−" data-suffix="%" data-decimals="1">−0%</div>
+  <p class="lead" style="text-align:center;max-width:880px;">
+    Da €100.000 a <strong>€3.600</strong> in 4 settimane. Servirebbe un +2.400% per recuperare.
+    <span class="emphasis-box--red">Non succederà mai</span>.<br><br>
+    Bull market 2009-2020: UPRO +20,8%/anno (sembra magic).<br>
+    Singolo crash COVID: bruciato un decennio di gain.<br>
+    <strong>Volatility decay</strong>: il leverage daily reset distrugge il capitale nei mercati laterali.
+  </p>
+  <div class="source">Fonte: guides/strategie/06_levered.md:15-42 · guides/strategie/09_lezioni.md:18</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 23B: ENERGY + GOLD HEDGE — edge da verificare ============ -->
+<section class="slide" data-id="23b" style="padding-top:50px;padding-bottom:80px;">
+<div class="slide-inner" style="gap:14px;">
+  <div class="eyebrow accent-yellow" style="border-color:rgba(255,165,2,0.3);background:rgba(255,165,2,0.08);color:var(--accent-yellow);">⚠ Edge da verificare · Capitolo 8C</div>
+  <h2 class="h2" style="font-size:clamp(26px,3vw,42px);">Esiste una formula per <span class="accent-yellow">sopravvivere ai rate hike</span>?</h2>
+  <p class="lead" style="font-size:15px;line-height:1.45;">
+    Backtest esplorativo (PAC €1k/mese, 2004-2024, 21y, costi reali). 10 strategie testate. Risultati promettenti ma <strong>NON ancora validati</strong> per uso operativo.
+  </p>
+  <div class="split-2" style="gap:18px;grid-template-columns:1.3fr 1fr;">
+    <div>
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Top 5 strategie testate (final value PAC)</div>
+      <table class="data-table" style="font-size:12px;">
+        <thead>
+          <tr><th style="padding:6px 8px;">Strategia</th><th class="num" style="padding:6px 8px;">Final €</th><th class="num" style="padding:6px 8px;">CAGR</th><th class="num" style="padding:6px 8px;">MaxDD</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight"><td style="padding:6px 8px;"><strong>C2 · CPI&gt;4% → SELL ALL → GLD/XLE 50-50</strong></td><td class="num accent-green" style="padding:6px 8px;font-weight:700;">€1.150K</td><td class="num accent-green" style="padding:6px 8px;">+11,45%</td><td class="num accent-red" style="padding:6px 8px;">-42,9%</td></tr>
+          <tr><td style="padding:6px 8px;">C1 · CPI&gt;4% → SPY 50/XLE 25/GLD 25</td><td class="num" style="padding:6px 8px;">€822K</td><td class="num" style="padding:6px 8px;">+9,65%</td><td class="num" style="padding:6px 8px;">-36,4%</td></tr>
+          <tr><td style="padding:6px 8px;"><strong>A1 · SPY 100% (baseline)</strong></td><td class="num" style="padding:6px 8px;">€819K</td><td class="num" style="padding:6px 8px;">+9,63%</td><td class="num" style="padding:6px 8px;">-36,3%</td></tr>
+          <tr><td style="padding:6px 8px;">A5 · SPY 70 / GLD 15 / XOM 15 (top 1)</td><td class="num" style="padding:6px 8px;">€714K</td><td class="num" style="padding:6px 8px;">+8,90%</td><td class="num accent-green" style="padding:6px 8px;font-weight:700;">-22,8%</td></tr>
+          <tr><td style="padding:6px 8px;">B2 · Fed hike → SELL ALL (signal sbagliato)</td><td class="num accent-red" style="padding:6px 8px;">€691K</td><td class="num accent-red" style="padding:6px 8px;">+8,72%</td><td class="num" style="padding:6px 8px;">-37,4%</td></tr>
+        </tbody>
+      </table>
+      <p class="muted" style="font-size:11px;margin-top:10px;line-height:1.45;">
+        <strong>3 insight chiave</strong>:<br>
+        ① Il signal corretto è <strong>CPI &gt; 4%</strong>, non "Fed alza" (Fed hike fallisce nel 2015-18 soft normalization).<br>
+        ② <strong>Top 1 XOM</strong> ha MaxDD migliore di XLE ETF (-22% vs -29%): l'ETF settoriale è più volatile dei suoi top holdings.<br>
+        ③ Static hedge sottoperforma SPY puro su 21y — l'edge sta nel <strong>signal dinamico</strong>.
+      </p>
+    </div>
+    <div class="card card--glow-cyan" style="padding:18px;">
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;color:var(--accent-cyan);">CPI USA · stato live (mar 2026)</div>
+      <div class="big-number" style="font-size:64px;color:var(--accent-yellow);line-height:1;">3,29%</div>
+      <p class="muted" style="font-size:12px;margin-top:10px;line-height:1.5;">
+        YoY a marzo. <strong style="color:var(--accent-yellow);">In accelerazione</strong>: +0,87% MoM (il più alto da mesi). A 0,71pp dal trigger.
+      </p>
+      <div style="margin-top:14px;padding:10px;background:rgba(255,165,2,0.08);border:1px solid rgba(255,165,2,0.3);border-radius:8px;">
+        <p style="font-size:12px;line-height:1.45;color:var(--text-secondary);">
+          <strong style="color:var(--accent-yellow);">⚠ Caveat operativi</strong>:<br>
+          • Falso positivo CPI: serve regola <strong>"&gt;4% per 3 mesi consecutivi"</strong>.<br>
+          • Hindsight bias: 3 cycle storici già noti.<br>
+          • Tax drag su switch totale (-26%).<br>
+          • <em>Edge promettente ma NON validato out-of-sample</em>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="padding:14px 20px;border:1px dashed rgba(255,165,2,0.4);background:rgba(255,165,2,0.05);">
+    <p class="lead" style="font-size:14px;line-height:1.5;">
+      <strong style="color:var(--accent-yellow);">📋 Status validation</strong>: questo edge è in <strong>ricerca attiva</strong> (vedi <code style="font-family:var(--font-mono);font-size:12px;">planning/RATE_HIKE_HEDGE_VALIDATION_PLAN.md</code> nel repo).
+      Step ancora da completare: (1) test signal robusto "CPI&gt;4% × 3 mesi", (2) hybrid candidate (default A5 + dynamic shift), (3) tax simulation realistica, (4) out-of-sample 2024-2026.
+      <strong>NON usare ancora come regola operativa</strong>. Lo guardiamo crescere.
+    </p>
+  </div>
+</div>
+</section>
+
+<!-- ============ SLIDE 24B: CRASH TEST INTRO ============ -->
+<section class="slide" data-id="24b">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow">⚠ Capitolo 9 · Crash test</div>
+  <h2 class="h2" style="text-align:center;">«Sì, ma il NoRot2 ha drawdown −49%.<br>L'ETF <span class="accent-cyan">protegge</span> di più, no?»</h2>
+  <p class="lead" style="text-align:center;max-width:980px;">
+    Domanda legittima. Ma c'è un <strong>dettaglio cruciale</strong> che la narrativa "ETF protegge meglio" ignora: <em>da che livello stai cadendo?</em><br><br>
+    Test su 4 crash storici reali: <strong>dot-com, GFC 2008, Memory Glut 2018, Rate Hike 2022</strong>.
+    3 portfolio (SPY, P/E Switch + oro, NVDA+AVGO + 15% oro fisso) × 2 timing (1 anno prima vs 1 mese prima del peak).
+    <span class="emphasis-box">Tasse 26% + slippage 0,1% + bollo 0,2% + costo €1/trade simulati</span>.
+  </p>
+  <div class="card card--glow-cyan" style="text-align:center;padding:24px 36px;margin-top:8px;max-width:860px;">
+    <div class="muted" style="margin-bottom:6px;">L'IPOTESI DA TESTARE</div>
+    <p class="lead" style="font-size:18px;font-style:italic;color:var(--text-primary);">
+      "Cadi più in profondità con NoRot2, ma <strong>parti da molto più in alto</strong>.<br>
+      Anche con uscita ritardata, l'output netto è migliore."
+    </p>
+  </div>
+  <div class="source">Simulazione: yfinance OHLC daily · PAC €1.000/mese · regime dichiarativo · costi realistici BG Saxo</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 24C: DOT-COM CRASH ============ -->
+<section class="slide" data-id="24c">
+<div class="slide-inner">
+  <div class="eyebrow accent-red" style="border-color:rgba(255,71,87,0.3);background:rgba(255,71,87,0.08);color:var(--accent-red);">CRASH #1 · Dot-com Bubble</div>
+  <h2 class="h2">2000-03-24 → 2002-10-09<br><span class="accent-red">31 mesi</span> · SPY −49% · NASDAQ −78%</h2>
+  <div class="split-2" style="gap:18px;grid-template-columns:2fr 1fr;">
+    <div>
+      <div class="muted" style="margin-bottom:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Andamento gain % vs capitale · entry 1y prima del peak</div>
+      <div class="chart-wrapper" style="height:520px;">
+        <canvas id="chart-crash-dotcom-1y"></canvas>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <div class="muted" style="margin-bottom:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Late exit netto (1 settimana dopo bottom)</div>
+        <div class="chart-wrapper" style="height:240px;padding:12px;">
+          <canvas id="chart-crash-dotcom-bars"></canvas>
+        </div>
+      </div>
+      <div class="card card--glow-cyan" style="padding:16px 20px;">
+        <p class="lead" style="font-size:13px;line-height:1.45;">
+          <strong class="accent-cyan">Verdetto:</strong> con entry 1y prima, <strong>P/E Switch</strong> (TS-15%) chiude <span class="accent-green">+10,5%</span> nonostante NASDAQ −78%.
+          SPY <span class="accent-red">−33%</span>, NoRot2 (85% NVDA + 15% oro pre-2009) <span class="accent-red">−31%</span> — peak +129%, DD 157pp ma cushion enorme.
+          Con entry 1m prima, niente cushion: TS salva PESwitch a −12,8%.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ============ SLIDE 24D: GFC 2008 ============ -->
+<section class="slide" data-id="24d">
+<div class="slide-inner">
+  <div class="eyebrow accent-red" style="border-color:rgba(255,71,87,0.3);background:rgba(255,71,87,0.08);color:var(--accent-red);">CRASH #2 · Global Financial Crisis</div>
+  <h2 class="h2">2007-10-31 → 2008-11-20<br><span class="accent-red">13 mesi</span> · SPY −57% · SOXX −68%</h2>
+  <div class="split-2" style="gap:18px;grid-template-columns:2fr 1fr;">
+    <div>
+      <div class="muted" style="margin-bottom:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Andamento gain % vs capitale · entry 1y prima del peak</div>
+      <div class="chart-wrapper" style="height:520px;">
+        <canvas id="chart-crash-gfc2008-1y"></canvas>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <div class="muted" style="margin-bottom:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Late exit netto (1 settimana dopo bottom)</div>
+        <div class="chart-wrapper" style="height:240px;padding:12px;">
+          <canvas id="chart-crash-gfc2008-bars"></canvas>
+        </div>
+      </div>
+      <div class="card card--glow-cyan" style="padding:16px 20px;">
+        <p class="lead" style="font-size:13px;line-height:1.45;">
+          <strong class="accent-cyan">Verdetto:</strong> GFC è il test più brutale (Lehman, VIX 80). Entry 1y prima:
+          <strong>P/E Switch</strong> <span class="accent-yellow">−21%</span> (TS-15% scatta in tempo), SPY <span class="accent-red">−42%</span>, NoRot2 <span class="accent-red">−58%</span>.
+          In crash sistemici NoRot2 puro cade troppo: <span class="emphasis-box--red">P/E Switch + TS è la difesa migliore</span>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ============ SLIDE 24E: MEMORY GLUT 2018 ============ -->
+<section class="slide" data-id="24e">
+<div class="slide-inner">
+  <div class="eyebrow accent-yellow" style="border-color:rgba(255,165,2,0.3);background:rgba(255,165,2,0.08);color:var(--accent-yellow);">CRASH #3 · Memory Glut 2018</div>
+  <h2 class="h2">2018-03-12 → 2018-12-24<br><span class="accent-yellow">9 mesi</span> · SPY −20% · SOXX −26%</h2>
+  <div class="split-2" style="gap:18px;grid-template-columns:2fr 1fr;">
+    <div>
+      <div class="muted" style="margin-bottom:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Andamento gain % vs capitale · entry 1y prima del peak</div>
+      <div class="chart-wrapper" style="height:520px;">
+        <canvas id="chart-crash-memory2018-1y"></canvas>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <div class="muted" style="margin-bottom:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Late exit netto (1 settimana dopo bottom)</div>
+        <div class="chart-wrapper" style="height:240px;padding:12px;">
+          <canvas id="chart-crash-memory2018-bars"></canvas>
+        </div>
+      </div>
+      <div class="card card--glow-green" style="padding:16px 20px;">
+        <p class="lead" style="font-size:13px;line-height:1.45;">
+          <strong class="accent-green">Verdetto:</strong> crash settoriale (NAND/DRAM glut + tariffs), drawdown moderati. Entry 1y prima:
+          <strong>P/E Switch</strong> chiude <span class="accent-green">+1,2%</span> (unico in gain!), SPY <span class="accent-red">−7%</span>, NoRot2 <span class="accent-red">−11%</span>.
+          <strong>Ipotesi regge</strong>: peak NoRot2 +21,8% — DD 29pp, late exit −11% (non disastro).
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ============ SLIDE 24F: RATE HIKE 2022 ============ -->
+<section class="slide" data-id="24f">
+<div class="slide-inner">
+  <div class="eyebrow accent-yellow" style="border-color:rgba(255,165,2,0.3);background:rgba(255,165,2,0.08);color:var(--accent-yellow);">CRASH #4 · Rate Hike + Post-COVID 2022</div>
+  <h2 class="h2">2021-12-27 → 2022-10-13<br><span class="accent-yellow">10 mesi</span> · SPY −25% · SOXX −45%</h2>
+  <div class="split-2" style="gap:18px;grid-template-columns:2fr 1fr;">
+    <div>
+      <div class="muted" style="margin-bottom:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Andamento gain % vs capitale · entry 1y prima del peak</div>
+      <div class="chart-wrapper" style="height:520px;">
+        <canvas id="chart-crash-rate2022-1y"></canvas>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <div class="muted" style="margin-bottom:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Late exit netto (1 settimana dopo bottom)</div>
+        <div class="chart-wrapper" style="height:240px;padding:12px;">
+          <canvas id="chart-crash-rate2022-bars"></canvas>
+        </div>
+      </div>
+      <div class="card card--glow-cyan" style="padding:16px 20px;">
+        <p class="lead" style="font-size:13px;line-height:1.45;">
+          <strong class="accent-cyan">Verdetto:</strong> bear 10 mesi + bond crash simultaneo (60/40 −17%). Entry 1y prima:
+          tutti tra −15% e −22%. NoRot2 peak <span class="accent-green">+40%</span>, DD 58pp ma chiude −22%.
+          <span class="emphasis-box">Insight</span>: il <strong>buffer di gain pre-crash</strong> è il vero scudo, più del basso DD nominale dell'ETF.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ============ SLIDE 24G: SCOREBOARD 4 CRASHES ============ -->
+<section class="slide" data-id="24g" style="padding-top:50px;padding-bottom:80px;">
+<div class="slide-inner" style="gap:14px;">
+  <div class="eyebrow">Crash test · scoreboard</div>
+  <h2 class="h2" style="font-size:clamp(26px,3vw,42px);">4 crash · 24 simulazioni. <span class="accent-cyan">Ipotesi confermata</span> in 7 casi su 8.</h2>
+  <table class="data-table" style="font-size:11px;">
+    <thead>
+      <tr>
+        <th style="padding:8px 10px;">Crash</th>
+        <th style="padding:8px 10px;">Entry</th>
+        <th class="num" style="padding:8px 10px;">SPY</th>
+        <th class="num" style="padding:8px 10px;">P/E Switch</th>
+        <th class="num" style="padding:8px 10px;">NoRot2 nudo</th>
+        <th class="num" style="padding:8px 10px;color:#b388ff;">NoRot2 + TS</th>
+        <th style="padding:8px 10px;">Vincitore</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:6px 10px;"><strong>Dot-com</strong></td><td style="padding:6px 10px;">1y</td><td class="num accent-red" style="padding:6px 10px;">−33,3%</td><td class="num accent-green" style="padding:6px 10px;">+10,5%</td><td class="num accent-red" style="padding:6px 10px;">−31,1%</td><td class="num accent-green" style="padding:6px 10px;">+10,5%</td><td style="padding:6px 10px;color:var(--accent-green);">P/E Switch / NoRot2+TS</td></tr>
+      <tr><td style="padding:6px 10px;">Dot-com</td><td style="padding:6px 10px;">1m</td><td class="num accent-red" style="padding:6px 10px;">−31,4%</td><td class="num accent-yellow" style="padding:6px 10px;">−12,8%</td><td class="num accent-red" style="padding:6px 10px;">−58,2%</td><td class="num accent-yellow" style="padding:6px 10px;">−12,8%</td><td style="padding:6px 10px;color:var(--accent-yellow);">P/E Switch / NoRot2+TS</td></tr>
+      <tr><td style="padding:6px 10px;"><strong>GFC 2008</strong></td><td style="padding:6px 10px;">1y</td><td class="num accent-red" style="padding:6px 10px;">−42,0%</td><td class="num accent-yellow" style="padding:6px 10px;">−21,1%</td><td class="num accent-red" style="padding:6px 10px;">−58,1%</td><td class="num accent-yellow" style="padding:6px 10px;">−21,1%</td><td style="padding:6px 10px;color:var(--accent-yellow);">P/E Switch / NoRot2+TS</td></tr>
+      <tr><td style="padding:6px 10px;">GFC 2008</td><td style="padding:6px 10px;">1m</td><td class="num accent-red" style="padding:6px 10px;">−39,2%</td><td class="num accent-yellow" style="padding:6px 10px;">−29,1%</td><td class="num accent-red" style="padding:6px 10px;">−54,9%</td><td class="num accent-yellow" style="padding:6px 10px;">−29,1%</td><td style="padding:6px 10px;color:var(--accent-yellow);">P/E Switch / NoRot2+TS</td></tr>
+      <tr><td style="padding:6px 10px;"><strong>Memory 2018</strong></td><td style="padding:6px 10px;">1y</td><td class="num accent-red" style="padding:6px 10px;">−7,0%</td><td class="num accent-green" style="padding:6px 10px;">+1,2%</td><td class="num accent-red" style="padding:6px 10px;">−11,3%</td><td class="num accent-yellow" style="padding:6px 10px;">−3,3%</td><td style="padding:6px 10px;color:var(--accent-green);">P/E Switch</td></tr>
+      <tr><td style="padding:6px 10px;">Memory 2018</td><td style="padding:6px 10px;">1m</td><td class="num accent-red" style="padding:6px 10px;">−11,5%</td><td class="num accent-yellow" style="padding:6px 10px;">−9,5%</td><td class="num accent-red" style="padding:6px 10px;">−16,3%</td><td class="num accent-yellow" style="padding:6px 10px;">−9,5%</td><td style="padding:6px 10px;color:var(--accent-yellow);">P/E Switch / NoRot2+TS</td></tr>
+      <tr><td style="padding:6px 10px;"><strong>Rate Hike 2022</strong></td><td style="padding:6px 10px;">1y</td><td class="num accent-red" style="padding:6px 10px;">−15,3%</td><td class="num accent-red" style="padding:6px 10px;">−16,1%</td><td class="num accent-red" style="padding:6px 10px;">−21,6%</td><td class="num accent-red" style="padding:6px 10px;">−22,2%</td><td style="padding:6px 10px;color:var(--accent-yellow);">SPY (sottile)</td></tr>
+      <tr><td style="padding:6px 10px;">Rate Hike 2022</td><td style="padding:6px 10px;">1m</td><td class="num accent-red" style="padding:6px 10px;">−16,2%</td><td class="num accent-red" style="padding:6px 10px;">−21,8%</td><td class="num accent-red" style="padding:6px 10px;">−27,1%</td><td class="num accent-red" style="padding:6px 10px;">−30,5%</td><td style="padding:6px 10px;color:var(--accent-red);">SPY (perdono tutti)</td></tr>
+    </tbody>
+  </table>
+  <div class="split-3" style="gap:14px;">
+    <div class="card" style="text-align:center;padding:14px;">
+      <div class="muted" style="font-size:10px;">Wins netti</div>
+      <div class="big-number" style="font-size:34px;color:var(--accent-green);line-height:1.1;margin:6px 0;">P/E Switch</div>
+      <div class="muted" style="font-size:11px;">7/8 scenari — il TS-15% è il "circuit breaker"</div>
+    </div>
+    <div class="card" style="text-align:center;padding:14px;">
+      <div class="muted" style="font-size:10px;">Performance media SPY</div>
+      <div class="big-number" style="font-size:34px;color:var(--accent-red);line-height:1.1;margin:6px 0;">−24%</div>
+      <div class="muted" style="font-size:11px;">Late exit medio. La "protezione" dell'ETF è solo nominale</div>
+    </div>
+    <div class="card" style="text-align:center;padding:14px;">
+      <div class="muted" style="font-size:10px;">Lezione operativa</div>
+      <div class="big-number" style="font-size:26px;color:var(--accent-cyan);line-height:1.1;margin:6px 0;">Compound + TS</div>
+      <div class="muted" style="font-size:11px;">Concentra sui winner, mantieni TS−15% come scudo per crash sistemici</div>
+    </div>
+  </div>
+  <div class="source">8 scenari = 4 crash × 2 timing. "Vincitore" = late exit gain % più alto. Costi realistici, regime dichiarativo Italia.</div>
+</div>
+</section>
+
+<!-- ============ SLIDE 25: PLOT TWIST ============ -->
+<section class="slide" data-id="25">
+<div class="slide-inner">
+  <div class="eyebrow">Plot twist · onestà</div>
+  <h2 class="h2">Quando l'ETF<br><span class="accent-green">È</span> la scelta razionale.</h2>
+  <p class="lead">
+    Non sto dicendo "mai comprare ETF". Sto dicendo "sappi cosa stai facendo".
+    Per <strong>tre profili</strong> di investitore, l'ETF passivo resta la scelta giusta:
+  </p>
+  <div class="split-3">
+    <div class="card">
+      <div class="big-number" style="font-size:48px;color:var(--accent-cyan);">01</div>
+      <h3 class="h3" style="margin-top:8px;">&lt;30 min/settimana</h3>
+      <p class="lead" style="font-size:16px;">
+        Se non hai tempo per studiare i tuoi investimenti, PAC su VWCE batte cash che si svaluta.
+        L'autoconsapevolezza è una virtù.
+      </p>
+    </div>
+    <div class="card">
+      <div class="big-number" style="font-size:48px;color:var(--accent-cyan);">02</div>
+      <h3 class="h3" style="margin-top:8px;">Capitale &lt;€10K</h3>
+      <p class="lead" style="font-size:16px;">
+        Sotto questa soglia le commissioni di transazione su singoli titoli mangiano l'edge.
+        TER 0,07% di SPY è imbattibile.
+      </p>
+    </div>
+    <div class="card">
+      <div class="big-number" style="font-size:48px;color:var(--accent-cyan);">03</div>
+      <h3 class="h3" style="margin-top:8px;">Orizzonte 30y+</h3>
+      <p class="lead" style="font-size:16px;">
+        Con orizzonte molto lungo e PAC piccolo, il rischio idiosincratico di concentrarsi su 2-3 titoli supera il drag dell'ETF.
+      </p>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:8px;">
+    <strong>Per tutti gli altri</strong> — chi ha tempo, capitale, e voglia di studiare —
+    gli ETF lasciano sul tavolo <span class="emphasis-box">+5-25% di CAGR all'anno</span>.
+    Cumulato a 30 anni: la differenza tra una pensione decorosa e diventare ricchi.
+  </p>
+</div>
+</section>
+
+<!-- ============ SLIDE 25B: SCOREBOARD recap finale ============ -->
+<section class="slide" data-id="25b">
+<div class="slide-inner">
+  <div class="eyebrow">Recap · 12 minuti in 4 numeri</div>
+  <h2 class="h2">Se ricordi <span class="accent-cyan">solo 4 cose</span><br>di questo video, sono queste.</h2>
+  <div class="split-2" style="gap:24px;">
+    <div class="card card--glow-green" style="text-align:center;padding:36px 28px;">
+      <div class="muted" style="margin-bottom:8px;">delta SPY vs NVDA+AVGO 16y</div>
+      <div class="big-number big-number--green" style="font-size:72px;">+€18,65M</div>
+      <div class="muted" style="font-size:14px;margin-top:12px;">€675K (SPY) vs €19,33M (NoRot2)<br>Stesso PAC. Stessi anni.</div>
+    </div>
+    <div class="card card--glow-red" style="text-align:center;padding:36px 28px;">
+      <div class="muted" style="margin-bottom:8px;">Alphabet duplicato in ETF momentum</div>
+      <div class="big-number big-number--red" style="font-size:72px;">4,65%</div>
+      <div class="muted" style="font-size:14px;margin-top:12px;">Class A 2,54% + Class C 2,11%<br>Stessa azienda. Due volte.</div>
+    </div>
+    <div class="card card--glow-cyan" style="text-align:center;padding:36px 28px;">
+      <div class="muted" style="margin-bottom:8px;">Concentrazione vs equal-weight (8y)</div>
+      <div class="big-number big-number--cyan" style="font-size:72px;">+16pp</div>
+      <div class="muted" style="font-size:14px;margin-top:12px;">+50,7% Top1ByVol vs +34,6% E-W<br>Stesso pool. Solo concentrazione.</div>
+    </div>
+    <div class="card card--glow-red" style="text-align:center;padding:36px 28px;">
+      <div class="muted" style="margin-bottom:8px;">UPRO 3× S&amp;P 500 in COVID 2020</div>
+      <div class="big-number big-number--red" style="font-size:72px;">−96,4%</div>
+      <div class="muted" style="font-size:14px;margin-top:12px;">€100k → €3.600 in 4 settimane<br>Recovery needed: +2.400%.</div>
+    </div>
+  </div>
+  <p class="lead" style="text-align:center;font-size:20px;margin-top:8px;">
+    <strong>Il problema non è l'ETF in sé</strong>. È che ti vendono la pigrizia con la maschera della razionalità.
+  </p>
+</div>
+</section>
+
+<!-- ============ SLIDE 26: stockpickers.app CTA ============ -->
+<section class="slide" data-id="26">
+<div class="slide-inner">
+  <div class="eyebrow accent-cyan">Cosa fare adesso</div>
+  <h2 class="h2">Non comprare un servizio.<br><span class="accent-cyan">Apri lo strumento</span>.</h2>
+  <div class="split-2" style="align-items:center;">
+    <div>
+      <p class="lead">
+        <strong>stockpickers.app</strong> è la piattaforma open che uso io.
+        Niente abbonamenti, niente affiliate, niente corsi.
+      </p>
+      <ul class="bullet-list" style="margin-top:24px;">
+        <li><strong class="accent-cyan">87+ strategie backtested</strong> su 20 anni di dati</li>
+        <li><strong class="accent-cyan">3.500+ titoli</strong> scansionati ogni giorno</li>
+        <li><strong class="accent-cyan">15 algoritmi istituzionali</strong> tracciati (Vol Control, Risk Parity, CTA, MOC flows)</li>
+        <li><strong class="accent-cyan">Crash detection</strong> real-time + Wyckoff pattern recognition</li>
+        <li><strong class="accent-cyan">Buy-the-dip alerts</strong> via Telegram</li>
+        <li><strong>Codice open source</strong> · forkalo · contesta i numeri</li>
+      </ul>
+    </div>
+    <div class="card card--glow-cyan" style="text-align:center;padding:48px 36px;">
+      <div class="muted" style="margin-bottom:8px;">VAI ORA SU</div>
+      <div class="h1" style="font-size:54px;color:var(--accent-cyan);text-shadow:0 0 40px rgba(0,217,255,0.6);">stockpickers<br><span style="color:var(--text-primary);">.app</span></div>
+      <div style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <span class="emphasis-box" style="font-size:14px;">100% gratis</span>
+        <span class="emphasis-box--green" style="font-size:14px;">Open source</span>
+        <span class="emphasis-box" style="font-size:14px;">Italiano</span>
+      </div>
+      <p class="muted" style="margin-top:24px;font-size:13px;">«Apri il Report Completo» → click,<br>e vedi i 3.500 titoli rankati real-time.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ============ SLIDE 27: OUTRO + Disclaimer ============ -->
+<section class="slide" data-id="27">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow">Outro · 3 cose</div>
+  <h2 class="h2" style="text-align:center;">Se sei arrivato qui,<br>vuoi essere il <span class="accent-cyan">secondo tipo</span>.</h2>
+  <ul class="bullet-list bullet-list--numbered" style="max-width:780px;text-align:left;">
+    <li><strong>Iscriviti</strong> al canale per il prossimo video: come si costruisce un portfolio di 2-5 titoli che batte sistematicamente l'ETF.</li>
+    <li><strong>Commenta qui sotto</strong> qual è il tuo ETF principale. Nel prossimo video calcolo quanto ti sta costando in opportunity cost.</li>
+    <li><strong>Apri stockpickers.app</strong>. Nessun abbonamento, niente affiliate, niente corsi. Open source. <em>I dati parlano. Tu decidi.</em></li>
+  </ul>
+  <p class="lead" style="text-align:center;max-width:920px;font-size:18px;color:var(--text-muted);font-style:italic;border-top:1px solid var(--border-subtle);padding-top:32px;margin-top:24px;">
+    <strong style="color:var(--text-secondary);">Disclaimer:</strong> Questo contenuto ha finalità educative.
+    Non costituisce consulenza finanziaria, raccomandazione di investimento, né sollecitazione all'acquisto o vendita.
+    Le performance passate non garantiscono risultati futuri. Ogni investimento comporta rischi, inclusa la perdita del capitale.
+    Studia, fai i tuoi backtest, decidi tu.
+  </p>
+</div>
+</section>
+
+<!-- ============ SLIDE 28: END ============ -->
+<section class="slide" data-id="28">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;gap:48px;">
+  <div class="eyebrow">Fine.</div>
+  <h1 class="h1" style="font-size:clamp(64px,10vw,160px);">Grazie.</h1>
+  <p class="lead" style="text-align:center;font-size:24px;">
+    Hai appena fatto un'ora di studio<br>
+    che il tuo "consulente" non farà mai per te.
+  </p>
+  <div class="card card--glow-cyan" style="padding:32px 48px;">
+    <div class="muted" style="margin-bottom:8px;">CONTINUA SU</div>
+    <div class="h2" style="color:var(--accent-cyan);">stockpickers.app</div>
+  </div>
+  <div class="muted" style="margin-top:16px;">
+    Built with data · zero guru · 2026
+  </div>
+</div>
+</section>
+
+</main>
+
+<div class="disclaimer-tag">⚠ Educational only · DYOR · Capital at risk</div>
+
+<div class="nav-controls">
+  <button class="nav-btn" id="btnPrev" aria-label="Previous slide">←</button>
+  <div class="nav-counter"><span class="current" id="navCurrent">01</span> / <span id="navTotal">28</span></div>
+  <button class="nav-btn" id="btnNext" aria-label="Next slide">→</button>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  const progressBar = document.getElementById('progressBar');
+  const navCurrent = document.getElementById('navCurrent');
+  const navTotal = document.getElementById('navTotal');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+
+  let currentIndex = 0;
+  let chartsInitialized = new Set();
+
+  navTotal.textContent = String(totalSlides).padStart(2, '0');
+
+  function showSlide(idx) {
+    if (idx < 0 || idx >= totalSlides) return;
+    slides.forEach((s, i) => {
+      s.classList.remove('is-active', 'is-prev');
+      if (i === idx) s.classList.add('is-active');
+      else if (i < idx) s.classList.add('is-prev');
+    });
+    currentIndex = idx;
+    const pct = ((idx + 1) / totalSlides) * 100;
+    progressBar.style.width = pct + '%';
+    navCurrent.textContent = String(idx + 1).padStart(2, '0');
+    btnPrev.disabled = idx === 0;
+    btnNext.disabled = idx === totalSlides - 1;
+
+    // Trigger counter animations on entering slide
+    animateCountersInSlide(slides[idx]);
+    // Init charts on demand
+    initChartsInSlide(slides[idx]);
+  }
+
+  function animateCounter(el) {
+    if (el.dataset.animated === 'true') {
+      // re-animate on revisit
+    }
+    const target = parseFloat(el.dataset.counter);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const startTime = performance.now();
+    el.dataset.animated = 'true';
+
+    function tick(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutExpo
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const current = target * eased;
+      let display;
+      if (decimals > 0) {
+        display = current.toFixed(decimals);
+      } else {
+        display = Math.floor(current).toLocaleString('it-IT');
+      }
+      el.textContent = prefix + display + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function animateCountersInSlide(slide) {
+    const counters = slide.querySelectorAll('[data-counter]');
+    counters.forEach(c => {
+      // reset and animate fresh each time
+      c.dataset.animated = 'false';
+      animateCounter(c);
+    });
+  }
+
+  function initChartsInSlide(slide) {
+    const canvases = slide.querySelectorAll('canvas');
+    canvases.forEach(canvas => {
+      if (chartsInitialized.has(canvas.id)) return;
+      chartsInitialized.add(canvas.id);
+      buildChart(canvas);
+    });
+  }
+
+  function buildChart(canvas) {
+    const id = canvas.id;
+    const ctx = canvas.getContext('2d');
+    Chart.defaults.color = '#b0b0c0';
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+
+    if (id === 'chart-stop-loss') {
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Baseline\n(mai vendere)', 'Trailing −15%', 'Trailing −20%', 'ATR 3×'],
+          datasets: [{
+            label: 'CAGR',
+            data: [36.2, 3.1, 5.8, 4.2],
+            backgroundColor: ['#00d26a', '#ff4757', '#ff4757', '#ff4757'],
+            borderRadius: 8,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1a1a36',
+              borderColor: 'rgba(255,255,255,0.1)',
+              borderWidth: 1,
+              padding: 12,
+              callbacks: {
+                label: (ctx) => ctx.parsed.y.toFixed(1) + '% CAGR'
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 42,
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: {
+                callback: (v) => v + '%',
+                font: { family: "'JetBrains Mono'" }
+              }
+            },
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { weight: 600 },
+                color: '#f0f0f5'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    if (id === 'chart-spy-ytd') {
+      const tickers = ['MSFT','AAPL','NVDA','AMZN','GOOGL','META','BRK-B','TSLA','LLY','AVGO','JPM','V','UNH','XOM','MA'];
+      const ytd = [8, 1, 28, 6, 9, 12, 4, -15, -10, 22, 3, 2, -8, 5, 2];
+      const colors = ytd.map(v => v >= 0 ? '#00d26a' : '#ff4757');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: tickers,
+          datasets: [{
+            label: 'YTD 2026 %',
+            data: ytd,
+            backgroundColor: colors,
+            borderRadius: 6,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1a1a36',
+              borderColor: 'rgba(255,255,255,0.1)',
+              borderWidth: 1,
+              padding: 12,
+              callbacks: {
+                label: (ctx) => 'YTD ' + (ctx.parsed.x >= 0 ? '+' : '') + ctx.parsed.x + '%'
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: {
+                callback: (v) => (v >= 0 ? '+' : '') + v + '%',
+                font: { family: "'JetBrains Mono'" }
+              }
+            },
+            y: {
+              grid: { display: false },
+              ticks: {
+                font: { weight: 700, family: "'JetBrains Mono'", size: 11 },
+                color: '#f0f0f5'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    if (id === 'chart-cagr-3way') {
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['SPY · S&P 500', 'QQQ · NASDAQ 100', 'Top2-EW-Hyst', 'P/E Switch + oro', 'NoRot2 · NVDA+AVGO'],
+          datasets: [{
+            label: 'CAGR 16y',
+            data: [8.18, 11.32, 14.30, 24.46, 33.41],
+            backgroundColor: ['#ff4757', '#ffa502', '#00d9ff', '#0a84ff', '#00d26a'],
+            borderRadius: 12,
+            borderSkipped: false,
+            barPercentage: 0.65
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1a1a36',
+              borderColor: 'rgba(255,255,255,0.1)',
+              borderWidth: 1,
+              padding: 12,
+              callbacks: {
+                label: (ctx) => '+' + ctx.parsed.y.toFixed(2) + '% CAGR'
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 35,
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: {
+                callback: (v) => '+' + v + '%',
+                font: { family: "'JetBrains Mono'" }
+              },
+              title: { display: true, text: 'CAGR annuo', color: '#7a7a90', font: { size: 12 } }
+            },
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { weight: 700, size: 13 },
+                color: '#f0f0f5'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    if (id === 'chart-concentration') {
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['S&P 500 · 500 titoli', 'NASDAQ 100 · 100 titoli', 'Top2-EW-Hyst · 2 titoli'],
+          datasets: [{
+            label: 'CAGR 2010-2025',
+            data: [8.18, 11.32, 14.30],
+            backgroundColor: ['#ff4757', '#ffa502', '#00d9ff'],
+            borderRadius: 12,
+            borderSkipped: false,
+            barPercentage: 0.6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1a1a36',
+              borderColor: 'rgba(255,255,255,0.1)',
+              borderWidth: 1,
+              padding: 12,
+              callbacks: {
+                label: (ctx) => '+' + ctx.parsed.y.toFixed(2) + '% CAGR'
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 17,
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: {
+                callback: (v) => '+' + v + '%',
+                font: { family: "'JetBrains Mono'" }
+              },
+              title: { display: true, text: 'CAGR annuo', color: '#7a7a90', font: { size: 12 } }
+            },
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { weight: 700, size: 13 },
+                color: '#f0f0f5'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    if (id === 'chart-pac-growth') {
+      const years = ['2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'];
+      // Tutte equity curve REALI da un unico backtest (PAC €1k/mese, realistic mode,
+      // regime dichiarativo, 2010-2025). P/E Switch = us_only (i ticker nativi
+      // asiatici non hanno dati nel 2010).
+      const spy =      [13, 25, 42, 68,  92,  108, 128, 170, 192, 236,  294,  380,  360,  425,  580,   675];
+      const qqq =      [14, 27, 44, 72,  102, 126, 140, 203, 236, 301,  464,  608,  474,  648,  866,   1068];
+      const top2 =     [14, 30, 52, 67,  98,  109, 117, 193, 216, 327,  593,  835,  736,  969,  1227,  1628];
+      const peswitch = [11, 17, 26, 57,  80,  93,  173, 281, 265, 349,  677,  1355, 862,  1757, 4759,  6364];
+      const norot2 =   [13, 26, 39, 65,  137, 219, 353, 689, 610, 844,  1548, 3037, 2113, 4824, 12282, 19328];
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: years,
+          datasets: [
+            {
+              label: 'SPY (S&P 500)',
+              data: spy,
+              borderColor: '#ff4757',
+              backgroundColor: 'rgba(255,71,87,0.06)',
+              borderWidth: 2.5,
+              tension: 0.35,
+              pointRadius: 0,
+              pointHoverRadius: 6,
+              fill: false
+            },
+            {
+              label: 'QQQ (NASDAQ 100)',
+              data: qqq,
+              borderColor: '#ffa502',
+              backgroundColor: 'rgba(255,165,2,0.06)',
+              borderWidth: 2.5,
+              tension: 0.35,
+              pointRadius: 0,
+              pointHoverRadius: 6,
+              fill: false
+            },
+            {
+              label: 'Top2-EW-Hyst',
+              data: top2,
+              borderColor: '#00d9ff',
+              backgroundColor: 'rgba(0,217,255,0.08)',
+              borderWidth: 3,
+              tension: 0.35,
+              pointRadius: 0,
+              pointHoverRadius: 6,
+              fill: false
+            },
+            {
+              label: 'P/E Switch + oro',
+              data: peswitch,
+              borderColor: '#0a84ff',
+              backgroundColor: 'rgba(10,132,255,0.08)',
+              borderWidth: 3,
+              tension: 0.35,
+              pointRadius: 0,
+              pointHoverRadius: 6,
+              fill: false
+            },
+            {
+              label: 'NoRot2 (NVDA+AVGO)',
+              data: norot2,
+              borderColor: '#00d26a',
+              backgroundColor: 'rgba(0,210,106,0.12)',
+              borderWidth: 3.5,
+              tension: 0.35,
+              pointRadius: 0,
+              pointHoverRadius: 7,
+              fill: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top',
+              align: 'end',
+              labels: {
+                usePointStyle: true,
+                pointStyle: 'line',
+                padding: 18,
+                font: { weight: 600, size: 13 }
+              }
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+              backgroundColor: '#1a1a36',
+              borderColor: 'rgba(255,255,255,0.1)',
+              borderWidth: 1,
+              padding: 14,
+              callbacks: {
+                label: (ctx) => ctx.dataset.label + ': €' + ctx.parsed.y.toLocaleString('it-IT') + 'K'
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: {
+                callback: (v) => '€' + (v >= 1000 ? (v/1000).toFixed(1) + 'M' : v + 'K'),
+                font: { family: "'JetBrains Mono'" }
+              },
+              title: { display: true, text: 'Valore portfolio (€)', color: '#7a7a90', font: { size: 12 } }
+            },
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { family: "'JetBrains Mono'", size: 11 },
+                color: '#b0b0c0',
+                maxRotation: 0,
+                autoSkip: true,
+                autoSkipPadding: 10
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // === CRASH TEST CHARTS ===
+    if (id.startsWith('chart-crash-')) {
+      const crashData = JSON.parse(document.getElementById('crash-data').textContent);
+      const parts = id.replace('chart-crash-', '').split('-');
+      const crashId = parts[0]; // dotcom, gfc2008, memory2018, rate2022
+      const variant = parts[1]; // 1y or bars
+      const crash = crashData.crashes.find(c => c.id === crashId);
+      if (!crash) return;
+
+      const portfolioColors = {
+        SPY: '#ff4757',
+        PESwitch: '#0a84ff',
+        NoRot2: '#00d26a',
+        NoRot2_TS: '#b388ff'
+      };
+      const portfolioLabels = {
+        SPY: 'SPY (PAC puro)',
+        PESwitch: 'P/E Switch + oro',
+        NoRot2: 'NVDA+AVGO + 15% oro',
+        NoRot2_TS: 'NVDA+AVGO + oro · TS−15%'
+      };
+
+      if (variant === '1y') {
+        // Line chart with 3 portfolio timelines (1y_before)
+        const scenarios = crash.scenarios.filter(s => s.entry_offset === '1y_before');
+        // Use longest timeline as x-axis
+        const maxTimeline = scenarios.reduce((max, s) =>
+          s.timeline_dates.length > max.length ? s.timeline_dates : max, []);
+        const peakLineIdx = maxTimeline.findIndex(d => d >= crash.peak_date);
+        const troughLineIdx = maxTimeline.findIndex(d => d >= crash.trough_date);
+
+        const datasets = scenarios.map(s => ({
+          label: portfolioLabels[s.portfolio],
+          data: s.timeline_values,
+          borderColor: portfolioColors[s.portfolio],
+          backgroundColor: portfolioColors[s.portfolio] + '15',
+          borderWidth: 2.5,
+          tension: 0.3,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          fill: false
+        }));
+
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: maxTimeline.map(d => d.substring(0, 7)),
+            datasets: datasets
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+                align: 'end',
+                labels: { usePointStyle: true, pointStyle: 'line', padding: 12, font: { size: 11, weight: 600 } }
+              },
+              tooltip: {
+                mode: 'index',
+                intersect: false,
+                backgroundColor: '#1a1a36',
+                borderColor: 'rgba(255,255,255,0.1)',
+                borderWidth: 1,
+                padding: 10,
+                callbacks: {
+                  label: (ctx) => ctx.dataset.label + ': ' + (ctx.parsed.y >= 0 ? '+' : '') + ctx.parsed.y.toFixed(1) + '%'
+                }
+              },
+              annotation: {
+                annotations: {
+                  peakLine: {
+                    type: 'line',
+                    xMin: peakLineIdx, xMax: peakLineIdx,
+                    borderColor: 'rgba(255,165,2,0.7)',
+                    borderWidth: 2,
+                    borderDash: [6, 4],
+                    label: {
+                      display: true,
+                      content: '⚠ PEAK',
+                      position: 'start',
+                      backgroundColor: 'rgba(255,165,2,0.85)',
+                      color: '#0f0f1a',
+                      font: { size: 10, weight: 700, family: "'JetBrains Mono'" },
+                      padding: { x: 6, y: 3 },
+                      borderRadius: 4,
+                      yAdjust: -2
+                    }
+                  },
+                  troughLine: {
+                    type: 'line',
+                    xMin: troughLineIdx, xMax: troughLineIdx,
+                    borderColor: 'rgba(255,71,87,0.7)',
+                    borderWidth: 2,
+                    borderDash: [6, 4],
+                    label: {
+                      display: true,
+                      content: '▼ TROUGH',
+                      position: 'end',
+                      backgroundColor: 'rgba(255,71,87,0.85)',
+                      color: '#fff',
+                      font: { size: 10, weight: 700, family: "'JetBrains Mono'" },
+                      padding: { x: 6, y: 3 },
+                      borderRadius: 4
+                    }
+                  }
+                }
+              }
+            },
+            scales: {
+              y: {
+                grid: { color: 'rgba(255,255,255,0.05)' },
+                ticks: {
+                  callback: (v) => (v >= 0 ? '+' : '') + v + '%',
+                  font: { family: "'JetBrains Mono'", size: 11 }
+                },
+                title: { display: true, text: 'Gain % vs capitale', color: '#7a7a90', font: { size: 11 } }
+              },
+              x: {
+                grid: { display: false },
+                ticks: { font: { family: "'JetBrains Mono'", size: 10 }, color: '#7a7a90', maxRotation: 0, autoSkip: true, autoSkipPadding: 14 }
+              }
+            }
+          }
+        });
+      }
+
+      if (variant === 'bars') {
+        // Bar chart with 6 scenarios: 3 portfolio × 2 timing
+        const labels = [];
+        const data = [];
+        const colors = [];
+        const order = ['SPY', 'PESwitch', 'NoRot2', 'NoRot2_TS'];
+        for (const p of order) {
+          for (const t of ['1y_before', '1m_before']) {
+            const s = crash.scenarios.find(x => x.portfolio === p && x.entry_offset === t);
+            if (s) {
+              labels.push(portfolioLabels[p] + (t === '1y_before' ? '\n(1y prima)' : '\n(1m prima)'));
+              data.push(s.late_exit_gain_pct);
+              colors.push(s.late_exit_gain_pct >= 0 ? '#00d26a' : portfolioColors[p]);
+            }
+          }
+        }
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Late exit gain %',
+              data: data,
+              backgroundColor: colors,
+              borderRadius: 6,
+              borderSkipped: false
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#1a1a36',
+                borderColor: 'rgba(255,255,255,0.1)',
+                borderWidth: 1,
+                padding: 12,
+                callbacks: {
+                  label: (ctx) => 'Late exit: ' + (ctx.parsed.x >= 0 ? '+' : '') + ctx.parsed.x.toFixed(1) + '%'
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { color: 'rgba(255,255,255,0.05)' },
+                ticks: {
+                  callback: (v) => (v >= 0 ? '+' : '') + v + '%',
+                  font: { family: "'JetBrains Mono'", size: 11 }
+                }
+              },
+              y: {
+                grid: { display: false },
+                ticks: { font: { size: 11, weight: 600 }, color: '#f0f0f5' }
+              }
+            }
+          }
+        });
+      }
+      return;
+    }
+
+    if (id === 'chart-volcontrol') {
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['VIX 15→20', 'VIX 20→25', 'VIX 25→30', 'VIX 30→40'],
+          datasets: [{
+            label: 'Selling forzato (USD billions)',
+            data: [30, 50, 80, 120],
+            backgroundColor: ['#ffa502', '#ff8a3d', '#ff6b3d', '#ff4757'],
+            borderRadius: 10,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1a1a36',
+              borderColor: 'rgba(255,255,255,0.1)',
+              borderWidth: 1,
+              padding: 12,
+              callbacks: {
+                label: (ctx) => '$' + ctx.parsed.y + 'B vendite Vol Control'
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: {
+                callback: (v) => '$' + v + 'B',
+                font: { family: "'JetBrains Mono'" }
+              }
+            },
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { weight: 600, family: "'JetBrains Mono'" },
+                color: '#f0f0f5'
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
+  // Navigation events
+  btnPrev.addEventListener('click', () => showSlide(currentIndex - 1));
+  btnNext.addEventListener('click', () => showSlide(currentIndex + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      e.preventDefault();
+      showSlide(currentIndex + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      showSlide(currentIndex - 1);
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      showSlide(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      showSlide(totalSlides - 1);
+    } else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen?.();
+      } else {
+        document.exitFullscreen?.();
+      }
+    }
+  });
+
+  // Touch swipe
+  let touchStartX = 0;
+  let touchEndX = 0;
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const dx = touchEndX - touchStartX;
+    if (Math.abs(dx) > 60) {
+      if (dx < 0) showSlide(currentIndex + 1);
+      else showSlide(currentIndex - 1);
+    }
+  }, { passive: true });
+
+  // Accordion handler for holdings rows with data-desc
+  document.addEventListener('click', (e) => {
+    const row = e.target.closest('.holdings-row[data-desc]');
+    if (!row) return;
+    e.stopPropagation();
+    row.classList.toggle('is-expanded');
+    const detail = row.nextElementSibling;
+    if (detail && detail.classList.contains('holdings-detail')) {
+      detail.classList.toggle('is-open');
+    }
+  });
+
+  // Initialize first slide animations
+  setTimeout(() => {
+    animateCountersInSlide(slides[0]);
+  }, 200);
+
+  // Click on slide area to advance (optional)
+  // (disabled to avoid conflict with future interactive elements)
+})();
+</script>
+</body>
+</html>

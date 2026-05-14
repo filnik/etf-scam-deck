@@ -1,0 +1,845 @@
+{
+  "generated_at": "2026-05-08",
+  "cycles": [
+    {
+      "id": "greenspan_2004_06",
+      "name": "Greenspan Tightening 2004-06",
+      "subtitle": "1% \u2192 5,25% \u00b7 +425 bps in 25 mesi \u00b7 17 hikes",
+      "first_hike_date": "2004-06-30",
+      "cycle_end": "2006-08-08",
+      "start_rate_pct": 1.0,
+      "end_rate_pct": 5.25,
+      "triggers": {
+        "first_hike": "2004-06-30",
+        "delta_50bps": "2004-08-10",
+        "delta_100bps": "2004-11-10",
+        "delta_150bps": "2005-02-02"
+      },
+      "full_cycle_asset_returns": {
+        "SPY": 15.52,
+        "SHY": 4.37,
+        "IEF": 6.77,
+        "TLT": 13.86,
+        "GLD": 44.14,
+        "DBC": 7.81,
+        "XLE": 89.49,
+        "VNQ": 51.61
+      },
+      "strategies": [
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2004-06-30",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 4.37,
+          "total_return_pct": 4.37,
+          "vs_bh_spy_pp": -11.15
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2004-06-30",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 6.77,
+          "total_return_pct": 6.77,
+          "vs_bh_spy_pp": -8.75
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2004-06-30",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 13.86,
+          "total_return_pct": 13.86,
+          "vs_bh_spy_pp": -1.66
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2004-06-30",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 44.14,
+          "total_return_pct": 44.14,
+          "vs_bh_spy_pp": 28.62
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2004-06-30",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 7.81,
+          "total_return_pct": 7.81,
+          "vs_bh_spy_pp": -7.71
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2004-06-30",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 89.49,
+          "total_return_pct": 89.49,
+          "vs_bh_spy_pp": 73.97
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2004-06-30",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 51.61,
+          "total_return_pct": 51.61,
+          "vs_bh_spy_pp": 36.09
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2004-08-10",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": -5.37,
+          "parking_post_trigger_pct": 3.83,
+          "total_return_pct": -1.75,
+          "vs_bh_spy_pp": -17.27
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2004-08-10",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": -5.37,
+          "parking_post_trigger_pct": 4.24,
+          "total_return_pct": -1.36,
+          "vs_bh_spy_pp": -16.88
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2004-08-10",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": -5.37,
+          "parking_post_trigger_pct": 10.12,
+          "total_return_pct": 4.2,
+          "vs_bh_spy_pp": -11.32
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2004-08-10",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": -5.37,
+          "parking_post_trigger_pct": 44.14,
+          "total_return_pct": 36.4,
+          "vs_bh_spy_pp": 20.88
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2004-08-10",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": -5.37,
+          "parking_post_trigger_pct": 7.81,
+          "total_return_pct": 2.02,
+          "vs_bh_spy_pp": -13.5
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2004-08-10",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": -5.37,
+          "parking_post_trigger_pct": 90.52,
+          "total_return_pct": 80.29,
+          "vs_bh_spy_pp": 64.77
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2004-08-10",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": -5.37,
+          "parking_post_trigger_pct": 51.61,
+          "total_return_pct": 43.47,
+          "vs_bh_spy_pp": 27.95
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2004-11-10",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": 2.56,
+          "parking_post_trigger_pct": 3.6,
+          "total_return_pct": 6.24,
+          "vs_bh_spy_pp": -9.28
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2004-11-10",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": 2.56,
+          "parking_post_trigger_pct": 2.69,
+          "total_return_pct": 5.32,
+          "vs_bh_spy_pp": -10.2
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2004-11-10",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": 2.56,
+          "parking_post_trigger_pct": 7.15,
+          "total_return_pct": 9.88,
+          "vs_bh_spy_pp": -5.64
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2004-11-10",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": 2.56,
+          "parking_post_trigger_pct": 44.14,
+          "total_return_pct": 47.83,
+          "vs_bh_spy_pp": 32.31
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2004-11-10",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": 2.56,
+          "parking_post_trigger_pct": 7.81,
+          "total_return_pct": 10.57,
+          "vs_bh_spy_pp": -4.95
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2004-11-10",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": 2.56,
+          "parking_post_trigger_pct": 68.65,
+          "total_return_pct": 72.96,
+          "vs_bh_spy_pp": 57.44
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2004-11-10",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": 2.56,
+          "parking_post_trigger_pct": 40.74,
+          "total_return_pct": 44.34,
+          "vs_bh_spy_pp": 28.82
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2005-02-02",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": 5.38,
+          "parking_post_trigger_pct": 3.52,
+          "total_return_pct": 9.09,
+          "vs_bh_spy_pp": -6.43
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2005-02-02",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": 5.38,
+          "parking_post_trigger_pct": 1.29,
+          "total_return_pct": 6.73,
+          "vs_bh_spy_pp": -8.79
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2005-02-02",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": 5.38,
+          "parking_post_trigger_pct": 0.91,
+          "total_return_pct": 6.34,
+          "vs_bh_spy_pp": -9.18
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2005-02-02",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": 5.38,
+          "parking_post_trigger_pct": 51.73,
+          "total_return_pct": 59.89,
+          "vs_bh_spy_pp": 44.37
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2005-02-02",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": 5.38,
+          "parking_post_trigger_pct": 7.81,
+          "total_return_pct": 13.61,
+          "vs_bh_spy_pp": -1.91
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2005-02-02",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": 5.38,
+          "parking_post_trigger_pct": 52.89,
+          "total_return_pct": 61.11,
+          "vs_bh_spy_pp": 45.59
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2005-02-02",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": 5.38,
+          "parking_post_trigger_pct": 40.33,
+          "total_return_pct": 47.87,
+          "vs_bh_spy_pp": 32.35
+        }
+      ],
+      "bh_spy_return_pct": 15.52
+    },
+    {
+      "id": "yellen_powell_2015_18",
+      "name": "Yellen-Powell Normalization 2015-18",
+      "subtitle": "0,25% \u2192 2,50% \u00b7 +225 bps in 36 mesi \u00b7 9 hikes",
+      "first_hike_date": "2015-12-16",
+      "cycle_end": "2019-07-31",
+      "start_rate_pct": 0.25,
+      "end_rate_pct": 2.5,
+      "triggers": {
+        "first_hike": "2015-12-16",
+        "delta_50bps": "2016-12-14",
+        "delta_100bps": "2017-06-14",
+        "delta_150bps": "2018-03-21"
+      },
+      "full_cycle_asset_returns": {
+        "SPY": 54.03,
+        "SHY": 4.9,
+        "IEF": 11.75,
+        "TLT": 20.03,
+        "GLD": 29.64,
+        "DBC": 17.99,
+        "XLE": 13.46,
+        "VNQ": 30.43
+      },
+      "strategies": [
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2015-12-16",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 4.9,
+          "total_return_pct": 4.9,
+          "vs_bh_spy_pp": -49.13
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2015-12-16",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 11.75,
+          "total_return_pct": 11.75,
+          "vs_bh_spy_pp": -42.28
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2015-12-16",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 20.03,
+          "total_return_pct": 20.03,
+          "vs_bh_spy_pp": -34.0
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2015-12-16",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 29.64,
+          "total_return_pct": 29.64,
+          "vs_bh_spy_pp": -24.39
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2015-12-16",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 17.99,
+          "total_return_pct": 17.99,
+          "vs_bh_spy_pp": -36.04
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2015-12-16",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 13.46,
+          "total_return_pct": 13.46,
+          "vs_bh_spy_pp": -40.57
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2015-12-16",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 30.43,
+          "total_return_pct": 30.43,
+          "vs_bh_spy_pp": -23.6
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2016-12-14",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": 10.92,
+          "parking_post_trigger_pct": 4.33,
+          "total_return_pct": 15.72,
+          "vs_bh_spy_pp": -38.31
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2016-12-14",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": 10.92,
+          "parking_post_trigger_pct": 11.76,
+          "total_return_pct": 23.96,
+          "vs_bh_spy_pp": -30.07
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2016-12-14",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": 10.92,
+          "parking_post_trigger_pct": 21.65,
+          "total_return_pct": 34.93,
+          "vs_bh_spy_pp": -19.1
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2016-12-14",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": 10.92,
+          "parking_post_trigger_pct": 22.4,
+          "total_return_pct": 35.77,
+          "vs_bh_spy_pp": -18.26
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2016-12-14",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": 10.92,
+          "parking_post_trigger_pct": 1.04,
+          "total_return_pct": 12.07,
+          "vs_bh_spy_pp": -41.96
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2016-12-14",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": 10.92,
+          "parking_post_trigger_pct": -10.52,
+          "total_return_pct": -0.75,
+          "vs_bh_spy_pp": -54.78
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2016-12-14",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": 10.92,
+          "parking_post_trigger_pct": 22.95,
+          "total_return_pct": 36.37,
+          "vs_bh_spy_pp": -17.66
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2017-06-14",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": 21.17,
+          "parking_post_trigger_pct": 3.63,
+          "total_return_pct": 25.56,
+          "vs_bh_spy_pp": -28.47
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2017-06-14",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": 21.17,
+          "parking_post_trigger_pct": 6.6,
+          "total_return_pct": 29.17,
+          "vs_bh_spy_pp": -24.86
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2017-06-14",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": 21.17,
+          "parking_post_trigger_pct": 11.07,
+          "total_return_pct": 34.57,
+          "vs_bh_spy_pp": -19.46
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2017-06-14",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": 21.17,
+          "parking_post_trigger_pct": 11.18,
+          "total_return_pct": 34.71,
+          "vs_bh_spy_pp": -19.32
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2017-06-14",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": 21.17,
+          "parking_post_trigger_pct": 12.51,
+          "total_return_pct": 36.33,
+          "vs_bh_spy_pp": -17.7
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2017-06-14",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": 21.17,
+          "parking_post_trigger_pct": 1.98,
+          "total_return_pct": 23.56,
+          "vs_bh_spy_pp": -30.47
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2017-06-14",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": 21.17,
+          "parking_post_trigger_pct": 15.54,
+          "total_return_pct": 39.99,
+          "vs_bh_spy_pp": -14.04
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2018-03-21",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": 36.72,
+          "parking_post_trigger_pct": 4.08,
+          "total_return_pct": 42.3,
+          "vs_bh_spy_pp": -11.73
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2018-03-21",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": 36.72,
+          "parking_post_trigger_pct": 11.01,
+          "total_return_pct": 51.77,
+          "vs_bh_spy_pp": -2.26
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2018-03-21",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": 36.72,
+          "parking_post_trigger_pct": 15.62,
+          "total_return_pct": 58.08,
+          "vs_bh_spy_pp": 4.05
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2018-03-21",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": 36.72,
+          "parking_post_trigger_pct": 5.32,
+          "total_return_pct": 43.99,
+          "vs_bh_spy_pp": -10.04
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2018-03-21",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": 36.72,
+          "parking_post_trigger_pct": -7.01,
+          "total_return_pct": 27.13,
+          "vs_bh_spy_pp": -26.9
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2018-03-21",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": 36.72,
+          "parking_post_trigger_pct": -4.86,
+          "total_return_pct": 30.07,
+          "vs_bh_spy_pp": -23.96
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2018-03-21",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": 36.72,
+          "parking_post_trigger_pct": 25.89,
+          "total_return_pct": 72.12,
+          "vs_bh_spy_pp": 18.09
+        }
+      ],
+      "bh_spy_return_pct": 54.03
+    },
+    {
+      "id": "powell_2022_23",
+      "name": "Powell Anti-Inflation 2022-23",
+      "subtitle": "0,25% \u2192 5,50% \u00b7 +525 bps in 16 mesi \u00b7 11 hikes",
+      "first_hike_date": "2022-03-17",
+      "cycle_end": "2024-09-18",
+      "start_rate_pct": 0.25,
+      "end_rate_pct": 5.5,
+      "triggers": {
+        "first_hike": "2022-03-17",
+        "delta_50bps": "2022-05-05",
+        "delta_100bps": "2022-06-16",
+        "delta_150bps": "2022-06-16"
+      },
+      "full_cycle_asset_returns": {
+        "SPY": 32.15,
+        "SHY": 6.09,
+        "IEF": -2.91,
+        "TLT": -18.08,
+        "GLD": 30.2,
+        "DBC": -9.82,
+        "XLE": 30.58,
+        "VNQ": 2.02
+      },
+      "strategies": [
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2022-03-17",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 6.09,
+          "total_return_pct": 6.09,
+          "vs_bh_spy_pp": -26.06
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2022-03-17",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": -2.91,
+          "total_return_pct": -2.91,
+          "vs_bh_spy_pp": -35.06
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2022-03-17",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": -18.08,
+          "total_return_pct": -18.08,
+          "vs_bh_spy_pp": -50.23
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2022-03-17",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 30.2,
+          "total_return_pct": 30.2,
+          "vs_bh_spy_pp": -1.95
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2022-03-17",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": -9.82,
+          "total_return_pct": -9.82,
+          "vs_bh_spy_pp": -41.97
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2022-03-17",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 30.58,
+          "total_return_pct": 30.58,
+          "vs_bh_spy_pp": -1.57
+        },
+        {
+          "strategy": "first_hike",
+          "trigger_date": "2022-03-17",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": 0,
+          "parking_post_trigger_pct": 2.02,
+          "total_return_pct": 2.02,
+          "vs_bh_spy_pp": -30.13
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2022-05-05",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": -5.89,
+          "parking_post_trigger_pct": 7.24,
+          "total_return_pct": 0.92,
+          "vs_bh_spy_pp": -31.23
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2022-05-05",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": -5.89,
+          "parking_post_trigger_pct": 3.6,
+          "total_return_pct": -2.5,
+          "vs_bh_spy_pp": -34.65
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2022-05-05",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": -5.89,
+          "parking_post_trigger_pct": -6.69,
+          "total_return_pct": -12.19,
+          "vs_bh_spy_pp": -44.34
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2022-05-05",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": -5.89,
+          "parking_post_trigger_pct": 34.48,
+          "total_return_pct": 26.56,
+          "vs_bh_spy_pp": -5.59
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2022-05-05",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": -5.89,
+          "parking_post_trigger_pct": -18.5,
+          "total_return_pct": -23.3,
+          "vs_bh_spy_pp": -55.45
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2022-05-05",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": -5.89,
+          "parking_post_trigger_pct": 18.79,
+          "total_return_pct": 11.79,
+          "vs_bh_spy_pp": -20.36
+        },
+        {
+          "strategy": "delta_50bps",
+          "trigger_date": "2022-05-05",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": -5.89,
+          "parking_post_trigger_pct": 6.79,
+          "total_return_pct": 0.5,
+          "vs_bh_spy_pp": -31.65
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2022-06-16",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": 7.79,
+          "total_return_pct": -10.12,
+          "vs_bh_spy_pp": -42.27
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2022-06-16",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": 5.02,
+          "total_return_pct": -12.43,
+          "vs_bh_spy_pp": -44.58
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2022-06-16",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": -3.82,
+          "total_return_pct": -19.8,
+          "vs_bh_spy_pp": -51.95
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2022-06-16",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": 36.38,
+          "total_return_pct": 13.72,
+          "vs_bh_spy_pp": -18.43
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2022-06-16",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": -22.45,
+          "total_return_pct": -35.33,
+          "vs_bh_spy_pp": -67.48
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2022-06-16",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": 23.03,
+          "total_return_pct": 2.59,
+          "vs_bh_spy_pp": -29.56
+        },
+        {
+          "strategy": "delta_100bps",
+          "trigger_date": "2022-06-16",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": 24.04,
+          "total_return_pct": 3.43,
+          "vs_bh_spy_pp": -28.72
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2022-06-16",
+          "parking": "SHY",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": 7.79,
+          "total_return_pct": -10.12,
+          "vs_bh_spy_pp": -42.27
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2022-06-16",
+          "parking": "IEF",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": 5.02,
+          "total_return_pct": -12.43,
+          "vs_bh_spy_pp": -44.58
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2022-06-16",
+          "parking": "TLT",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": -3.82,
+          "total_return_pct": -19.8,
+          "vs_bh_spy_pp": -51.95
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2022-06-16",
+          "parking": "GLD",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": 36.38,
+          "total_return_pct": 13.72,
+          "vs_bh_spy_pp": -18.43
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2022-06-16",
+          "parking": "DBC",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": -22.45,
+          "total_return_pct": -35.33,
+          "vs_bh_spy_pp": -67.48
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2022-06-16",
+          "parking": "XLE",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": 23.03,
+          "total_return_pct": 2.59,
+          "vs_bh_spy_pp": -29.56
+        },
+        {
+          "strategy": "delta_150bps",
+          "trigger_date": "2022-06-16",
+          "parking": "VNQ",
+          "spy_pre_trigger_pct": -16.61,
+          "parking_post_trigger_pct": 24.04,
+          "total_return_pct": 3.43,
+          "vs_bh_spy_pp": -28.72
+        }
+      ],
+      "bh_spy_return_pct": 32.15
+    }
+  ]
+}
