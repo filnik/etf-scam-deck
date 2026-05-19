@@ -1,0 +1,32 @@
+<!-- V1 · l'algoritmo Top 2 dell'S&P 500 — semplice, copiabile -->
+<section class="slide" data-id="v1-top2-algo">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 3C · L'algoritmo Top 2</div>
+  <h2 class="h2">L'algoritmo che puoi copiare oggi:<br><span class="accent-cyan">i 2 più grandi dell'S&amp;P 500</span>.</h2>
+  <div class="split-2" style="gap:24px;align-items:stretch;">
+    <div>
+      <ul class="bullet-list" style="font-size:16px;">
+        <li><strong>1 — Guarda la classifica.</strong> Ogni mese, i 2 titoli più grandi dell'S&amp;P 500 per capitalizzazione. È un dato pubblico, lo trovi ovunque.</li>
+        <li><strong>2 — Metà e metà.</strong> Il PAC del mese si divide in due: €500 sul primo, €500 sul secondo.</li>
+        <li><strong>3 — Isteresi.</strong> Vendi un titolo solo quando scivola <span class="accent-cyan">sotto il 4° posto</span> — non al primo sorpasso. Eviti il rumore.</li>
+        <li><strong>4 — Risultato:</strong> ribilanci ~<strong>2 volte in 16 anni</strong>. Praticamente non fai niente.</li>
+      </ul>
+    </div>
+    <div class="card card--glow-cyan" style="padding:24px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+      <div class="muted" style="font-size:11px;">TOP2-EW-HYST · PAC €1k/mese · 2010-2025</div>
+      <div class="big-number big-number--cyan" style="font-size:64px;line-height:1;margin:14px 0;">€1,63M</div>
+      <div class="muted" style="font-size:13px;">+14,30% CAGR · MaxDD −37%</div>
+      <div style="height:1px;background:var(--border-subtle);margin:18px 0;"></div>
+      <div class="muted" style="font-size:11px;">stesso PAC su SPY · S&amp;P 500</div>
+      <div class="big-number" style="font-size:40px;color:var(--accent-red);line-height:1;margin:8px 0;">€675K</div>
+      <div class="muted" style="font-size:13px;">+8,18% CAGR — <strong>quasi metà</strong></div>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:20px;">
+    Non è la strategia più potente del deck — <span class="accent-green">NoRot2</span> e <span class="accent-blue">P/E Switch</span> fanno molto di più.
+    Ma è <span class="emphasis-box">pubblica, meccanica, zero stock-picking</span>: non scegli niente, segui la classifica.
+    E con tutto questo <strong>quasi raddoppia il CAGR dell'S&amp;P 500</strong>. Il punto non è essere geni — è non essere passivi.
+  </p>
+  <div class="source">Backtest unico · PAC €1k/mese · realistic mode · 2010-2025 · sp1_dumb_strategy_test.py (Top2-EW-Hyst: top_n=2, exit_rank=4)</div>
+</div>
+</section>

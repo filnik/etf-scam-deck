@@ -1,0 +1,25 @@
+<!-- V1 · analisi storica dell'ETF momentum — IWMO-Top2 vs momentum vero -->
+<section class="slide" data-id="v1-iwmo-history" style="padding-top:44px;padding-bottom:52px;">
+<div class="slide-inner" style="gap:11px;flex:1;">
+  <div class="eyebrow">Capitolo 4C · Lo storico dell'ETF momentum</div>
+  <h2 class="h2" style="font-size:clamp(24px,2.7vw,38px);">Ho ricostruito <span class="accent-cyan">8 anni di top-2</span> dell'ETF momentum.</h2>
+  <div class="chart-wrapper" style="flex:1;min-height:320px;">
+    <canvas id="chart-iwmo-history"></canvas>
+  </div>
+  <div class="split-3" style="gap:12px;">
+    <div class="card" style="padding:13px 15px;">
+      <div class="muted" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent-red);margin-bottom:5px;">1 · Peso = market cap travestito</div>
+      <p style="font-size:12px;line-height:1.4;margin:0;">Per anni i "top-2 momentum" dell'ETF erano AMZN, MSFT, AAPL. Nel 2019 il <strong>#2 era Procter&amp;Gamble</strong> — un difensivo. Lo score MSCI viene cappato e dominato dalla dimensione.</p>
+    </div>
+    <div class="card" style="padding:13px 15px;">
+      <div class="muted" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent-red);margin-bottom:5px;">2 · Segnale lento, 6 mesi di lag</div>
+      <p style="font-size:12px;line-height:1.4;margin:0;">L'indice si ricostituisce <strong>2 volte l'anno</strong>. IWMO-Top2 entra in NVDA a <strong>giu 2023</strong>; il momentum vero a <strong>mag 2020</strong>. Tre anni di ritardo sul razzo del decennio.</p>
+    </div>
+    <div class="card" style="padding:13px 15px;">
+      <div class="muted" style="font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent-red);margin-bottom:5px;">3 · Non tocca gli small/mid</div>
+      <p style="font-size:12px;line-height:1.4;margin:0;">Mom-Top2 ha cavalcato ETSY, SMCI, ENPH, VST, PLTR. L'ETF-by-weight è <strong>bloccato sulle mega-cap</strong>: il suo segnale <em>è</em> la dimensione, non può prendere un rocket piccolo.</p>
+    </div>
+  </div>
+  <div class="source" style="padding-right:300px;">96 snapshot IWMO ufficiali iShares (2018-2026) · PAC €1k/mese · realistic mode · dichiarativo · top-2 sempre US (0 FX) · MaxDD: IWMO-Top2 −45,6% vs Mom-Top2 −48,5% · backtest/iwmo_pit_test.py</div>
+</div>
+</section>

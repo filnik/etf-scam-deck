@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V2a · Il rebalancing ti costa</title>
+<meta name="theme-color" content="#0f0f1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="deck-brand"><span class="dot"></span>stockpickers.app</div>
+
+<main class="deck" id="deck">
+
+<!-- V2a · TITLE + hook -->
+<section class="slide is-active layout-center" data-id="v2a-title">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;gap:40px;">
+  <div class="eyebrow">Serie "Gli ETF sono SCAM?" · Video 2 di 5</div>
+  <h1 class="h1">Il rebalancing<br><span class="accent-red">ti costa</span>.</h1>
+  <p class="lead" style="text-align:center;max-width:820px;">
+    Lo 0,07% di commissione non è il costo dell'ETF. È la <strong>punta dell'iceberg</strong>.
+    Ogni anno l'indice vende i tuoi vincitori per "ribilanciare" — e il conto lo paghi tu.
+  </p>
+  <div class="muted">stockpickers.app · serie "Gli ETF sono SCAM?"</div>
+</div>
+</section>
+
+<section class="slide" data-id="04">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 1 · TER</div>
+  <h2 class="h2">«Solo 0,07%? È quasi gratis.»<br><span class="accent-red">Falso.</span></h2>
+  <table class="data-table">
+    <thead>
+      <tr><th>ETF</th><th>Tipo</th><th class="num">TER</th><th class="num">Costo cumulato 30y*</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>SPY</strong></td><td>S&amp;P 500</td><td class="num">0,03–0,07%</td><td class="num accent-cyan">€30.000</td></tr>
+      <tr><td>QQQ</td><td>Nasdaq 100</td><td class="num">0,20%</td><td class="num">€85.000</td></tr>
+      <tr><td>MTUM</td><td>Momentum factor</td><td class="num">0,15%</td><td class="num">€65.000</td></tr>
+      <tr><td>SMH</td><td>Semiconductor</td><td class="num">0,35%</td><td class="num">€140.000</td></tr>
+      <tr><td>GLD</td><td>Gold</td><td class="num">0,40%</td><td class="num">€155.000</td></tr>
+      <tr class="highlight"><td><strong>LIT</strong></td><td>Lithium thematic</td><td class="num accent-red">0,75%</td><td class="num accent-red">€240.000</td></tr>
+      <tr><td>URA</td><td>Uranium thematic</td><td class="num accent-red">0,71%</td><td class="num accent-red">€230.000</td></tr>
+    </tbody>
+  </table>
+  <p class="lead">*Su un PAC da €1.000/mese a 7,5% CAGR composto. <strong>Una macchina nuova ogni 5 anni</strong>, regalata a chi gestisce l'ETF.</p>
+  <div class="source">Fonte: guides/strategie/03_sp500.md · guides/commodities/13_STRUMENTI_ETF.md</div>
+</div>
+</section>
+
+<section class="slide" data-id="04b" style="padding-top:60px;padding-bottom:90px;">
+<div class="slide-inner" style="gap:18px;">
+  <div class="eyebrow">Capitolo 1B · Cosa c'è davvero dentro</div>
+  <h2 class="h2" style="font-size:clamp(28px,3.4vw,48px);">Top 15 dell'S&amp;P 500. <span class="accent-cyan">Il 36% del peso</span>. Gli altri 485 sono rumore.</h2>
+  <div class="split-2" style="gap:24px;">
+    <div>
+      <table class="data-table" style="font-size:12px;">
+        <thead>
+          <tr><th style="padding:8px 12px;">#</th><th style="padding:8px 12px;">Ticker</th><th class="num" style="padding:8px 12px;">Peso</th><th class="num" style="padding:8px 12px;">YTD '26</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:7px 12px;">01</td><td style="padding:7px 12px;"><strong>MSFT</strong></td><td class="num" style="padding:7px 12px;">7,0%</td><td class="num accent-green" style="padding:7px 12px;">+8%</td></tr>
+          <tr><td style="padding:7px 12px;">02</td><td style="padding:7px 12px;"><strong>AAPL</strong></td><td class="num" style="padding:7px 12px;">6,5%</td><td class="num" style="padding:7px 12px;">+1%</td></tr>
+          <tr class="highlight"><td style="padding:7px 12px;">03</td><td style="padding:7px 12px;"><strong>NVDA</strong></td><td class="num" style="padding:7px 12px;">5,0%</td><td class="num accent-green" style="padding:7px 12px;">+28%</td></tr>
+          <tr><td style="padding:7px 12px;">04</td><td style="padding:7px 12px;">AMZN</td><td class="num" style="padding:7px 12px;">3,5%</td><td class="num accent-green" style="padding:7px 12px;">+6%</td></tr>
+          <tr><td style="padding:7px 12px;">05</td><td style="padding:7px 12px;">GOOGL</td><td class="num" style="padding:7px 12px;">2,5%</td><td class="num accent-green" style="padding:7px 12px;">+9%</td></tr>
+          <tr><td style="padding:7px 12px;">06</td><td style="padding:7px 12px;">META</td><td class="num" style="padding:7px 12px;">1,7%</td><td class="num accent-green" style="padding:7px 12px;">+12%</td></tr>
+          <tr><td style="padding:7px 12px;">07</td><td style="padding:7px 12px;">BRK-B</td><td class="num" style="padding:7px 12px;">1,6%</td><td class="num accent-green" style="padding:7px 12px;">+4%</td></tr>
+          <tr><td style="padding:7px 12px;">08</td><td style="padding:7px 12px;">TSLA</td><td class="num" style="padding:7px 12px;">1,4%</td><td class="num accent-red" style="padding:7px 12px;">−15%</td></tr>
+          <tr><td style="padding:7px 12px;">09</td><td style="padding:7px 12px;">LLY</td><td class="num" style="padding:7px 12px;">1,4%</td><td class="num accent-red" style="padding:7px 12px;">−10%</td></tr>
+          <tr class="highlight"><td style="padding:7px 12px;">10</td><td style="padding:7px 12px;"><strong>AVGO</strong></td><td class="num" style="padding:7px 12px;">1,3%</td><td class="num accent-green" style="padding:7px 12px;">+22%</td></tr>
+          <tr><td style="padding:7px 12px;">11</td><td style="padding:7px 12px;">JPM</td><td class="num" style="padding:7px 12px;">1,2%</td><td class="num accent-green" style="padding:7px 12px;">+3%</td></tr>
+          <tr><td style="padding:7px 12px;">12</td><td style="padding:7px 12px;">V</td><td class="num" style="padding:7px 12px;">1,1%</td><td class="num" style="padding:7px 12px;">+2%</td></tr>
+          <tr><td style="padding:7px 12px;">13</td><td style="padding:7px 12px;">UNH</td><td class="num" style="padding:7px 12px;">1,1%</td><td class="num accent-red" style="padding:7px 12px;">−8%</td></tr>
+          <tr><td style="padding:7px 12px;">14</td><td style="padding:7px 12px;">XOM</td><td class="num" style="padding:7px 12px;">1,0%</td><td class="num accent-green" style="padding:7px 12px;">+5%</td></tr>
+          <tr><td style="padding:7px 12px;">15</td><td style="padding:7px 12px;">MA</td><td class="num" style="padding:7px 12px;">0,9%</td><td class="num" style="padding:7px 12px;">+2%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="chart-wrapper" style="height:380px;">
+        <canvas id="chart-spy-ytd"></canvas>
+      </div>
+      <p class="lead" style="font-size:15px;margin-top:14px;line-height:1.45;">
+        <strong>NVDA + MSFT + AAPL + AMZN + GOOGL = 24,5%</strong> del totale.
+        Il "fondo diversificato" è un <span class="emphasis-box">betting concentrato sui top 5 tech</span>,
+        diluito da 485 titoli che oscillano poco. Compri SPY = compri 5 titoli.
+      </p>
+    </div>
+  </div>
+  <div class="source">Fonte: SPDR SSGA holdings 2026-05-08 · stime YTD market data · core/market_data/etf_config.py</div>
+</div>
+</section>
+
+<section class="slide" data-id="05">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow accent-red" style="border-color:rgba(255,71,87,0.3);background:rgba(255,71,87,0.08);color:var(--accent-red);">LIT · TER 0,75%</div>
+  <h2 class="h2" style="text-align:center;">Tema "litio": ti costa<br>una <span class="accent-red">macchina ogni 5 anni</span>.</h2>
+  <div class="big-number big-number--red" data-counter="240000" data-prefix="−€" data-suffix="">−€0</div>
+  <p class="lead" style="text-align:center;">
+    Solo per il TER. <strong>Niente in cambio</strong>: l'ETF litio (LIT) ha
+    <span class="emphasis-box--red">−60% dal picco 2021</span> mentre Albemarle (il leader
+    diretto del settore) ha pure perso valore — ma almeno senza pagarci 0,75% all'anno.
+  </p>
+  <div class="source">PAC €1k/mese · 30y · 7,5% CAGR · TER drag composto</div>
+</div>
+</section>
+
+<section class="slide" data-id="06">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 1B · Contango drag</div>
+  <h2 class="h2">ETF su commodities futures:<br><span class="accent-red">CAGR strutturalmente negativo</span>.</h2>
+  <div class="split-2">
+    <div class="card card--glow-red">
+      <h3 class="h3" style="margin-bottom:8px;">DBO · Petrolio futures</h3>
+      <p class="lead" style="font-size:18px;">
+        Il fondo deve <strong>rollare</strong> i contratti futures ogni mese.
+        Il prezzo del future a 3 mesi è quasi sempre più alto del front month.
+        Risultato: <span class="emphasis-box--red">−5/−10% di drag strutturale all'anno</span>.
+      </p>
+      <p class="muted" style="margin-top:16px;">10 anni di petrolio piatto = 10 anni di −7%/anno per chi compra DBO.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3" style="margin-bottom:8px;">In pratica</h3>
+      <ul class="bullet-list" style="font-size:18px;">
+        <li>Brent $80 oggi, $80 fra 10 anni</li>
+        <li><strong>DBO holder</strong>: −50% sul capitale</li>
+        <li><strong>Direct holder</strong> (impossibile per retail): pari</li>
+        <li><strong>Lezione</strong>: <span class="accent-red">tutti gli ETF su futures</span> (oil, gas, soft commodities) hanno questo problema. Bevi solo ETC fisici (oro, argento).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="source">Fonte: guides/strategie/archive/ricerche_documentate_feb2026.md</div>
+</div>
+</section>
+
+<section class="slide" data-id="07">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 2 · Rebalancing</div>
+  <h2 class="h2">Index inclusion:<br>il pump che <span class="accent-yellow">paghi tu</span>.</h2>
+  <div class="split-2" style="align-items:center;">
+    <div>
+      <p class="lead">
+        Quando un titolo viene aggiunto allo S&amp;P 500, succede sempre la stessa cosa:
+      </p>
+      <ul class="bullet-list" style="margin-top:24px;">
+        <li><strong>+3-8% di rally</strong> nei giorni prima dell'inclusione</li>
+        <li>Tutti i fondi passivi <strong>devono comprare</strong> al close del giorno X</li>
+        <li>Gli hedge fund <strong>front-runnano</strong> l'evento</li>
+        <li>I pension fund pagano <span class="emphasis-box--red">$16 miliardi/anno</span> di drag globalmente</li>
+      </ul>
+    </div>
+    <div class="card card--glow-cyan" style="text-align:center;">
+      <div class="muted" style="margin-bottom:14px;">DRAG MECCANICO ANNUALE</div>
+      <div class="big-number big-number--cyan" style="font-size:120px;">8 bps</div>
+      <p class="lead" style="margin-top:18px;">
+        Pari allo <strong>0,08%</strong> del NAV.<br>
+        Aggiunti al TER. Aggiunti al bid-ask. Aggiunti alle tasse.<br>
+        Cumulati a 30 anni: <span class="accent-red">−2,4% sul capitale finale</span>.
+      </p>
+    </div>
+  </div>
+  <div class="source">Fonte: algorithm/03_index_etf_rebalancing.md · guides/MOC_PUMP_GUIDA.md:231</div>
+</div>
+</section>
+
+<section class="slide" data-id="08">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 2B · Vendere i winner</div>
+  <h2 class="h2">Stop loss "prudente":<br>−33 punti di CAGR.</h2>
+  <p class="lead">
+    Backtest momentum strategy 2010-2025. Stessa selezione di titoli, sola differenza: cosa fai quando un titolo scende.
+  </p>
+  <div class="chart-wrapper" style="height:320px;">
+    <canvas id="chart-stop-loss"></canvas>
+  </div>
+  <p class="lead" style="margin-top:8px;">
+    Vendere i winner per "limitare il rischio" <strong>distrugge i mega-vincitori</strong>:
+    NVIDIA fa +500%, ma se la stoppi a -15% l'hai persa per sempre.
+    <span class="emphasis-box--red">Gli ETF lo fanno per design</span> — vendono i top performer per mantenere la weighting dell'indice.
+  </p>
+  <div class="source">Fonte: guides/strategie/dynamic_momentum_tuning.md:127-135</div>
+</div>
+</section>
+
+<!-- V2a · più diversifichi → più rebalancing paghi -->
+<section class="slide" data-id="v2a-diversify-rebalancing">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 2 · Il paradosso della diversificazione</div>
+  <h2 class="h2">Ti hanno detto «diversifica».<br>Nessuno ti ha detto <span class="accent-red">quanto costa ribilanciare</span>.</h2>
+  <div class="vs-grid">
+    <div class="vs-card vs-card--win">
+      <span class="vs-card__label">2-3 titoli concentrati</span>
+      <span class="vs-card__title">Zero rotazioni forzate</span>
+      <span class="vs-card__value">0</span>
+      <span class="vs-card__sub">Tieni i winner. Nessuna vendita meccanica, nessun tax event involontario.</span>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="vs-card vs-card--loss">
+      <span class="vs-card__label">500 titoli «diversificati»</span>
+      <span class="vs-card__title">Ribilanciamento continuo</span>
+      <span class="vs-card__value" style="color:var(--accent-red);">∞</span>
+      <span class="vs-card__sub">Ogni trimestre l'indice ripesa, aggiunge, espelle. Ogni mossa è una vendita che, fuori da un PAC fiscale efficiente, è una tassa.</span>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:24px;">
+    Più titoli tieni, più <span class="emphasis-box--red">eventi di ribilanciamento</span> subisci: turnover, drag fiscale, frizione di esecuzione.
+    La «diversificazione» non riduce solo i rendimenti — <strong>moltiplica i costi nascosti che hai visto finora</strong>.
+  </p>
+  <div class="source">Bridge → e quando arriva un cambio di regime macro? È il prossimo capitolo.</div>
+</div>
+</section>
+
+<!-- V2a · OUTRO → V2b -->
+<section class="slide layout-center" data-id="v2a-outro">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow accent-cyan">Fine Video 2 · la serie continua</div>
+  <h2 class="h2" style="text-align:center;">Il rebalancing è un costo.<br>Ma i cambi di regime sono <span class="accent-yellow">un'opportunità</span>.</h2>
+  <ul class="bullet-list bullet-list--numbered" style="max-width:780px;text-align:left;">
+    <li><strong>Video 3</strong> — "Gestire i regimi": rate hikes, il segnale CPI, il ruolo di oro e XOM, e quando ha senso prendere difesa.</li>
+    <li><strong>Iscriviti</strong> per il prossimo video della serie.</li>
+    <li><strong>Apri stockpickers.app</strong> — i backtest di questo video sono lì, forkabili e contestabili.</li>
+  </ul>
+  <div class="card card--glow-cyan" style="padding:28px 44px;margin-top:8px;">
+    <div class="muted" style="margin-bottom:6px;">CONTINUA SU</div>
+    <div class="h2" style="color:var(--accent-cyan);">stockpickers.app</div>
+  </div>
+</div>
+</section>
+
+</main>
+
+<div class="disclaimer-tag">⚠ Educational only · DYOR · Capital at risk</div>
+<div class="nav-controls">
+  <button class="nav-btn" id="btnPrev" aria-label="Previous slide">←</button>
+  <div class="nav-counter"><span class="current" id="navCurrent">01</span> / <span id="navTotal">01</span></div>
+  <button class="nav-btn" id="btnNext" aria-label="Next slide">→</button>
+</div>
+
+<script>
+window.buildChart = function(canvas) {
+
+    const id = canvas.id;
+    const ctx = canvas.getContext('2d');
+    Chart.defaults.color = '#b0b0c0';
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.plugins.zoom = {
+      zoom: {
+        wheel: { enabled: true },
+        drag: { enabled: true, backgroundColor: 'rgba(0,217,255,0.25)', borderColor: '#00d9ff', borderWidth: 2, drawTime: 'afterDraw' },
+        mode: 'xy'
+      },
+      pan: { enabled: true, mode: 'xy', modifierKey: 'shift' }
+    };
+    canvas.addEventListener('dblclick', () => { const c = Chart.getChart(canvas); if (c && c.resetZoom) c.resetZoom(); });
+
+        if (id === 'chart-spy-ytd') {
+      const tickers = ['MSFT','AAPL','NVDA','AMZN','GOOGL','META','BRK-B','TSLA','LLY','AVGO','JPM','V','UNH','XOM','MA'];
+      const ytd = [8, 1, 28, 6, 9, 12, 4, -15, -10, 22, 3, 2, -8, 5, 2];
+      const colors = ytd.map(v => v >= 0 ? '#00d26a' : '#ff4757');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: tickers,
+          datasets: [{
+            label: 'YTD 2026 %',
+            data: ytd,
+            backgroundColor: colors,
+            borderRadius: 6,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1a1a36',
+              borderColor: 'rgba(255,255,255,0.1)',
+              borderWidth: 1,
+              padding: 12,
+              callbacks: {
+                label: (ctx) => 'YTD ' + (ctx.parsed.x >= 0 ? '+' : '') + ctx.parsed.x + '%'
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: {
+                callback: (v) => (v >= 0 ? '+' : '') + v + '%',
+                font: { family: "'JetBrains Mono'" }
+              }
+            },
+            y: {
+              grid: { display: false },
+              ticks: {
+                font: { weight: 700, family: "'JetBrains Mono'", size: 11 },
+                color: '#f0f0f5'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    if (id === 'chart-stop-loss') {
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Baseline\n(mai vendere)', 'Trailing −15%', 'Trailing −20%', 'ATR 3×'],
+          datasets: [{
+            label: 'CAGR',
+            data: [36.2, 3.1, 5.8, 4.2],
+            backgroundColor: ['#00d26a', '#ff4757', '#ff4757', '#ff4757'],
+            borderRadius: 8,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1a1a36',
+              borderColor: 'rgba(255,255,255,0.1)',
+              borderWidth: 1,
+              padding: 12,
+              callbacks: {
+                label: (ctx) => ctx.parsed.y.toFixed(1) + '% CAGR'
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 42,
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: {
+                callback: (v) => v + '%',
+                font: { family: "'JetBrains Mono'" }
+              }
+            },
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { weight: 600 },
+                color: '#f0f0f5'
+              }
+            }
+          }
+        }
+      });
+    }
+  };
+</script>
+<script src="assets/deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V2b · Gestire i regimi: rate hikes, oro, XOM, difesa</title>
+<meta name="theme-color" content="#0f0f1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="deck-brand"><span class="dot"></span>stockpickers.app</div>
+
+<main class="deck" id="deck">
+
+<!-- V2b · TITLE + hook -->
+<section class="slide is-active layout-center" data-id="v2b-title">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;gap:40px;">
+  <div class="eyebrow">Serie "Gli ETF sono SCAM?" · Video 3 di 5</div>
+  <h1 class="h1">Gestire <span class="accent-yellow">i regimi</span>:<br>rate hikes, oro, XOM, difesa.</h1>
+  <p class="lead" style="text-align:center;max-width:820px;">
+    Nel 2022 azioni <strong>e</strong> obbligazioni sono crollate insieme.
+    La diversificazione classica non ti ha protetto. C'è un modo migliore
+    di gestire i cambi di regime macro — e i dati lo dicono chiaramente.
+  </p>
+  <div class="muted">stockpickers.app · serie "Gli ETF sono SCAM?"</div>
+</div>
+</section>
+
+<section class="slide" data-id="23b" style="padding-top:50px;padding-bottom:80px;">
+<div class="slide-inner" style="gap:14px;">
+  <div class="eyebrow accent-yellow" style="border-color:rgba(255,165,2,0.3);background:rgba(255,165,2,0.08);color:var(--accent-yellow);">⚠ Edge da verificare · Capitolo 8C</div>
+  <h2 class="h2" style="font-size:clamp(26px,3vw,42px);">Esiste una formula per <span class="accent-yellow">sopravvivere ai rate hike</span>?</h2>
+  <p class="lead" style="font-size:15px;line-height:1.45;">
+    Backtest esplorativo (PAC €1k/mese, 2004-2024, 21y, costi reali). 10 strategie testate. Risultati promettenti ma <strong>NON ancora validati</strong> per uso operativo.
+  </p>
+  <div class="split-2" style="gap:18px;grid-template-columns:1.3fr 1fr;">
+    <div>
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Top 5 strategie testate (final value PAC)</div>
+      <table class="data-table" style="font-size:12px;">
+        <thead>
+          <tr><th style="padding:6px 8px;">Strategia</th><th class="num" style="padding:6px 8px;">Final €</th><th class="num" style="padding:6px 8px;">CAGR</th><th class="num" style="padding:6px 8px;">MaxDD</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight"><td style="padding:6px 8px;"><strong>C2 · CPI&gt;4% → SELL ALL → GLD/XLE 50-50</strong></td><td class="num accent-green" style="padding:6px 8px;font-weight:700;">€1.150K</td><td class="num accent-green" style="padding:6px 8px;">+11,45%</td><td class="num accent-red" style="padding:6px 8px;">-42,9%</td></tr>
+          <tr><td style="padding:6px 8px;">C1 · CPI&gt;4% → SPY 50/XLE 25/GLD 25</td><td class="num" style="padding:6px 8px;">€822K</td><td class="num" style="padding:6px 8px;">+9,65%</td><td class="num" style="padding:6px 8px;">-36,4%</td></tr>
+          <tr><td style="padding:6px 8px;"><strong>A1 · SPY 100% (baseline)</strong></td><td class="num" style="padding:6px 8px;">€819K</td><td class="num" style="padding:6px 8px;">+9,63%</td><td class="num" style="padding:6px 8px;">-36,3%</td></tr>
+          <tr><td style="padding:6px 8px;">A5 · SPY 70 / GLD 15 / XOM 15 (top 1)</td><td class="num" style="padding:6px 8px;">€714K</td><td class="num" style="padding:6px 8px;">+8,90%</td><td class="num accent-green" style="padding:6px 8px;font-weight:700;">-22,8%</td></tr>
+          <tr><td style="padding:6px 8px;">B2 · Fed hike → SELL ALL (signal sbagliato)</td><td class="num accent-red" style="padding:6px 8px;">€691K</td><td class="num accent-red" style="padding:6px 8px;">+8,72%</td><td class="num" style="padding:6px 8px;">-37,4%</td></tr>
+        </tbody>
+      </table>
+      <p class="muted" style="font-size:11px;margin-top:10px;line-height:1.45;">
+        <strong>3 insight chiave</strong>:<br>
+        ① Il signal corretto è <strong>CPI &gt; 4%</strong>, non "Fed alza" (Fed hike fallisce nel 2015-18 soft normalization).<br>
+        ② <strong>Top 1 XOM</strong> ha MaxDD migliore di XLE ETF (-22% vs -29%): l'ETF settoriale è più volatile dei suoi top holdings.<br>
+        ③ Static hedge sottoperforma SPY puro su 21y — l'edge sta nel <strong>signal dinamico</strong>.
+      </p>
+    </div>
+    <div class="card card--glow-cyan" style="padding:18px;">
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;color:var(--accent-cyan);">CPI USA · stato live (mar 2026)</div>
+      <div class="big-number" style="font-size:64px;color:var(--accent-yellow);line-height:1;">3,29%</div>
+      <p class="muted" style="font-size:12px;margin-top:10px;line-height:1.5;">
+        YoY a marzo. <strong style="color:var(--accent-yellow);">In accelerazione</strong>: +0,87% MoM (il più alto da mesi). A 0,71pp dal trigger.
+      </p>
+      <div style="margin-top:14px;padding:10px;background:rgba(255,165,2,0.08);border:1px solid rgba(255,165,2,0.3);border-radius:8px;">
+        <p style="font-size:12px;line-height:1.45;color:var(--text-secondary);">
+          <strong style="color:var(--accent-yellow);">⚠ Caveat operativi</strong>:<br>
+          • Falso positivo CPI: serve regola <strong>"&gt;4% per 3 mesi consecutivi"</strong>.<br>
+          • Hindsight bias: 3 cycle storici già noti.<br>
+          • Tax drag su switch totale (-26%).<br>
+          • <em>Edge promettente ma NON validato out-of-sample</em>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="padding:14px 20px;border:1px dashed rgba(255,165,2,0.4);background:rgba(255,165,2,0.05);">
+    <p class="lead" style="font-size:14px;line-height:1.5;">
+      <strong style="color:var(--accent-yellow);">📋 Status validation</strong>: questo edge è in <strong>ricerca attiva</strong> (vedi <code style="font-family:var(--font-mono);font-size:12px;">planning/RATE_HIKE_HEDGE_VALIDATION_PLAN.md</code> nel repo).
+      Step ancora da completare: (1) test signal robusto "CPI&gt;4% × 3 mesi", (2) hybrid candidate (default A5 + dynamic shift), (3) tax simulation realistica, (4) out-of-sample 2024-2026.
+      <strong>NON usare ancora come regola operativa</strong>. Lo guardiamo crescere.
+    </p>
+  </div>
+</div>
+</section>
+
+<!-- V2b · il segnale CPI batte il segnale Fed-hike -->
+<section class="slide" data-id="v2b-cpi-signal">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 3 · Il segnale giusto</div>
+  <h2 class="h2">«La Fed alza i tassi» è il segnale <span class="accent-red">sbagliato</span>.<br>«<span class="accent-green">CPI sopra il 4%</span>» è quello giusto.</h2>
+  <div class="vs-grid">
+    <div class="vs-card vs-card--loss">
+      <span class="vs-card__label">Segnale «Fed alza i tassi» → vendi azioni</span>
+      <span class="vs-card__title">B2 · esci al rate cycle</span>
+      <span class="vs-card__value" style="color:var(--accent-red);">€691K</span>
+      <span class="vs-card__sub">+8,72% CAGR · scatta anche nelle normalizzazioni soft (2015-18) dove non serviva</span>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="vs-card vs-card--win">
+      <span class="vs-card__label">Segnale «CPI YoY &gt; 4%» → vendi azioni</span>
+      <span class="vs-card__title">C2 · esci solo se l'inflazione morde</span>
+      <span class="vs-card__value">€1,15M</span>
+      <span class="vs-card__sub">+11,45% CAGR · Sharpe 0,86 — scatta solo nel 2005-08 e 2021-23, i cicli davvero inflattivi</span>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:24px;">
+    Stesso PAC, stessi 21 anni. La differenza è <span class="emphasis-box--green">+€460.000</span> — solo per aver scelto un trigger <strong>mirato</strong> invece di uno crudo.
+    Il CPI sopra il 4% salta i falsi allarmi.
+  </p>
+  <div class="source">Fonte: planning/RATE_HIKE_HEDGE_VALIDATION_PLAN.md · backtest PAC €1k/mese 2004-2024 · data/rate_hike_backtest.py</div>
+</div>
+</section>
+
+<!-- V2b · static hedge: trade-off CAGR vs MaxDD -->
+<section class="slide" data-id="v2b-static-hedge">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 3B · L'hedge statico — onestà</div>
+  <h2 class="h2">Un hedge fisso non ti fa guadagnare di più.<br>Ti fa <span class="accent-cyan">dormire la notte</span>.</h2>
+  <div class="split-3" style="gap:16px;">
+    <div class="card" style="padding:18px;text-align:center;">
+      <div class="muted" style="font-size:11px;">SPY 100% · nessun hedge</div>
+      <div class="big-number" style="font-size:34px;color:var(--accent-yellow);margin:6px 0;">€819K</div>
+      <div class="muted" style="font-size:12px;">+9,63% CAGR · MaxDD <strong style="color:var(--accent-red);">−36,3%</strong></div>
+    </div>
+    <div class="card card--glow-cyan" style="padding:18px;text-align:center;">
+      <div class="muted" style="font-size:11px;">A5 · SPY 70 / GLD 15 / XOM 15</div>
+      <div class="big-number" style="font-size:34px;color:#00d9ff;margin:6px 0;">€714K</div>
+      <div class="muted" style="font-size:12px;">+8,90% CAGR · MaxDD <strong style="color:var(--accent-green);">−22,8%</strong></div>
+    </div>
+    <div class="card" style="padding:18px;text-align:center;">
+      <div class="muted" style="font-size:11px;">Il trade-off</div>
+      <div class="big-number" style="font-size:34px;color:var(--text-primary);margin:6px 0;">−0,7pp</div>
+      <div class="muted" style="font-size:12px;">CAGR ceduto in cambio di <strong>−13,5 pp di drawdown</strong></div>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:24px;">
+    Onestà intellettuale: su 21 anni l'hedge statico <strong>perde</strong> contro l'azionario puro sul CAGR — l'oro e l'energia fanno da zavorra nei tempi normali.
+    Ma tagliano il drawdown di un terzo. <span class="accent-cyan">Non è un pasto gratis: è un'assicurazione</span>. La paghi, e a volte ne vale la pena.
+  </p>
+  <div class="source">Fonte: planning/RATE_HIKE_HEDGE_VALIDATION_PLAN.md · 10 strategie testate · data/energy_hedge_backtest.py</div>
+</div>
+</section>
+
+<!-- V2b · XOM batte l'ETF XLE sul drawdown -->
+<section class="slide" data-id="v2b-xom-vs-xle">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 3C · Anche qui: il titolo singolo batte l'ETF</div>
+  <h2 class="h2">Vuoi esposizione all'energia?<br>Un titolo, <span class="accent-cyan">non l'ETF settoriale</span>.</h2>
+  <div class="split-3" style="gap:16px;">
+    <div class="card card--glow-cyan" style="padding:20px;text-align:center;">
+      <div class="muted" style="font-size:11px;">XOM · il singolo mega-cap</div>
+      <div class="big-number" style="font-size:40px;color:#00d9ff;margin:8px 0;">−22,8%</div>
+      <div class="muted" style="font-size:12px;">MaxDD migliore</div>
+    </div>
+    <div class="card" style="padding:20px;text-align:center;">
+      <div class="muted" style="font-size:11px;">XOM + CVX + COP · top 3</div>
+      <div class="big-number" style="font-size:40px;color:var(--accent-yellow);margin:8px 0;">−26,1%</div>
+      <div class="muted" style="font-size:12px;">già peggio</div>
+    </div>
+    <div class="card" style="padding:20px;text-align:center;">
+      <div class="muted" style="font-size:11px;">XLE · l'ETF energia</div>
+      <div class="big-number" style="font-size:40px;color:var(--accent-red);margin:8px 0;">−29,6%</div>
+      <div class="muted" style="font-size:12px;">il peggiore</div>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:24px;">
+    L'ETF XLE è <span class="emphasis-box--red">diluito da decine di small-cap E&amp;P</span> ad alto beta. XOM — il leader stabile del settore da 50 anni — ha beta più basso e ti protegge di più.
+    <strong>Lo stesso pattern di tutta la serie</strong>: la concentrazione informata batte il paniere.
+  </p>
+  <div class="source">Fonte: planning/RATE_HIKE_HEDGE_VALIDATION_PLAN.md — A5 (XOM) vs A6 (Top3) vs A3 (XLE), 21y</div>
+</div>
+</section>
+
+<!-- V2b · tipo di inflazione → hedge giusto -->
+<section class="slide" data-id="v2b-inflation-type">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 3D · Non tutta l'inflazione è uguale</div>
+  <h2 class="h2">L'hedge giusto dipende dal <span class="accent-cyan">tipo</span> di inflazione.</h2>
+  <div class="split-2" style="gap:20px;align-items:stretch;">
+    <div class="card" style="padding:24px;">
+      <div class="eyebrow accent-yellow" style="margin-bottom:12px;">Inflazione MONETARIA</div>
+      <p class="lead" style="font-size:16px;">QE, stimolo fiscale, debasement della valuta.<br><strong>→ L'oro domina.</strong></p>
+      <div class="big-number" style="font-size:30px;color:var(--accent-yellow);margin:12px 0;">GLD +101%</div>
+      <div class="muted" style="font-size:13px;">2009-2011, post-GFC QE — contro XLE +55%. L'oro ha fatto ~2× l'energia.</div>
+    </div>
+    <div class="card" style="padding:24px;">
+      <div class="eyebrow accent-red" style="margin-bottom:12px;">Inflazione da OFFERTA</div>
+      <p class="lead" style="font-size:16px;">Shock petroliferi, guerre, supply chain rotte.<br><strong>→ Energia / XOM dominano.</strong></p>
+      <div class="big-number" style="font-size:30px;color:var(--accent-red);margin:12px 0;">XLE +210%</div>
+      <div class="muted" style="font-size:13px;">2004-2008, superciclo del petrolio — contro GLD +120%. L'energia ha fatto ~2× l'oro.</div>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:20px;">
+    Segnali per distinguere: <span class="emphasis-box">M2 &gt; +10% YoY</span> → monetaria · <span class="emphasis-box">WTI 12m &gt; +30%</span> → da offerta · <span class="emphasis-box">Headline − Core CPI &gt; 1,5pp</span> → da offerta.
+  </p>
+  <div class="source">Fonte: planning/RATE_HIKE_HEDGE_VALIDATION_PLAN.md — classificazione tipo inflazione</div>
+</div>
+</section>
+
+<!-- V2b · il ruolo dell'oro — versione conservativa -->
+<section class="slide" data-id="v2b-gold-role">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 3E · L'oro, senza miti</div>
+  <h2 class="h2">L'oro non è uno scudo magico.<br>È un <span class="accent-cyan">15% di base</span> — e niente di più.</h2>
+  <div class="vs-grid">
+    <div class="vs-card vs-card--win">
+      <span class="vs-card__label">Quando l'oro funziona</span>
+      <span class="vs-card__title">Crisi finanziarie · tariff war</span>
+      <span class="vs-card__value">+25%</span>
+      <span class="vs-card__sub">GLD nel 2008 (flight to safety). Sulle guerre commerciali GLD +4,0% mentre SPY +2,4%.</span>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="vs-card vs-card--loss">
+      <span class="vs-card__label">Quando l'oro NON funziona</span>
+      <span class="vs-card__title">Bear da tightening</span>
+      <span class="vs-card__value" style="color:var(--accent-red);">−1%</span>
+      <span class="vs-card__sub">GLD nel 2022: tassi su = oro debole. Non ti ha protetto. Sui conflitti militari è quasi piatto.</span>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:24px;">
+    La regola onesta: <span class="emphasis-box--green">tieni un 15% di oro come base</span>, non aumentarlo nel panico.
+    L'oro è un diversificatore parziale e situazionale — <strong>non l'assicurazione universale</strong> che ti hanno venduto.
+  </p>
+  <div class="source">Fonte: guides/strategie/01_oro.md · guides/scenari/GLD_PLAYBOOK.md · guides/scenari/04_BEAR_RECESSION.md</div>
+</div>
+</section>
+
+<!-- V2b · la difesa è tattica, non strutturale -->
+<section class="slide" data-id="v2b-defense">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 3F · Prendere difesa: quando e come</div>
+  <h2 class="h2">La difesa è una <span class="accent-cyan">leva tattica</span>.<br>Non un pezzo fisso del portafoglio.</h2>
+  <div class="split-2" style="gap:20px;align-items:stretch;">
+    <div class="card card--glow-cyan" style="padding:24px;">
+      <div class="eyebrow accent-green" style="margin-bottom:12px;">✓ COME farla bene</div>
+      <ul class="bullet-list" style="font-size:15px;">
+        <li>Entri in <strong>de-escalation</strong>, non sul picco di panico</li>
+        <li>Una <strong>sleeve piccola</strong>, mai il motore del portafoglio</li>
+        <li>La usi come <strong>liquidità-ponte</strong>: se arriva lo spike, vendi la difesa e ruoti su qualità a sconto</li>
+      </ul>
+    </div>
+    <div class="card" style="padding:24px;">
+      <div class="eyebrow accent-red" style="margin-bottom:12px;">✗ L'errore tipico</div>
+      <p class="lead" style="font-size:15px;">Comprare difesa <strong>sul picco</strong> della notizia. Caso Iran 2025: lo spike iniziale (+3% basket difesa) <strong>non</strong> era il momento giusto.</p>
+      <p class="lead" style="font-size:15px;margin-top:12px;">A T+90 la difesa ha fatto +18% — ma i semiconduttori, comprati nel panico, +28%. <strong>Il recovery della qualità batte la difesa comprata male.</strong></p>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:20px;">
+    Gestire i regimi non vuol dire avere paura. Vuol dire avere <span class="emphasis-box">un piano</span> — e una piccola riserva tattica da usare quando gli altri vendono.
+  </p>
+  <div class="source">Fonte: guides/strategie/testing/defense_peace_war_rotation.md — case study Iran 2025</div>
+</div>
+</section>
+
+<!-- V2b · OUTRO → V3 -->
+<section class="slide layout-center" data-id="v2b-outro">
+<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
+  <div class="eyebrow accent-cyan">Fine Video 3 · la serie continua</div>
+  <h2 class="h2" style="text-align:center;">Sai gestire i regimi.<br>Ma sei sicuro che <span class="accent-red">il mercato salga sempre</span>?</h2>
+  <ul class="bullet-list bullet-list--numbered" style="max-width:780px;text-align:left;">
+    <li><strong>Video 4</strong> — "Il mercato non sale sempre": le lost decades, 17 anni di ritorni reali negativi, e perché il timing non funziona.</li>
+    <li><strong>Iscriviti</strong> per il prossimo video della serie.</li>
+    <li><strong>Apri stockpickers.app</strong> — crash detection real-time + Wyckoff pattern recognition. Open source.</li>
+  </ul>
+  <div class="card card--glow-cyan" style="padding:28px 44px;margin-top:8px;">
+    <div class="muted" style="margin-bottom:6px;">CONTINUA SU</div>
+    <div class="h2" style="color:var(--accent-cyan);">stockpickers.app</div>
+  </div>
+</div>
+</section>
+
+</main>
+
+<div class="disclaimer-tag">⚠ Educational only · DYOR · Capital at risk</div>
+<div class="nav-controls">
+  <button class="nav-btn" id="btnPrev" aria-label="Previous slide">←</button>
+  <div class="nav-counter"><span class="current" id="navCurrent">01</span> / <span id="navTotal">01</span></div>
+  <button class="nav-btn" id="btnNext" aria-label="Next slide">→</button>
+</div>
+
+<script>
+window.buildChart = function(canvas) {
+
+    const id = canvas.id;
+    const ctx = canvas.getContext('2d');
+    Chart.defaults.color = '#b0b0c0';
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 13;
+    Chart.defaults.plugins.zoom = {
+      zoom: {
+        wheel: { enabled: true },
+        drag: { enabled: true, backgroundColor: 'rgba(0,217,255,0.25)', borderColor: '#00d9ff', borderWidth: 2, drawTime: 'afterDraw' },
+        mode: 'xy'
+      },
+      pan: { enabled: true, mode: 'xy', modifierKey: 'shift' }
+    };
+    canvas.addEventListener('dblclick', () => { const c = Chart.getChart(canvas); if (c && c.resetZoom) c.resetZoom(); });
+
+
+  };
+</script>
+<script src="assets/deck.js"></script>
+</body>
+</html>
