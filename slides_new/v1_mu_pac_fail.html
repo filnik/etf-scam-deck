@@ -1,0 +1,35 @@
+<!-- V1 · perché aggiungere MU al PAC non funziona sul lungo periodo -->
+<section class="slide" data-id="v1-mu-pac-fail">
+<div class="slide-inner">
+  <div class="eyebrow">Capitolo 5C · Il terzo nome che sembra giusto</div>
+  <h2 class="h2">Aggiungere MU al PAC?<br><span class="accent-red">Sembra logico. Non funziona.</span></h2>
+  <div class="split-3" style="gap:16px;">
+    <div class="card card--glow-green" style="padding:18px;text-align:center;">
+      <div class="muted" style="font-size:11px;">NoRot2 · NVDA + AVGO</div>
+      <div class="big-number big-number--green" style="font-size:36px;line-height:1;margin:6px 0;">€19,33M</div>
+      <div class="muted" style="font-size:12px;">+33,41% CAGR · MaxDD −56,5%</div>
+    </div>
+    <div class="card" style="padding:18px;text-align:center;border-color:rgba(255,71,87,0.25);background:rgba(255,71,87,0.06);">
+      <div class="muted" style="font-size:11px;">NoRot3 · + MU, mai vende</div>
+      <div class="big-number" style="font-size:36px;color:var(--accent-red);line-height:1;margin:6px 0;">€11,82M</div>
+      <div class="muted" style="font-size:12px;">+29,37% CAGR · <strong style="color:var(--accent-red);">−€7,5M</strong></div>
+    </div>
+    <div class="card card--glow-cyan" style="padding:18px;text-align:center;">
+      <div class="muted" style="font-size:11px;">NoRot3 + regola di vendita MU</div>
+      <div class="big-number big-number--cyan" style="font-size:36px;line-height:1;margin:6px 0;">€15,18M</div>
+      <div class="muted" style="font-size:12px;">+31,42% CAGR · <strong>−€4,1M</strong></div>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:20px;font-size:16px;">
+    MU ha preso il PAC fresco <strong>49 mesi su 192</strong> (26%). E MU è ciclico: il suo momentum è massimo
+    <span class="emphasis-box--red">ai picchi del ciclo memory</span> — poi restituisce tutto. Quei €1.000 messi in MU a un picco
+    non compongono come in NVDA/AVGO. Non è "diluizione" delle posizioni — non si vende mai — è <strong>opportunity cost</strong> del capitale fresco deviato.
+  </p>
+  <p class="lead" style="margin-top:12px;font-size:16px;">
+    Anche con una regola di vendita dedicata (vende MU quando il volume conferma panic selling) recuperi <strong>solo metà</strong> del gap:
+    limita i drawdown ciclici, ma <span class="accent-red">non trasforma MU in un compounder</span>.
+    <span class="emphasis-box--green">La miglior gestione del rischio di un ciclico è non possederlo.</span>
+  </p>
+  <div class="source">Backtest unico · PAC €1k/mese · realistic mode · 2010-2025 · regola di vendita = A-025 VolumeAccelTrail · backtest/norot3_mu_test.py</div>
+</div>
+</section>
