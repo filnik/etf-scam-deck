@@ -1,0 +1,45 @@
+<!-- V5 · overview tabella 7 crash -->
+<section class="slide" data-id="v5-overview" style="padding-top:50px;padding-bottom:88px;">
+<div class="slide-inner" style="gap:16px;">
+  <div class="eyebrow">I 7 crash · risultato sintetico</div>
+  <h2 class="h2" style="font-size:clamp(26px,3.2vw,44px);">
+    V14b fa fire su <span class="accent-cyan">4 dei 7</span>.<br>
+    Dove fa fire, <span class="accent-green">vince</span>. Dove non fa fire, <span class="accent-yellow">non perde</span>.
+  </h2>
+
+  <table class="overview-table">
+    <thead><tr>
+      <th>Crash</th><th>Anni</th><th class="num">MaxDD B&amp;H</th>
+      <th>Verdetto V14b</th><th class="num">Δ MaxDD</th><th class="num">Δ gain vs B&amp;H</th>
+    </tr></thead>
+    <tbody>
+      <tr class="row--skip"><td>Gulf War Recession 1990</td><td>1990</td><td class="num">-19,9%</td><td><span class="pill pill--na">Pre-detector</span></td><td class="num"><span class="delta-zero">+0,0pp</span></td><td class="num"><span class="delta-zero">+0,0pp</span></td></tr><tr class="row--win"><td>Dotcom Bubble Crash 2000-02</td><td>2000–02</td><td class="num">-49,1%</td><td><span class="pill pill--early">Early bird</span></td><td class="num"><span class="delta-pos">+0,2pp</span></td><td class="num"><span class="">-13,0pp</span></td></tr><tr class="row--win"><td>Global Financial Crisis 2007-09</td><td>2007–09</td><td class="num">-56,8%</td><td><span class="pill pill--win">FIRE catturato</span></td><td class="num"><span class="delta-pos">+8,6pp</span></td><td class="num"><span class="delta-pos">+15,8pp</span></td></tr><tr class="row--win"><td>2018 Q4 Powell Hawkish</td><td>2018</td><td class="num">-33,9%</td><td><span class="pill pill--win">FIRE catturato</span></td><td class="num"><span class="delta-zero">+0,0pp</span></td><td class="num"><span class="delta-pos">+9,2pp</span></td></tr><tr class="row--miss"><td>COVID Crash 2020</td><td>2020</td><td class="num">-33,9%</td><td><span class="pill pill--miss">Crash troppo veloce</span></td><td class="num"><span class="delta-zero">+0,0pp</span></td><td class="num"><span class="delta-zero">+0,0pp</span></td></tr><tr class="row--win"><td>Inflation Bear Market 2022</td><td>2022</td><td class="num">-25,4%</td><td><span class="pill pill--win">FIRE catturato</span></td><td class="num"><span class="delta-pos">+2,7pp</span></td><td class="num"><span class="delta-pos">+16,0pp</span></td></tr><tr class="row--skip"><td>Liberation Day Crash 2025</td><td>2025</td><td class="num">-18,9%</td><td><span class="pill pill--skip">Skip by design</span></td><td class="num"><span class="delta-zero">+0,0pp</span></td><td class="num"><span class="delta-zero">+0,0pp</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="split-2" style="gap:16px;">
+    <div class="card card--glow-green" style="padding:18px 22px;">
+      <div class="muted" style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;">Dove V14b fa fire (4 su 7)</div>
+      <div class="big-number big-number--green" style="font-size:42px;margin:8px 0;">+28,0pp</div>
+      <p style="font-size:13px;color:var(--text-secondary);margin:0;">
+        Gain extra cumulato vs Buy &amp; Hold sui 4 crash dove il sistema esce.<br>
+        Δ MaxDD medio: <strong class="accent-green">+2,9pp</strong>
+      </p>
+    </div>
+    <div class="card" style="padding:18px 22px;border-color:rgba(255,165,2,0.25);">
+      <div class="muted" style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;">Dove V14b non fa fire (3 su 7)</div>
+      <div class="big-number" style="font-size:42px;color:var(--accent-yellow);margin:8px 0;">3/7</div>
+      <p style="font-size:13px;color:var(--text-secondary);margin:0;">
+        1 skip volontario (corretto), 1 crash troppo veloci (limite strutturale), 1 pre-credit-data.<br>
+        Mai un <strong class="accent-yellow">falso positivo</strong>: zero fire fuori da regimi di reale stress.
+      </p>
+    </div>
+  </div>
+
+  <p class="lead" style="font-size:15px;line-height:1.45;margin:0;">
+    <strong>Lettura onesta</strong>: il sistema non è una bacchetta magica. Esce solo quando vede valutazione tirata + crepe + macro gate. Sui <span class="term" data-tip="Crash a single-event veloce: COVID 2020 (33 giorni), Liberation Day 2025 (7 giorni), Black Monday 1987 (1 giorno). Il filtro sustained-10gg di V14b è inadeguato per shock di durata sub-mese.">crash veloci da evento singolo</span> resta investito — è un suo <strong>limite di disegno</strong>, non un bug.
+  </p>
+
+  <div class="source">Tabella generata da slides_new/_generate_overview.py · dati: data/crash_anatomy_data.json</div>
+</div>
+</section>

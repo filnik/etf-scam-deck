@@ -1,0 +1,42 @@
+<!-- V5 · come funziona V14b -->
+<section class="slide" data-id="v5-how-it-works" style="padding-top:60px;padding-bottom:96px;">
+<div class="slide-inner" style="gap:22px;">
+  <div class="eyebrow">Il sistema in 3 strati</div>
+  <h2 class="h2" style="font-size:clamp(28px,3.6vw,48px);">
+    V14b non prevede i crash.<br>
+    Misura <span class="accent-cyan">quando il rischio è troppo alto</span> per restare investiti.
+  </h2>
+
+  <div class="split-3" style="gap:18px;">
+    <div class="card" style="padding:22px 24px;display:flex;flex-direction:column;gap:10px;">
+      <span class="muted" style="color:var(--accent-cyan);font-weight:700;font-size:11px;">STRATO 1 · pre-condizione</span>
+      <div style="font-size:18px;font-weight:700;color:var(--text-primary);">Valutazione tirata</div>
+      <p style="font-size:14px;line-height:1.5;color:var(--text-secondary);margin:0;">
+        Il <span class="term" data-tip="Cyclically Adjusted P/E: prezzo dell'S&amp;P 500 diviso per la media dei profitti reali degli ultimi 10 anni. Misura quanto il mercato paga gli utili 'lisciati' dal ciclo. Sopra +1 deviazione standard storica = valutazione tirata.">CAPE</span> è sopra +1 deviazione storica <strong>e</strong> SPY è sopra la sua <span class="term" data-tip="Media mobile a 200 giorni. Sopra la SMA200 = trend rialzista intatto, sotto = trend rotto.">SMA200</span> di almeno il 5%. Senza euforia, il sistema sta zitto.
+      </p>
+    </div>
+
+    <div class="card" style="padding:22px 24px;display:flex;flex-direction:column;gap:10px;">
+      <span class="muted" style="color:var(--accent-cyan);font-weight:700;font-size:11px;">STRATO 2 · ≥ 2 crepe su 8</span>
+      <div style="font-size:18px;font-weight:700;color:var(--text-primary);">Voter di deterioramento</div>
+      <p style="font-size:14px;line-height:1.5;color:var(--text-secondary);margin:0;">
+        Otto sensori indipendenti: <span class="term" data-tip="High Yield credit spread: differenza tra rendimento delle obbligazioni 'junk' e i Treasury. Quando si allarga, il mercato del credito sta scontando default. Spesso anticipa il crash equity di mesi.">spread credit</span>, divergenza difensivi/aggressivi, <span class="term" data-tip="Volatility Index del CBOE. Misura la volatilità implicita a 30 giorni dell'S&amp;P 500. Sotto 13 = compiacenza estrema, sopra 35 = panico.">VIX</span>, prima crepa −3% dopo lunga calma, breadth, momentum esausto. Se ≥ 2 scattano per 10 giorni di fila → fire.
+      </p>
+    </div>
+
+    <div class="card" style="padding:22px 24px;display:flex;flex-direction:column;gap:10px;">
+      <span class="muted" style="color:var(--accent-cyan);font-weight:700;font-size:11px;">STRATO 3 · macro gate</span>
+      <div style="font-size:18px;font-weight:700;color:var(--text-primary);">Curva tassi confermata</div>
+      <p style="font-size:14px;line-height:1.5;color:var(--text-secondary);margin:0;">
+        La <span class="term" data-tip="Spread tra rendimento Treasury a 10 anni e a 2 anni. Quando scende sotto 25bp (quasi piatta o invertita) il mercato dei tassi prezza recessione imminente. Filtro che blocca falsi positivi.">curva 2s10s</span> deve essere sotto 25bp. Se la curva è ancora ripida = il sistema obbligazionario non vede recessione. <strong class="accent-red">Niente fire.</strong>
+      </p>
+    </div>
+  </div>
+
+  <p class="lead" style="font-size:16px;margin:0;">
+    Quando tutti e 3 gli strati si attivano: <span class="emphasis-box--red">SELL all SPY → cash</span>. Si rientra solo su un <span class="term" data-tip="Eventi storici che hanno tipicamente segnato un bottom: TARP/QE (banking resolution), primo taglio Fed, tregua sui dazi, CPI miss su consenso, pivot dovish del chair. La lista è curata dal codice catalyst_detector.py — non discrezionale.">catalyst di entry</span>: TARP, QE, tregua dazi, taglio Fed, CPI miss. Fallback: timeout 36 mesi.
+  </p>
+
+  <div class="source">backtest/engine/cycle_top_detector.py · HardVoterMacroDetectorV14b · backtest/engine/catalyst_detector.py (catalyst v7)</div>
+</div>
+</section>

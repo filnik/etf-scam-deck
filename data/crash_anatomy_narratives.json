@@ -1,0 +1,578 @@
+[
+  {
+    "id": "1973_oil_shock",
+    "title": "Oil Shock 1973-74",
+    "subtitle": "Embargo OPEC + fine di Bretton Woods → fine del miracolo postbellico",
+    "tagline_card": "Stagflazione vera. SPY perde quasi la metà in 22 mesi.",
+    "events": [
+      {
+        "date": "1973-01-11",
+        "label": "Picco S&P 500",
+        "description": "Massimo storico a 120,24. Da qui parte un drawdown lentissimo che durerà quasi due anni.",
+        "category": "market"
+      },
+      {
+        "date": "1973-08-15",
+        "label": "Nixon chiude la finestra dell'oro",
+        "description": "Il dollaro non è più convertibile in oro. Inizia l'era dei cambi fluttuanti. La cornice monetaria salta in due anni.",
+        "category": "macro"
+      },
+      {
+        "date": "1973-10-17",
+        "label": "Embargo petrolifero OPEC",
+        "description": "I paesi arabi tagliano la produzione dopo la guerra del Yom Kippur. Il petrolio in 5 mesi passa da 3 a 12 dollari al barile.",
+        "category": "geopolitical"
+      },
+      {
+        "date": "1974-08-09",
+        "label": "Dimissioni di Nixon",
+        "description": "Watergate chiude la presidenza. Vuoto politico mentre l'inflazione corre al 12% e la disoccupazione sale.",
+        "category": "geopolitical"
+      },
+      {
+        "date": "1974-10-03",
+        "label": "Trough SPY",
+        "description": "Minimo a 62,28, -48% dal picco. Inflazione ancora a doppia cifra. Ci vorranno anni per recuperare in termini reali.",
+        "category": "market"
+      }
+    ],
+    "v14b_story": "Il detector V14b non era disponibile su questi dati — il CAPE storico e gli spread credit pre-1979 non hanno qualità sufficiente per far girare il sistema. Il crash 1973-74 ci serve come promemoria che certi shock (inflazione strutturale + crisi energetica + fine di un regime monetario) sono leggibili solo con un giudizio macro discrezionale.",
+    "v14b_verdict": "NOT_AVAILABLE",
+    "key_terms": [
+      {
+        "term": "stagflazione",
+        "definition": "Crescita ferma e inflazione alta insieme. Combinazione rara: chi governa la politica monetaria non può stimolare senza peggiorare i prezzi, né alzare i tassi senza uccidere la crescita."
+      },
+      {
+        "term": "Bretton Woods",
+        "definition": "Sistema monetario 1944-1971: dollaro convertibile in oro a 35 dollari/oncia, le altre valute ancorate al dollaro. Termina il 15 agosto 1971 con la 'Nixon shock'."
+      },
+      {
+        "term": "embargo OPEC",
+        "definition": "Sospensione delle esportazioni di greggio decisa nel 1973 dai paesi arabi del cartello OPEC contro i paesi che avevano sostenuto Israele nella guerra del Yom Kippur."
+      }
+    ],
+    "delta_summary_hook": "Strategia non testabile su questo crash — narrativa educativa pura"
+  },
+  {
+    "id": "1980_volcker",
+    "title": "Volcker Recession 1980-82",
+    "subtitle": "Fed funds al 20% per spezzare la spirale inflattiva",
+    "tagline_card": "La Fed sceglie deliberatamente la recessione per uccidere l'inflazione.",
+    "events": [
+      {
+        "date": "1979-08-06",
+        "label": "Volcker nominato presidente Fed",
+        "description": "Carter sceglie Volcker per fermare l'inflazione fuori controllo (oltre 11% annuo). Mandato chiaro: schiacciare i prezzi a qualunque costo.",
+        "category": "fed"
+      },
+      {
+        "date": "1980-11-28",
+        "label": "Picco S&P 500",
+        "description": "Massimo a 140,52. Reagan eletto da pochi giorni. Il mercato pensa che il peggio dell'inflazione sia alle spalle. Si sbaglia.",
+        "category": "market"
+      },
+      {
+        "date": "1981-06-19",
+        "label": "Fed funds al 20%",
+        "description": "Picco storico dei tassi reali a livelli mai visti. Il prime rate tocca 21,5%. Mutui inavvicinabili, immobiliare congelato.",
+        "category": "fed"
+      },
+      {
+        "date": "1982-07-01",
+        "label": "Disoccupazione oltre il 10%",
+        "description": "Per la prima volta dal dopoguerra la disoccupazione supera la doppia cifra. La recessione è severa ma l'inflazione finalmente scende sotto il 6%.",
+        "category": "macro"
+      },
+      {
+        "date": "1982-08-12",
+        "label": "Trough SPY + svolta Volcker",
+        "description": "Minimo a 102,42, -27% dal picco. Pochi giorni dopo Volcker inizia a tagliare i tassi. Parte il bull market più lungo del dopoguerra.",
+        "category": "market"
+      }
+    ],
+    "v14b_story": "V14b non disponibile pre-1979 sui dati credit/CAPE. Anche con dati buoni, V14b non avrebbe firato qui: la pre-condizione richiede CAPE alto e SPY sopra SMA200 +5%. Nel 1980 il CAPE era basso (mercato già scontava l'inflazione). Lezione: il sistema è disegnato per le bolle da euforia, non per shock politico-monetari pianificati dalla Fed.",
+    "v14b_verdict": "NOT_AVAILABLE",
+    "key_terms": [
+      {
+        "term": "Volcker shock",
+        "definition": "Strategia di Paul Volcker (1979-82): alzare i fed funds fino al 20% per spezzare le aspettative di inflazione, accettando una recessione severa come prezzo da pagare."
+      },
+      {
+        "term": "fed funds rate",
+        "definition": "Tasso a cui le banche USA si prestano riserve overnight. È lo strumento principale con cui la Federal Reserve manovra il costo del denaro nell'economia."
+      },
+      {
+        "term": "tassi reali",
+        "definition": "Tasso nominale meno inflazione. Volcker li portò a +6/8% reali: prestare denaro rendeva moltissimo, comprare asset rischiosi diventava poco attraente."
+      }
+    ],
+    "delta_summary_hook": "Crash da politica monetaria pianificata — V14b non si applica per design"
+  },
+  {
+    "id": "1987_black_monday",
+    "title": "Black Monday 1987",
+    "subtitle": "Il crash di un solo giorno: -22,6% il 19 ottobre",
+    "tagline_card": "Portfolio insurance + program trading. Il primo crash 'da macchine'.",
+    "events": [
+      {
+        "date": "1987-08-25",
+        "label": "Picco S&P 500",
+        "description": "Massimo a 336,77 dopo un rally del +44% YTD. Valutazioni tirate, leverage in crescita, derivati di copertura adottati senza capirne i rischi sistemici.",
+        "category": "market"
+      },
+      {
+        "date": "1987-10-14",
+        "label": "Prime crepe (-3%)",
+        "description": "Mercoledì nero pre-crash: deficit commerciale USA peggio delle attese, tensioni con Iran. Il mercato comincia a scivolare ma nessuno coglie il segnale.",
+        "category": "market"
+      },
+      {
+        "date": "1987-10-16",
+        "label": "Venerdì -5,2%",
+        "description": "Maggior calo settimanale dal 1940. Le strategie di portfolio insurance iniziano a generare ordini di vendita automatici per il lunedì. Si arma la spirale.",
+        "category": "market"
+      },
+      {
+        "date": "1987-10-19",
+        "label": "Black Monday: -22,6% in un giorno",
+        "description": "Il crash più violento della storia in termini percentuali giornalieri. Le macchine di portfolio insurance vendono futures, i futures spingono i cash, si vende ancora.",
+        "category": "market"
+      },
+      {
+        "date": "1987-10-20",
+        "label": "Greenspan promette liquidità",
+        "description": "Il neo-presidente Fed dichiara pubblicamente disponibilità illimitata di liquidità. Nasce il 'Greenspan put'. Il mercato si stabilizza in poche settimane.",
+        "category": "fed"
+      }
+    ],
+    "v14b_story": "V14b non avrebbe catturato 1987. Il crash è arrivato in un giorno, senza alcuna fase 'sustained' di deterioramento: nessun voter del detector poteva accumulare 10 giorni consecutivi prima del 19 ottobre. Il sample del backtest production V10/V14b parte comunque dal 1997. Lezione: per i crash 'flash' di un giorno servono altri strumenti (es. cap di esposizione per regola fissa).",
+    "v14b_verdict": "FIRE_MISSED",
+    "key_terms": [
+      {
+        "term": "portfolio insurance",
+        "definition": "Strategia anni '80: copri il portafoglio vendendo futures S&P quando il mercato scende, per replicare una put sintetica. Su scala sistemica genera vendite a cascata."
+      },
+      {
+        "term": "program trading",
+        "definition": "Esecuzione automatica di panieri di azioni guidata da algoritmi. Nel 1987 amplificò le vendite forzate del portfolio insurance, accelerando il crollo."
+      },
+      {
+        "term": "Greenspan put",
+        "definition": "Aspettativa che la Fed intervenga sempre per sostenere i mercati nei momenti di stress. Nasce simbolicamente il 20 ottobre 1987 con la promessa di liquidità di Greenspan."
+      }
+    ],
+    "delta_summary_hook": "Crash da un giorno — il sistema sustained-10d non può vederlo per costruzione"
+  },
+  {
+    "id": "1990_gulf_war",
+    "title": "Gulf War Recession 1990",
+    "subtitle": "Saddam invade il Kuwait, oil spike, S&L crisis ancora aperta",
+    "tagline_card": "Recessione breve e selettiva. SPY perde il 20% in 3 mesi, recupera in 4.",
+    "events": [
+      {
+        "date": "1990-07-16",
+        "label": "Picco S&P 500",
+        "description": "Massimo a 368,95. Economia già in rallentamento, S&L crisis in corso da 18 mesi, ma il mercato resta resiliente.",
+        "category": "market"
+      },
+      {
+        "date": "1990-08-02",
+        "label": "Iraq invade il Kuwait",
+        "description": "Saddam Hussein occupa il Kuwait. Petrolio da 17 a 40 dollari/barile in 2 mesi. L'economia USA, già fragile, scivola in recessione.",
+        "category": "geopolitical"
+      },
+      {
+        "date": "1990-10-11",
+        "label": "Trough SPY",
+        "description": "Minimo a 295,46, -19,9% dal picco. Tecnicamente sotto bear market di un soffio. Recessione confermata da NBER (luglio 1990 - marzo 1991).",
+        "category": "market"
+      },
+      {
+        "date": "1991-01-17",
+        "label": "Operation Desert Storm",
+        "description": "Inizia l'offensiva USA. Il petrolio crolla del 30% in un giorno. SPY già in recupero da 3 mesi: il mercato aveva anticipato l'intervento.",
+        "category": "geopolitical"
+      },
+      {
+        "date": "1991-02-13",
+        "label": "Nuovo massimo storico",
+        "description": "SPY torna sopra 368, recuperando interamente il crash in 4 mesi. La recessione era già finita (almeno per Wall Street).",
+        "category": "market"
+      }
+    ],
+    "v14b_story": "Il backtest production V10/V14b parte dal 1997, quindi 1990 è fuori sample. Anche estrapolando il sistema indietro, il drawdown è stato troppo veloce (3 mesi) e troppo poco profondo (-19,9%) per giustificare un fire chirurgico. Il crash 1990 è il tipico caso di 'shock geopolitico breve' dove vendere tutto sarebbe stato una over-reaction.",
+    "v14b_verdict": "NOT_AVAILABLE",
+    "key_terms": [
+      {
+        "term": "S&L crisis",
+        "definition": "Crisi delle Savings & Loans USA (1986-1995): più di 1000 casse di risparmio fallirono per mutui a tasso fisso erogati quando i tassi salirono al 18%. Costo per i contribuenti: ~160 miliardi."
+      },
+      {
+        "term": "NBER",
+        "definition": "National Bureau of Economic Research: l'ente accademico privato che 'datazione ufficiale' delle recessioni USA. Annuncia inizio e fine con mesi di ritardo, ma è il punto di riferimento accademico."
+      }
+    ],
+    "delta_summary_hook": "Crash troppo veloce e troppo breve per V14b — meglio non agire"
+  },
+  {
+    "id": "2000_dotcom",
+    "title": "Dotcom Bubble Crash 2000-02",
+    "subtitle": "NASDAQ -78%, telecom annientato, prima vera bolla dell'era internet",
+    "tagline_card": "30 mesi di drawdown lento. SPY perde la metà, il NASDAQ quasi quattro quinti.",
+    "events": [
+      {
+        "date": "1998-12-28",
+        "label": "V14b FIRE EARLY BIRD",
+        "description": "Il detector scatta 15 mesi prima del peak. CAPE già sopra +2 deviazioni standard, breadth in deterioramento, ma la bolla doveva ancora salire un altro +30%. Costo del cash-out anticipato: opportunità.",
+        "category": "market"
+      },
+      {
+        "date": "2000-03-10",
+        "label": "Picco NASDAQ a 5048",
+        "description": "Massimo storico del NASDAQ Composite. Cisco vale più di General Electric. Aziende senza ricavi quotate 100 volte il fatturato. Tutto sembra normale.",
+        "category": "market"
+      },
+      {
+        "date": "2000-03-24",
+        "label": "Picco S&P 500",
+        "description": "Massimo a 1527. Il valore-internet contagia anche i blue chip. Da qui parte un drawdown di 30 mesi, lento e doloroso.",
+        "category": "market"
+      },
+      {
+        "date": "2001-09-11",
+        "label": "Attentati 11 settembre",
+        "description": "Mercati chiusi per una settimana. Alla riapertura, SPY -11,6% in 5 sedute. La crisi che era 'solo dotcom' diventa shock di fiducia generale.",
+        "category": "geopolitical"
+      },
+      {
+        "date": "2002-07-15",
+        "label": "Scandali contabili (WorldCom, Enron)",
+        "description": "WorldCom rivela 3,8 miliardi di frode contabile dopo Enron (dicembre 2001). Fiducia nel sistema corporate USA al minimo.",
+        "category": "earnings"
+      },
+      {
+        "date": "2002-10-09",
+        "label": "Trough SPY",
+        "description": "Minimo a 776,76, -49,1% dal picco. NASDAQ a -78%. Ci vorranno 7 anni per recuperare il livello del 2000.",
+        "category": "market"
+      }
+    ],
+    "v14b_story": "Caso EARLY BIRD da manuale. V14b ha visto la valutazione folle (CAPE oltre 40) e i segnali di breadth in deterioramento già a fine 1998, e ha firato 15 mesi prima del peak. Il problema: durante quei 15 mesi il NASDAQ ha fatto un altro +90%. Onestà: il sistema ha protetto dal -49% successivo, ma chi era cash da fine 1998 ha visto i colleghi fare fortuna nella fase finale. Il prezzo della prudenza è reale.",
+    "v14b_verdict": "EARLY_BIRD",
+    "key_terms": [
+      {
+        "term": "CAPE",
+        "definition": "Cyclically Adjusted P/E (Shiller): rapporto prezzo/utili usando utili medi degli ultimi 10 anni aggiustati per inflazione. Filtra il rumore ciclico. Sopra 30 = euforia, sopra 40 = bolla."
+      },
+      {
+        "term": "early bird",
+        "definition": "Quando un detector di crash scatta molto prima del peak effettivo. Protegge dal drawdown ma fa perdere la fase finale del rally. Errore di tipo II 'al contrario'."
+      },
+      {
+        "term": "NASDAQ Composite",
+        "definition": "Indice dei titoli quotati sul mercato NASDAQ, storicamente sbilanciato verso tech e biotech. Nel 2000 era il proxy della bolla internet. Perse il 78% dal picco di marzo 2000."
+      }
+    ],
+    "delta_summary_hook": "Fire 15 mesi pre-peak: protegge dal crollo ma costa la fase finale del rally"
+  },
+  {
+    "id": "2007_gfc",
+    "title": "Global Financial Crisis 2007-09",
+    "subtitle": "Lehman, MBS, TARP — la crisi sistemica del secolo",
+    "tagline_card": "La crisi che ha cambiato la finanza moderna. SPY perde il 57% in 17 mesi.",
+    "events": [
+      {
+        "date": "2007-01-12",
+        "label": "V14b FIRE",
+        "description": "Il detector scatta 9 mesi prima del peak. CAPE elevato, spread credit (HY) già in allargamento, breadth divergenza. Cash-out ordinato prima della tempesta.",
+        "category": "market"
+      },
+      {
+        "date": "2007-10-09",
+        "label": "Picco S&P 500",
+        "description": "Massimo storico a 1565,15. Subprime già 'sotto controllo' secondo Bernanke. In realtà la macchina dei CDO sta per implodere.",
+        "category": "market"
+      },
+      {
+        "date": "2008-03-16",
+        "label": "Bear Stearns salvata da JPMorgan",
+        "description": "JPMorgan compra Bear Stearns a 2 dollari/azione con garanzia Fed sui 30 miliardi di MBS tossici. Primo segnale che il sistema è fragile.",
+        "category": "macro"
+      },
+      {
+        "date": "2008-09-15",
+        "label": "Fallimento Lehman Brothers",
+        "description": "La più grande bancarotta della storia USA (600+ miliardi di asset). Treasury sceglie di non salvarla. Il sistema finanziario globale si ferma.",
+        "category": "macro"
+      },
+      {
+        "date": "2008-10-03",
+        "label": "Congresso approva TARP",
+        "description": "Pacchetto da 700 miliardi per comprare asset tossici dalle banche. V14b legge questo come catalyst di re-entry potenziale (anche se il fondo arriva 5 mesi dopo).",
+        "category": "macro"
+      },
+      {
+        "date": "2009-03-09",
+        "label": "Trough SPY",
+        "description": "Minimo a 676,53, -56,8% dal picco. Tre giorni dopo Citigroup memo interno positivo sui ricavi. Parte il bull market più lungo della storia.",
+        "category": "market"
+      }
+    ],
+    "v14b_story": "Caso di scuola per V14b. Il sistema ha firato a gennaio 2007, 9 mesi prima del peak — leggendo gli spread credit (high yield) che si erano già allargati molto prima dell'equity. Il re-entry è stato gestito su TARP (ottobre 2008), salvando dalla seconda gamba ma rientrando 5 mesi prima del bottom. Risultato: catturato il grosso della discesa, evitato il peggio del rebound iniziale. Esecuzione tipica del detector.",
+    "v14b_verdict": "FIRE_CAPTURED",
+    "key_terms": [
+      {
+        "term": "MBS",
+        "definition": "Mortgage-Backed Securities: titoli garantiti da panieri di mutui. Nel 2008 il valore di quelli costruiti su mutui subprime crollò del 70-90%, paralizzando le banche che li detenevano."
+      },
+      {
+        "term": "spread credit (HY)",
+        "definition": "Differenza tra rendimento delle obbligazioni high yield (junk bonds) e i Treasury. Si allarga quando il mercato del credito teme default. Spesso anticipa l'equity di mesi."
+      },
+      {
+        "term": "TARP",
+        "definition": "Troubled Asset Relief Program: legge USA del 3 ottobre 2008 che autorizza il Treasury a 700 miliardi per acquistare asset tossici dalle banche. Stabilizza il sistema ma non ferma subito la discesa."
+      }
+    ],
+    "delta_summary_hook": "Fire 9 mesi pre-peak su segnale credit — il caso d'uso ideale per V14b"
+  },
+  {
+    "id": "2018_powell_q4",
+    "title": "2018 Q4 Powell Hawkish",
+    "subtitle": "'A long way from neutral' — un cattivo soundbite, -20% in 3 mesi",
+    "tagline_card": "Crash chirurgico da policy mistake. SPY -19,8% in 13 settimane, recupero in 4 mesi.",
+    "events": [
+      {
+        "date": "2018-09-06",
+        "label": "V14b FIRE",
+        "description": "Il detector scatta 14 giorni prima del peak. Combinazione: VIX low extreme + first crack + breadth divergence. Timing chirurgico, cash-out ordinato.",
+        "category": "market"
+      },
+      {
+        "date": "2018-09-20",
+        "label": "Picco S&P 500",
+        "description": "Massimo a 2930,75. Earnings season forte, tagli fiscali Trump ancora positivi sui margini. Ma la Fed sta per fare un errore di comunicazione storico.",
+        "category": "market"
+      },
+      {
+        "date": "2018-10-03",
+        "label": "Powell: 'a long way from neutral'",
+        "description": "Il presidente Fed dichiara in TV che i tassi sono 'molto lontani' dal livello neutro. Il mercato sente: 'arriverò molto più in alto'. Cominciano le vendite.",
+        "category": "fed"
+      },
+      {
+        "date": "2018-12-01",
+        "label": "G20 Buenos Aires: tregua Trump-Xi",
+        "description": "Trump e Xi annunciano una tregua di 90 giorni sui dazi. V14b legge questo come catalyst di re-entry: rientro graduale subito dopo.",
+        "category": "geopolitical"
+      },
+      {
+        "date": "2018-12-19",
+        "label": "Powell rilancia: 4 hike nel 2019",
+        "description": "FOMC alza i tassi e indica 2 (forse 4) hike nel 2019. Mercato in vendita panico. Trump attacca pubblicamente Powell.",
+        "category": "fed"
+      },
+      {
+        "date": "2018-12-24",
+        "label": "Trough SPY: Christmas Eve",
+        "description": "Minimo a 2351, -19,8% dal picco. Peggior vigilia di Natale di sempre per Wall Street. Quattro giorni dopo, Mnuchin convoca il 'Plunge Protection Team'.",
+        "category": "market"
+      }
+    ],
+    "v14b_story": "Esecuzione perfetta del detector. V14b ha firato il 6 settembre, 14 giorni prima del peak — leggendo la compiacenza estrema (VIX sotto 13) e la prima crepa tecnica. Re-entry guidata dalla tregua G20 del 1 dicembre, prima del second leg verso il fondo. Risultato: protezione del grosso del -20% senza early bird. Esempio canonico di fire 'tardo-ciclo, vicino al peak'.",
+    "v14b_verdict": "FIRE_CAPTURED",
+    "key_terms": [
+      {
+        "term": "tasso neutro",
+        "definition": "Il livello dei fed funds che né stimola né frena l'economia. Stima accademica intorno a 2,5-3%. Powell nel 2018 disse di essere 'a long way' da lì, il mercato sentì 'salirò di tanto'."
+      },
+      {
+        "term": "Plunge Protection Team",
+        "definition": "Soprannome del Working Group on Financial Markets, organo USA che coordina Treasury, Fed, SEC e CFTC nei momenti di stress acuto. Convocato da Mnuchin il 27 dicembre 2018."
+      },
+      {
+        "term": "FOMC",
+        "definition": "Federal Open Market Committee: organo della Fed che decide i tassi. Si riunisce 8 volte l'anno. Le decisioni e il 'dot plot' delle proiezioni muovono violentemente i mercati."
+      }
+    ],
+    "delta_summary_hook": "Fire chirurgico 14 giorni pre-peak — esecuzione da manuale del detector"
+  },
+  {
+    "id": "2020_covid",
+    "title": "COVID Crash 2020",
+    "subtitle": "Il crash più veloce della storia: -34% in 33 giorni",
+    "tagline_card": "Bull market interrotto da uno shock esogeno. La Fed inonda di liquidità in 5 settimane.",
+    "events": [
+      {
+        "date": "2020-02-19",
+        "label": "Picco S&P 500",
+        "description": "Massimo a 3386,15. Mercato sopra SMA200 +5%, ma CAPE 'solo' a 31, non in zona euforia estrema. Coronavirus visto ancora come problema cinese.",
+        "category": "market"
+      },
+      {
+        "date": "2020-03-09",
+        "label": "Circuit breaker -7%",
+        "description": "Primo lockdown italiano nel weekend. SPY -7% all'apertura, scatta il circuit breaker. Sarà il primo di quattro halt in 10 giorni di sedute.",
+        "category": "market"
+      },
+      {
+        "date": "2020-03-15",
+        "label": "Fed taglia a zero domenica sera",
+        "description": "Fed annuncia tagli emergenziali di domenica: fed funds da 1,25% a 0%, 700 miliardi di QE. Il mercato risponde con un -12% il giorno dopo: 'la Fed è disperata'.",
+        "category": "fed"
+      },
+      {
+        "date": "2020-03-23",
+        "label": "Fed annuncia QE illimitato",
+        "description": "Bazooka totale: la Fed comprerà 'quantità illimitate' di Treasury e MBS, più facility per credito corporate e municipal. Cambia tutto.",
+        "category": "fed"
+      },
+      {
+        "date": "2020-03-23",
+        "label": "Trough SPY",
+        "description": "Minimo a 2237,40, -34% dal picco in 33 giorni. Il crash più veloce della storia. Da qui parte un rally del +70% in 9 mesi.",
+        "category": "market"
+      },
+      {
+        "date": "2020-08-18",
+        "label": "Nuovo massimo storico",
+        "description": "SPY recupera tutto in 6 mesi, durante una pandemia globale e una recessione tecnica. Effetto liquidità + retail boom + tech work-from-home.",
+        "category": "market"
+      }
+    ],
+    "v14b_story": "V14b non ha firato. Il filtro 'sustained 10 giorni' richiede che almeno 2 voter siano attivi per 10 sedute consecutive: il crash COVID è arrivato in 33 giorni totali, senza alcuna fase di deterioramento sostenuto. Onestà: questo è un limite strutturale del sistema. È disegnato per bolle da euforia che si sgretolano, non per shock biologici-esterni che colpiscono in 4 settimane. Bisogna saperlo.",
+    "v14b_verdict": "FIRE_MISSED",
+    "key_terms": [
+      {
+        "term": "circuit breaker",
+        "definition": "Sospensione automatica delle contrattazioni quando SPY scende del 7% (15 minuti), 13% (15 minuti) o 20% (chiusura). Scattati 4 volte nelle 10 sedute tra l'8 e il 18 marzo 2020."
+      },
+      {
+        "term": "QE illimitato",
+        "definition": "Quantitative Easing senza tetto: la Fed si impegna a comprare Treasury e MBS 'nelle quantità necessarie' per stabilizzare i mercati. Annunciato il 23 marzo 2020, ha invertito il crash nello stesso giorno."
+      },
+      {
+        "term": "sustained filter",
+        "definition": "Regola di V14b: almeno 2 voter (su 8) devono essere attivi per 10 sedute consecutive prima del FIRE. Filtra i falsi allarmi ma non vede gli shock di 3-4 settimane."
+      }
+    ],
+    "delta_summary_hook": "Crash troppo veloce per il sustained-filter — limite strutturale del detector"
+  },
+  {
+    "id": "2022_inflation",
+    "title": "Inflation Bear Market 2022",
+    "subtitle": "CPI al 9,1%, Fed +75bp per quattro riunioni di fila",
+    "tagline_card": "Drawdown lento e doloroso. SPY -25% in 9 mesi, decimato il tech.",
+    "events": [
+      {
+        "date": "2021-12-15",
+        "label": "V14b FIRE",
+        "description": "Il detector scatta 19 giorni prima del peak. CAPE oltre 38, VIX low extreme, breadth in deterioramento (mega-cap reggono, il resto rolla). Cash-out chirurgico.",
+        "category": "market"
+      },
+      {
+        "date": "2022-01-03",
+        "label": "Picco S&P 500",
+        "description": "Massimo storico a 4796,56. Tech mania (ARKK, meme stocks) già in calo da mesi, ma gli indici tengono grazie alle FAANG.",
+        "category": "market"
+      },
+      {
+        "date": "2022-03-16",
+        "label": "Fed inizia il rate hike cycle",
+        "description": "Primo hike di +25bp dopo 4 anni di tassi a zero. Powell ammette di essere 'behind the curve' sull'inflazione. Il mercato realizza che il QT arriverà.",
+        "category": "fed"
+      },
+      {
+        "date": "2022-06-10",
+        "label": "CPI shock 8,6% (peggio delle attese)",
+        "description": "Inflazione USA non sta scendendo come sperato. Il mercato sconta un Fed +75bp (non +50). Cinque giorni dopo la Fed alza effettivamente di 75bp, primo dal 1994.",
+        "category": "macro"
+      },
+      {
+        "date": "2022-10-12",
+        "label": "Trough SPY",
+        "description": "Minimo a 3577,03, -25,4% dal picco. CPI di settembre ancora caldo, ma il mercato comincia a guardare oltre.",
+        "category": "market"
+      },
+      {
+        "date": "2022-11-10",
+        "label": "CPI miss: V14b re-entry",
+        "description": "CPI ottobre 7,7% vs 8,0% atteso. NASDAQ +7,4% in un giorno. V14b legge il primo CPI miss come catalyst di rientro: cash torna in azioni.",
+        "category": "macro"
+      }
+    ],
+    "v14b_story": "Esecuzione pulita. V14b ha firato il 15 dicembre 2021, 19 giorni prima del peak — leggendo CAPE folle (38+), VIX sotto 13 e divergenze interne (le mid-cap stavano già rollando). Re-entry guidato dal primo CPI miss del 10 novembre 2022, prima della seconda gamba di rally. Cattura del -25%, rientro 1 mese dopo il bottom. Caso 'da manuale' insieme al 2007 e al 2018.",
+    "v14b_verdict": "FIRE_CAPTURED",
+    "key_terms": [
+      {
+        "term": "QT (Quantitative Tightening)",
+        "definition": "Opposto del QE: la Fed lascia scadere i titoli in portafoglio senza reinvestire, riducendo la base monetaria. Iniziato a giugno 2022 al ritmo di 95 miliardi/mese."
+      },
+      {
+        "term": "behind the curve",
+        "definition": "Espressione per dire 'in ritardo rispetto agli eventi'. Powell nel 2022 aveva mantenuto tassi a zero anche con inflazione al 7%, riconoscendo poi pubblicamente l'errore."
+      },
+      {
+        "term": "CPI miss",
+        "definition": "Quando il dato inflazione esce sotto le attese del consenso. Nei regimi inflattivi è il segnale che il mercato aspetta per fare rally: dimostra che la Fed può smettere di tirare."
+      }
+    ],
+    "delta_summary_hook": "Fire chirurgico 19 giorni pre-peak, re-entry su primo CPI miss"
+  },
+  {
+    "id": "2025_liberation_day",
+    "title": "Liberation Day Crash 2025",
+    "subtitle": "Trump annuncia dazi reciproci. -19% in 7 sedute",
+    "tagline_card": "Shock politico veloce. V14b non scatta per design: Layer 1 protegge dai falsi positivi.",
+    "events": [
+      {
+        "date": "2025-02-19",
+        "label": "Picco S&P 500",
+        "description": "Massimo a 6144. Mercato sopra trend, ma CAPE z-score solo +0,69 (sotto la soglia +1,0 di V14b). Valutazioni alte ma non in zona euforia estrema.",
+        "category": "market"
+      },
+      {
+        "date": "2025-03-04",
+        "label": "Dazi 25% su Canada e Messico",
+        "description": "Prima salva di tariffe Trump. Mercato scivola ma resta in trend. Si pensa: 'negozia, poi rientra'. Sbagliato.",
+        "category": "geopolitical"
+      },
+      {
+        "date": "2025-04-02",
+        "label": "Liberation Day: dazi reciproci",
+        "description": "Rose Garden, Executive Order 14257: dazi del 10% su tutti i paesi + sovrattasse fino al 49% sui partner principali. Cina 34%, UE 20%, Giappone 24%.",
+        "category": "geopolitical"
+      },
+      {
+        "date": "2025-04-03",
+        "label": "Crollo: -4,8% in un giorno",
+        "description": "Peggior seduta dal COVID. NASDAQ -6%, settori auto e semis i più colpiti. Le contromisure cinesi annunciate il giorno dopo (34% sui beni USA) accelerano la discesa.",
+        "category": "market"
+      },
+      {
+        "date": "2025-04-08",
+        "label": "Trough SPY",
+        "description": "Minimo a 4982, -19% in 7 sedute dal 2 aprile. Tecnicamente quasi bear market. Recupero rapido dopo le sospensioni dei dazi dell'11 aprile.",
+        "category": "market"
+      }
+    ],
+    "v14b_story": "V14b non ha firato — correttamente, per design. La pre-condizione Layer 1 richiede CAPE z-score sopra +1,0 deviazione standard. Nel febbraio 2025 il CAPE z era 0,69: valutazioni alte ma non in zona 'bolla'. Il sistema ha detto: 'questo crash è da shock politico, non da euforia da sgonfiare. Non vendo'. E ha fatto bene: chi era cash ha perso il rebound dell'11 aprile.",
+    "v14b_verdict": "SKIP_BY_DESIGN",
+    "key_terms": [
+      {
+        "term": "Liberation Day",
+        "definition": "Nome scelto da Trump per il 2 aprile 2025, giorno dell'annuncio dei dazi reciproci. Tariffe basate su formula 'deficit commerciale bilaterale ÷ 2', con minimo del 10% per tutti."
+      },
+      {
+        "term": "Layer 1 (pre-condizione)",
+        "definition": "Filtro a monte di V14b: per attivare i voter serve CAPE sopra +1 deviazione standard E SPY sopra SMA200 +5%. Senza queste due condizioni, il sistema resta in stand-by."
+      },
+      {
+        "term": "CAPE z-score",
+        "definition": "Quante deviazioni standard il CAPE corrente è sopra/sotto la sua media storica. +1 = valutazioni 'molto alte', +2 = 'estreme', +3 = 'bolla'."
+      }
+    ],
+    "delta_summary_hook": "Skip by design: Layer 1 protegge dai crash 'sbagliati' per il sistema"
+  }
+]
