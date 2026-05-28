@@ -49,7 +49,8 @@
       "final_value": 14441.0,
       "total_invested": 13000.0,
       "ret_pct": 11.1,
-      "max_dd_pct": -12.1
+      "max_dd_pct": -12.1,
+      "sharpe": 0.94
     },
     "QQQ": {
       "dates": [
@@ -100,7 +101,8 @@
       "final_value": 15051.0,
       "total_invested": 13000.0,
       "ret_pct": 15.8,
-      "max_dd_pct": -16.9
+      "max_dd_pct": -16.9,
+      "sharpe": 0.92
     },
     "Top2-EW-Hyst": {
       "dates": [
@@ -151,7 +153,8 @@
       "final_value": 15131.0,
       "total_invested": 13000.0,
       "ret_pct": 16.4,
-      "max_dd_pct": -22.2
+      "max_dd_pct": -22.2,
+      "sharpe": 1.0
     },
     "P/E Switch": {
       "dates": [
@@ -202,7 +205,8 @@
       "final_value": 23816.0,
       "total_invested": 13000.0,
       "ret_pct": 83.2,
-      "max_dd_pct": -39.5
+      "max_dd_pct": -39.5,
+      "sharpe": 1.4
     },
     "NoRot2": {
       "dates": [
@@ -253,7 +257,8 @@
       "final_value": 17476.0,
       "total_invested": 13000.0,
       "ret_pct": 34.4,
-      "max_dd_pct": -31.6
+      "max_dd_pct": -31.6,
+      "sharpe": 0.96
     },
     "Mom-Top2-Hyst": {
       "dates": [
@@ -304,7 +309,8 @@
       "final_value": 22696.0,
       "total_invested": 13000.0,
       "ret_pct": 74.6,
-      "max_dd_pct": -31.3
+      "max_dd_pct": -31.3,
+      "sharpe": 1.44
     },
     "IWMO-Top2-Hyst": {
       "dates": [
@@ -355,35 +361,84 @@
       "final_value": 14589.0,
       "total_invested": 13000.0,
       "ret_pct": 12.2,
-      "max_dd_pct": -30.8
+      "max_dd_pct": -30.8,
+      "sharpe": 0.42
     }
   },
   "last12m_window": {
     "start": "2025-05-01",
     "end": "2026-05-14"
   },
+  "main_16y": {
+    "SPY": {
+      "final_value": 675182.0,
+      "total_invested": 192000.0,
+      "cagr_pct": 8.18,
+      "max_dd_pct": -34.2,
+      "sharpe": 0.55
+    },
+    "QQQ": {
+      "final_value": 1068045.0,
+      "total_invested": 192000.0,
+      "cagr_pct": 11.32,
+      "max_dd_pct": -39.3,
+      "sharpe": 0.64
+    },
+    "Top2-EW-Hyst": {
+      "final_value": 1627901.0,
+      "total_invested": 192000.0,
+      "cagr_pct": 14.3,
+      "max_dd_pct": -37.2,
+      "sharpe": 0.62
+    },
+    "P/E Switch": {
+      "final_value": 5894023.0,
+      "total_invested": 192000.0,
+      "cagr_pct": 23.87,
+      "max_dd_pct": -59.1,
+      "sharpe": 0.69
+    },
+    "NoRot2": {
+      "final_value": 19327805.0,
+      "total_invested": 192000.0,
+      "cagr_pct": 33.41,
+      "max_dd_pct": -56.5,
+      "sharpe": 1.01
+    },
+    "Mom-Top2-Hyst": {
+      "final_value": 1392615.0,
+      "total_invested": 192000.0,
+      "cagr_pct": 13.19,
+      "max_dd_pct": -59.1,
+      "sharpe": 0.35
+    }
+  },
+  "main_16y_window": {
+    "start": "2010-01-01",
+    "end": "2025-12-31"
+  },
   "mom_top2_16y": {
     "yearly_value": [
-      12960.0,
-      26747.0,
-      43384.0,
-      87925.0,
-      114144.0,
-      123776.0,
-      179132.0,
-      421170.0,
-      417093.0,
-      470878.0,
-      708719.0,
-      780970.0,
-      1383648.0,
-      1166311.0,
-      3047616.0,
-      3998445.0
+      9605.0,
+      23134.0,
+      39443.0,
+      82892.0,
+      108104.0,
+      117936.0,
+      171606.0,
+      404224.0,
+      400758.0,
+      453165.0,
+      682727.0,
+      593588.0,
+      784550.0,
+      742168.0,
+      1936973.0,
+      1392615.0
     ],
-    "final_value": 3998445.0,
-    "cagr_pct": 20.9,
-    "max_dd_pct": -59.2
+    "final_value": 1392615.0,
+    "cagr_pct": 13.19,
+    "max_dd_pct": -59.1
   },
   "iwmo_history": {
     "IWMO-Top2-Hyst": {
@@ -394,7 +449,7 @@
         91528.0,
         83413.0,
         101035.0,
-        249212.0,
+        249213.0,
         298941.0,
         280173.0
       ],
@@ -402,7 +457,8 @@
       "total_invested": 95000.0,
       "ret_pct": 194.9,
       "cagr_pct": 14.73,
-      "max_dd_pct": -45.6
+      "max_dd_pct": -45.6,
+      "sharpe": 0.51
     },
     "Mom-Top2-Hyst": {
       "yearly_value": [
@@ -420,7 +476,8 @@
       "total_invested": 95000.0,
       "ret_pct": 768.3,
       "cagr_pct": 31.61,
-      "max_dd_pct": -48.5
+      "max_dd_pct": -48.5,
+      "sharpe": 0.76
     },
     "IWMO ETF": {
       "yearly_value": [
@@ -438,7 +495,8 @@
       "total_invested": 95000.0,
       "ret_pct": 87.6,
       "cagr_pct": 8.32,
-      "max_dd_pct": -32.4
+      "max_dd_pct": -32.4,
+      "sharpe": 0.51
     },
     "SPY": {
       "yearly_value": [
@@ -456,7 +514,8 @@
       "total_invested": 95000.0,
       "ret_pct": 90.4,
       "cagr_pct": 8.52,
-      "max_dd_pct": -33.9
+      "max_dd_pct": -33.9,
+      "sharpe": 0.5
     }
   },
   "iwmo_history_years": [
@@ -483,14 +542,14 @@
         54153.0,
         86258.0,
         157233.0,
-        448738.0,
+        448737.0,
         1033259.0,
         862250.0,
         1163571.0,
-        2904013.0,
-        6853770.0,
-        3733893.0,
-        10244428.0,
+        2904012.0,
+        6853772.0,
+        3733892.0,
+        10244429.0,
         30351686.0,
         39486588.0
       ],
@@ -516,9 +575,9 @@
         1553182.0,
         2712384.0,
         4818001.0,
-        11627174.0
+        11627175.0
       ],
-      "final_value": 11627174.0,
+      "final_value": 11627175.0,
       "cagr_pct": 29.24,
       "max_dd_pct": -50.5,
       "sharpe": 0.93
@@ -536,13 +595,13 @@
         609649.0,
         843775.0,
         1547967.0,
-        3037188.0,
+        3037189.0,
         2112599.0,
-        4824346.0,
-        12281570.0,
-        19327804.0
+        4824347.0,
+        12281571.0,
+        19327805.0
       ],
-      "final_value": 19327804.0,
+      "final_value": 19327805.0,
       "cagr_pct": 33.41,
       "max_dd_pct": -56.5,
       "sharpe": 1.01

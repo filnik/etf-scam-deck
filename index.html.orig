@@ -1093,14 +1093,14 @@ body::after {
       <span class="vs-card__label">Strategia mainstream</span>
       <span class="vs-card__title">SPY · S&amp;P 500 PAC</span>
       <span class="vs-card__value" data-counter="675182" data-prefix="€" data-suffix="">€0</span>
-      <span class="vs-card__sub">+8,18% CAGR · MaxDD −34,2%</span>
+      <span class="vs-card__sub">+8,18% CAGR · MaxDD −34,2% · Sharpe 0,55</span>
     </div>
     <div class="vs-divider">VS</div>
     <div class="vs-card vs-card--win">
       <span class="vs-card__label">Concentrazione winners</span>
       <span class="vs-card__title">NVDA + AVGO · zero rotazioni</span>
       <span class="vs-card__value" data-counter="19327805" data-prefix="€" data-suffix="">€0</span>
-      <span class="vs-card__sub">+33,41% CAGR · MaxDD −56,5%</span>
+      <span class="vs-card__sub">+33,41% CAGR · MaxDD −56,5% · Sharpe 1,01</span>
     </div>
   </div>
   <div class="card card--glow-green" style="margin-top:20px;text-align:center;padding:24px 36px;">
@@ -1123,32 +1123,32 @@ body::after {
     <div class="card" style="padding:12px;text-align:center;">
       <div class="muted" style="font-size:10px;">SPY · S&amp;P 500</div>
       <div class="big-number" style="font-size:26px;color:var(--accent-red);line-height:1;margin:6px 0;">€675K</div>
-      <div class="muted" style="font-size:10px;">+8,18% CAGR</div>
+      <div class="muted" style="font-size:10px;">+8,18% CAGR · Sh 0,55</div>
     </div>
     <div class="card" style="padding:12px;text-align:center;">
       <div class="muted" style="font-size:10px;">QQQ · NASDAQ 100</div>
       <div class="big-number" style="font-size:26px;color:var(--accent-yellow);line-height:1;margin:6px 0;">€1,07M</div>
-      <div class="muted" style="font-size:10px;">+11,32% CAGR</div>
+      <div class="muted" style="font-size:10px;">+11,32% CAGR · Sh 0,64</div>
     </div>
     <div class="card card--glow-cyan" style="padding:12px;text-align:center;">
       <div class="muted" style="font-size:10px;">Top2-EW-Hyst</div>
       <div class="big-number" style="font-size:26px;color:#00d9ff;line-height:1;margin:6px 0;">€1,63M</div>
-      <div class="muted" style="font-size:10px;">+14,30% CAGR</div>
+      <div class="muted" style="font-size:10px;">+14,30% CAGR · Sh 0,62</div>
     </div>
     <div class="card" style="padding:12px;text-align:center;">
       <div class="muted" style="font-size:10px;">Mom-Top2-Hyst</div>
-      <div class="big-number" style="font-size:26px;color:#c77dff;line-height:1;margin:6px 0;">€3,19M</div>
-      <div class="muted" style="font-size:10px;">+19,19% CAGR</div>
+      <div class="big-number" style="font-size:26px;color:#c77dff;line-height:1;margin:6px 0;">€1,39M</div>
+      <div class="muted" style="font-size:10px;">+13,19% CAGR · Sh 0,35</div>
     </div>
     <div class="card" style="padding:12px;text-align:center;">
       <div class="muted" style="font-size:10px;">P/E Switch + oro</div>
-      <div class="big-number" style="font-size:26px;color:var(--accent-blue);line-height:1;margin:6px 0;">€6,36M</div>
-      <div class="muted" style="font-size:10px;">+24,46% CAGR</div>
+      <div class="big-number" style="font-size:26px;color:var(--accent-blue);line-height:1;margin:6px 0;">€5,89M</div>
+      <div class="muted" style="font-size:10px;">+23,87% CAGR · Sh 0,69</div>
     </div>
     <div class="card card--glow-green" style="padding:12px;text-align:center;">
       <div class="muted" style="font-size:10px;">NoRot2 · NVDA + AVGO</div>
       <div class="big-number big-number--green" style="font-size:26px;line-height:1;margin:6px 0;">€19,33M</div>
-      <div class="muted" style="font-size:10px;">+33,41% CAGR</div>
+      <div class="muted" style="font-size:10px;">+33,41% CAGR · Sh 1,01</div>
     </div>
   </div>
   <div class="source" style="padding-right:300px;">Tutte equity curve reali da un unico backtest · PAC €1k/mese · realistic mode · regime dichiarativo · 2010-2025 · P/E Switch = us_only (i ticker nativi asiatici non hanno dati nel 2010) · sp1_dumb_strategy_test.py</div>
@@ -2506,8 +2506,8 @@ body::after {
       const spy =      [13, 25, 42, 68,  92,  108, 128, 170, 192, 236,  294,  380,  360,  425,  580,   675];
       const qqq =      [14, 27, 44, 72,  102, 126, 140, 203, 236, 301,  464,  608,  474,  648,  866,   1068];
       const top2 =     [14, 30, 52, 67,  98,  109, 117, 193, 216, 327,  593,  835,  736,  969,  1227,  1628];
-      const momtop2 =  [10, 23, 39, 83,  108, 118, 172, 404, 401, 453,  683,  594,  785,  742,  1937,  3185];
-      const peswitch = [11, 17, 26, 57,  80,  93,  173, 281, 265, 349,  677,  1355, 862,  1757, 4759,  6364];
+      const momtop2 =  [10, 23, 39, 83,  108, 118, 172, 404, 401, 453,  683,  594,  785,  742,  1937,  1393];
+      const peswitch = [11, 17, 26, 57,  80,  93,  173, 281, 265, 349,  677,  1355, 862,  1757, 4759,  5894];
       const norot2 =   [13, 26, 39, 65,  137, 219, 353, 689, 610, 844,  1548, 3037, 2113, 4824, 12282, 19328];
       new Chart(ctx, {
         type: 'line',

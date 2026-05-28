@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>V4 · La diversificazione non ha senso</title>
+<title>V4 · Diversificazione · cosa funziona davvero</title>
 <meta name="theme-color" content="#0f0f1a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,23 +25,23 @@
 <!-- V4 · TITLE + hook -->
 <section class="slide is-active layout-center" data-id="v4-title">
 <div class="slide-inner layout-center" style="text-align:center;align-items:center;gap:40px;">
-  <div class="eyebrow">Serie "Gli ETF sono SCAM?" · Video 5 di 5</div>
-  <h1 class="h1">La diversificazione<br><span class="accent-red">non ha senso</span>.</h1>
+  <div class="eyebrow">Serie "Capire gli ETF" · Video 5 di 5</div>
+  <h1 class="h1">Diversificazione,<br><span class="accent-cyan">cosa funziona davvero</span>.</h1>
   <p class="lead" style="text-align:center;max-width:820px;">
-    VWCE è "tutto il mondo"? No. È l'S&amp;P 500 con un travestimento.
-    E quando crolla, <strong>crolla tutto insieme</strong>.
-    Simulazioni, composizione reale, crash test — il finale della serie.
+    Un VWCE "globale" è meno globale di quanto sembri: ~64% è esposizione US.
+    E nei crash sistemici le correlazioni tra aree convergono.
+    Composizione reale, dati storici, crash test — il finale della serie.
   </p>
-  <div class="muted">stockpickers.app · serie "Gli ETF sono SCAM?"</div>
+  <div class="muted">stockpickers.app · serie "Capire gli ETF"</div>
 </div>
 </section>
 
 <section class="slide" data-id="22" style="padding-top:60px;padding-bottom:90px;">
 <div class="slide-inner" style="gap:16px;">
   <div class="eyebrow">Capitolo 8 · Diversificazione</div>
-  <h2 class="h2" style="font-size:clamp(28px,3.4vw,46px);">2022: il "sacro graal" che <span class="accent-red">non ha protetto nessuno</span>.</h2>
+  <h2 class="h2" style="font-size:clamp(28px,3.4vw,46px);">2022: il 60/40, <span class="accent-yellow">il limite del "sacro graal"</span>.</h2>
   <p class="lead" style="font-size:16px;line-height:1.45;">
-    «Compra VWCE e dormi sereno.» Tutti i consulenti consigliano un <strong>portafoglio diversificato 60/40</strong>: 60% azioni (SPY) + 40% bond (AGG/TLT). L'idea: quando crollano le azioni, salgono i bond. Vediamo cosa è successo nell'anno del doppio bear.
+    Il <strong>portafoglio 60/40</strong> — 60% azioni (SPY) + 40% bond (AGG/TLT) — è uno dei pilastri storici dell'asset allocation. L'ipotesi di base: quando crollano le azioni, salgono i bond. Nel 2022 questa correlazione, normalmente robusta, si è rotta. Vediamo perché.
   </p>
   <div class="crash-grid">
     <div class="crash-item crash-item--down">
@@ -70,25 +70,182 @@
     </div>
   </div>
   <p class="lead" style="font-size:15px;line-height:1.45;margin-top:8px;">
-    Il 2022 è stato il <strong>doppio bear</strong>: la Fed ha alzato i tassi da 0% a 5% per combattere l'inflazione 9%.
-    Quando i tassi salgono, sia azioni (multipli compressi) <strong>sia bond</strong> (prezzo inverso al rendimento) crollano. <strong>TLT ha fatto peggio dell'azionario</strong>.
-    L'allocation 60/40 SPY+TLT — la "pensione sicura" — ha perso <strong>−17%</strong>.
-    <span class="emphasis-box--red">Vera diversificazione = asset class non correlate</span> (equity + oro fisico + cash), non 100 ETF azionari diversi.
+    Il 2022 è stato un <strong>doppio bear</strong>: la Fed ha alzato i tassi da 0% a 5% per combattere l'inflazione al 9%.
+    In uno shock dei tassi così violento, sia azioni (multipli compressi) <strong>sia bond</strong> (prezzo inverso al rendimento) tendono a scendere insieme. <strong>TLT ha fatto peggio dell'azionario</strong>.
+    Un 60/40 SPY+TLT ha chiuso a <strong>−17%</strong>.
+    <span class="emphasis-box">Spunto operativo</span>: in fasi di shock dei rendimenti può valere la pena affiancare asset class meno correlate al ciclo tassi (es. oro fisico, cash), oltre alla classica coppia equity-bond.
   </p>
   <div class="source">Fonte: guides/strategie/04_multi_asset.md:89-101 · BlackRock fact sheet 2022 (AGG, TLT) · World Gold Council</div>
 </div>
 </section>
 
+
+<!-- V4 · I 3 portafogli balanced più usati al mondo -->
+<section class="slide" data-id="22-bal-a" style="padding-top:50px;padding-bottom:80px;">
+<div class="slide-inner" style="gap:16px;">
+  <div class="eyebrow">Capitolo 8A · I 3 portafogli "balanced" più citati al mondo</div>
+  <h2 class="h2" style="font-size:clamp(26px,3.2vw,42px);">Composizione, filosofia, <span class="accent-yellow">numeri veri 2006-2025</span>.</h2>
+  <p class="lead" style="font-size:15px;line-height:1.45;">
+    Il 60/40 non è solo. Sono <strong>3 architetture diverse</strong> di "portafoglio balanced" che dominano la consulenza finanziaria globale.
+    Ogni regime economico ha un asset che lo dovrebbe coprire — almeno in teoria.
+    Backtest su ETF reali, total return inclusi dividendi, monthly rebalancing, periodo 2006-2025.
+  </p>
+
+  <div class="split-3" style="gap:14px;">
+    <div class="card" style="padding:16px;">
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:8px;">① 60/40 CLASSICO · Markowitz vanilla</div>
+      <h3 style="font-size:17px;margin:0 0 8px 0;color:var(--text-primary);">Vanguard / Bogleheads</h3>
+      <table style="width:100%;font-family:var(--font-mono);font-size:12px;margin-bottom:10px;">
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">SPY (US equity)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">60%</td></tr>
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">AGG (US aggregate bond)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">40%</td></tr>
+      </table>
+      <p class="muted" style="font-size:11px;line-height:1.4;margin:0 0 10px 0;">
+        <strong>Premessa</strong>: quando crolla l'equity, salgono i bond. Correlazione storicamente negativa = hedge naturale. <strong>Vince in deflazione/recessione, fa più fatica quando bond e stock scendono insieme</strong>.
+      </p>
+      <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+        <div><div class="muted" style="font-size:9px;">CAGR 20y</div><div class="accent-green" style="font-size:15px;font-weight:700;font-family:var(--font-mono);">+8,10%</div></div>
+        <div><div class="muted" style="font-size:9px;">MaxDD</div><div class="accent-yellow" style="font-size:15px;font-weight:700;font-family:var(--font-mono);">−34,85%</div></div>
+        <div><div class="muted" style="font-size:9px;">Sharpe</div><div style="font-size:15px;font-weight:700;font-family:var(--font-mono);color:var(--text-primary);">0,73</div></div>
+      </div>
+    </div>
+
+    <div class="card card--glow-cyan" style="padding:16px;">
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:8px;">② ALL WEATHER · Ray Dalio (Bridgewater)</div>
+      <h3 style="font-size:17px;margin:0 0 8px 0;color:var(--text-primary);">Risk parity retail</h3>
+      <table style="width:100%;font-family:var(--font-mono);font-size:12px;margin-bottom:10px;">
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">SPY (US equity)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">30%</td></tr>
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">TLT (long Treasury 20y+)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">40%</td></tr>
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">IEF (intermediate bond 7-10y)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">15%</td></tr>
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">GLD (oro fisico)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">7,5%</td></tr>
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">DBC (commodities)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">7,5%</td></tr>
+      </table>
+      <p class="muted" style="font-size:11px;line-height:1.4;margin:0 0 10px 0;">
+        <strong>Premessa</strong>: ogni regime (crescita / recessione / inflazione / deflazione) ha l'asset che lo copre. <strong>Vince in deflazione (TLT salva), soffre quando i tassi salgono</strong> — 55% in bond = molto sensibile ai rate hike.
+      </p>
+      <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+        <div><div class="muted" style="font-size:9px;">CAGR 20y</div><div class="accent-green" style="font-size:15px;font-weight:700;font-family:var(--font-mono);">+6,59%</div></div>
+        <div><div class="muted" style="font-size:9px;">MaxDD</div><div class="accent-yellow" style="font-size:15px;font-weight:700;font-family:var(--font-mono);">−23,55%</div></div>
+        <div><div class="muted" style="font-size:9px;">Sharpe</div><div style="font-size:15px;font-weight:700;font-family:var(--font-mono);color:var(--accent-cyan);">0,82</div></div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:16px;">
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:8px;">③ PERMANENT PORTFOLIO · Harry Browne (1978)</div>
+      <h3 style="font-size:17px;margin:0 0 8px 0;color:var(--text-primary);">Robustezza &gt; rendimento</h3>
+      <table style="width:100%;font-family:var(--font-mono);font-size:12px;margin-bottom:10px;">
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">SPY (equity)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">25%</td></tr>
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">TLT (long Treasury)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">25%</td></tr>
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">GLD (oro fisico)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">25%</td></tr>
+        <tr><td style="padding:2px 0;color:var(--text-secondary);">SHY (cash / T-bills)</td><td style="text-align:right;color:var(--accent-yellow);font-weight:700;">25%</td></tr>
+      </table>
+      <p class="muted" style="font-size:11px;line-height:1.4;margin:0 0 10px 0;">
+        <strong>Premessa</strong>: equity per la prosperità, bond per la deflazione, oro per l'inflazione, cash per la liquidity crisis. <strong>Vince in robustezza</strong> (MaxDD più basso del set), <strong>cede in rendimento</strong>.
+      </p>
+      <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+        <div><div class="muted" style="font-size:9px;">CAGR 20y</div><div class="accent-green" style="font-size:15px;font-weight:700;font-family:var(--font-mono);">+7,15%</div></div>
+        <div><div class="muted" style="font-size:9px;">MaxDD</div><div class="accent-yellow" style="font-size:15px;font-weight:700;font-family:var(--font-mono);">−18,73%</div></div>
+        <div><div class="muted" style="font-size:9px;">Sharpe</div><div class="accent-green" style="font-size:15px;font-weight:700;font-family:var(--font-mono);">0,98</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="padding:14px 18px;background:linear-gradient(135deg,rgba(10,132,255,0.06),rgba(0,217,255,0.04));border-color:rgba(10,132,255,0.20);">
+    <p style="font-size:13px;line-height:1.5;color:var(--text-secondary);margin:0;">
+      Per riferimento, <strong style="color:var(--text-primary);">SPY 100%</strong> nello stesso periodo:
+      <strong style="color:var(--accent-green);">CAGR +10,92%</strong>,
+      <strong style="color:var(--accent-yellow);">MaxDD −55,19%</strong>,
+      Sharpe 0,63. I 3 balanced rinunciano a <strong style="color:var(--accent-yellow);">2,8-4,3 punti di CAGR</strong> in cambio di drawdown molto più contenuti.
+      Il trade-off classico volatility-adjusted: la prossima slide guarda <em>perché tutti e 3 hanno comunque un punto debole strutturale</em>.
+    </p>
+  </div>
+
+  <div class="source">Fonte: backtest/scripts/etf_balanced_portfolios_backtest.py · ETF reali via Yahoo Finance auto-adjust=True · 2006-02-06 → 2025-12-30 · monthly rebalancing, no fees/tax</div>
+</div>
+</section>
+
+
+<!-- V4 · Brera thesis + regime-conditional Treasury hedge -->
+<section class="slide" data-id="22-treasuries-thesis" style="padding-top:50px;padding-bottom:80px;">
+<div class="slide-inner" style="gap:18px;">
+  <div class="eyebrow accent-cyan" style="border-color:rgba(0,217,255,0.3);background:rgba(0,217,255,0.08);color:var(--accent-cyan);">Capitolo 8 · bis · Brera · perché il 60/40 si è rotto</div>
+  <h2 class="h2" style="font-size:clamp(28px,3.4vw,44px);">«I titoli di Stato <span class="accent-red">non ti proteggono</span>. Oro, argento, metalli <span class="accent-yellow">svolgono il loro ruolo</span>.»</h2>
+  <div class="card" style="padding:14px 18px;border-color:rgba(0,217,255,0.25);background:linear-gradient(135deg,rgba(0,217,255,0.06),rgba(10,132,255,0.04));">
+    <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:6px;">Guido Brera · fondatore Kairos · intervista Marcello Ascani 2026</div>
+    <p style="font-size:14px;line-height:1.5;color:var(--text-secondary);margin:0;">
+      Prima (QE + austerity): debito basso, Treasury safe, <strong style="color:var(--accent-green);">il 60/40 funzionava</strong>.
+      Oggi (espansione fiscale): se il mercato crolla è <em>per</em> stress sul debito sovrano, e <strong style="color:var(--accent-red);">i bond crashano insieme all'equity</strong>.
+    </p>
+  </div>
+  <div class="card" style="padding:14px 16px;">
+    <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-yellow);margin-bottom:10px;">Rendimento annualizzato per regime CPI · 2007-2025 · ETF reali, monthly rebal</div>
+    <table class="data-table" style="width:100%;font-size:13.5px;">
+      <thead>
+        <tr>
+          <th style="padding:9px 10px;text-align:left;">Portafoglio</th>
+          <th class="num" style="padding:9px 10px;color:var(--accent-green);">CPI &lt; 2.5%<br><span class="muted" style="font-size:10px;font-weight:400;">59% del tempo</span></th>
+          <th class="num" style="padding:9px 10px;color:var(--accent-yellow);">CPI 2.5-4%<br><span class="muted" style="font-size:10px;font-weight:400;">25% del tempo</span></th>
+          <th class="num" style="padding:9px 10px;color:var(--accent-red);">CPI ≥ 4%<br><span class="muted" style="font-size:10px;font-weight:400;">16% (2022-25)</span></th>
+          <th class="num" style="padding:9px 10px;">CAGR 18y</th>
+          <th class="num" style="padding:9px 10px;">Sharpe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:rgba(255,255,255,0.02);">
+          <td style="padding:9px 10px;"><strong>60/40 AGG</strong> <span class="muted" style="font-size:10px;">il classico</span></td>
+          <td class="num" style="padding:9px 10px;font-family:var(--font-mono);">+10,4%</td>
+          <td class="num" style="padding:9px 10px;font-family:var(--font-mono);">+11,0%</td>
+          <td class="num accent-red" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">−4,6%</td>
+          <td class="num" style="padding:9px 10px;font-family:var(--font-mono);">+7,8%</td>
+          <td class="num" style="padding:9px 10px;font-family:var(--font-mono);">0,70</td>
+        </tr>
+        <tr style="background:rgba(0,217,255,0.08);border-top:1px solid rgba(0,217,255,0.2);border-bottom:1px solid rgba(0,217,255,0.2);">
+          <td style="padding:9px 10px;"><strong style="color:var(--accent-cyan);">60/20/20 SPY/AGG/GLD</strong> <span class="muted" style="font-size:10px;">bond + oro</span></td>
+          <td class="num accent-green" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">+11,5%</td>
+          <td class="num accent-green" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">+12,7%</td>
+          <td class="num accent-yellow" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">−1,6%</td>
+          <td class="num accent-green" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">+9,4%</td>
+          <td class="num accent-green" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">0,79</td>
+        </tr>
+        <tr>
+          <td style="padding:9px 10px;"><strong>60/40 GLD</strong> <span class="muted" style="font-size:10px;">solo oro come hedge</span></td>
+          <td class="num accent-green" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">+12,6%</td>
+          <td class="num accent-green" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">+14,5%</td>
+          <td class="num accent-green" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">+1,4%</td>
+          <td class="num accent-green" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">+11,0%</td>
+          <td class="num accent-green" style="padding:9px 10px;font-family:var(--font-mono);font-weight:700;">0,82</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="muted" style="font-size:11px;margin:8px 2px 0 2px;line-height:1.45;">
+      <strong>AGG</strong> = iShares Core US Aggregate Bond, il bond ETF più diffuso al mondo (mix Treasury + corporate IG + MBS, durata ~6-7 anni). È il "40" del 60/40 standard.
+      <strong>GLD</strong> = oro fisico. <strong>Correlazione SPY-bond</strong> conferma: TLT−0,39 in low CPI ma solo −0,15 in high CPI; GLD speculare (−0,06 in high CPI).
+    </p>
+  </div>
+  <div class="card" style="padding:14px 18px;background:linear-gradient(135deg,rgba(0,210,106,0.06),rgba(0,217,255,0.04));border-color:rgba(0,210,106,0.25);">
+    <p style="font-size:14px;line-height:1.55;color:var(--text-primary);margin:0 0 8px 0;">
+      <strong style="color:var(--accent-green);">Su questi 18 anni il gold-only batte tutto</strong> (CAGR +11,0%, Sharpe 0,82, MaxDD simile al 60/40 classico). Ma non è "l'oro è meglio dei bond per sempre" — è "<em>l'oro è meglio dei bond adesso</em>".
+    </p>
+    <p style="font-size:13px;line-height:1.55;color:var(--text-secondary);margin:0;">
+      <strong style="color:var(--text-primary);">Perché ora vince:</strong> banche centrali (BRICS in testa) stanno accumulando oro a ritmo record per ridurre l'esposizione a USD/Treasury post-sanzioni 2022. È un bid strutturale, non ciclico — e <strong style="color:var(--accent-cyan);">finché dura, l'oro è un hedge migliore dei Treasury</strong>.
+      <strong style="color:var(--text-primary);">Quando finirà</strong> (se finirà), il quadro andrà rivalutato: a quel punto i Treasury <em>potrebbero</em> tornare l'hedge naturale dell'equity, oppure no — col debito pubblico US in traiettoria attuale e il rischio di svalutazione reale, anche quel tornaconto non è scontato.
+      <strong style="color:var(--accent-cyan);">Il 60/20/20 SPY/AGG/GLD</strong> resta la versione robusta per chi non vuole scommettere troppo su un singolo regime.
+    </p>
+  </div>
+  <div class="source">Fonte: backtest/scripts/treasuries_as_protection_backtest.py · 2007-2025 · ETF Yahoo auto-adjust=True · CPI YoY FRED · Quote: intervista Guido Brera, canale Marcello Ascani 2026</div>
+</div>
+</section>
+
+
 <section class="slide" data-id="22b" style="padding-top:50px;padding-bottom:80px;">
 <div class="slide-inner" style="gap:14px;">
-  <div class="eyebrow">Capitolo 8B · La diversificazione globale è una bugia</div>
-  <h2 class="h2" style="font-size:clamp(26px,3vw,42px);">VWCE è "il mondo"? <span class="accent-red">No, è S&amp;P 500 travestito</span>.</h2>
+  <div class="eyebrow">Capitolo 8B · Quanto è davvero globale la diversificazione globale</div>
+  <h2 class="h2" style="font-size:clamp(26px,3vw,42px);">VWCE è "il mondo"? <span class="accent-yellow">Più che altro è S&amp;P 500</span>.</h2>
   <p class="lead" style="font-size:15px;line-height:1.4;">
-    «VWCE diversifica su 4.000 titoli mondiali». Vediamo cosa c'è davvero dentro Vanguard FTSE All-World UCITS Acc.
+    «VWCE diversifica su 4.000 titoli mondiali». È vero in senso letterale, ma vale la pena guardare cosa c'è davvero dentro Vanguard FTSE All-World UCITS Acc.
   </p>
   <div class="split-3" style="gap:14px;">
     <div class="card" style="padding:16px;">
-      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-red);margin-bottom:10px;">⚠ VWCE composizione geografica</div>
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:10px;">△ VWCE composizione geografica</div>
       <table style="width:100%;font-family:var(--font-mono);font-size:13px;">
         <tr><td style="padding:3px 0;color:var(--text-secondary);">🇺🇸 Stati Uniti</td><td style="text-align:right;color:var(--accent-red);font-weight:700;">~64%</td></tr>
         <tr><td style="padding:3px 0;color:var(--text-secondary);">🇯🇵 Giappone</td><td style="text-align:right;">~5,7%</td></tr>
@@ -103,7 +260,7 @@
       <p class="muted" style="font-size:11px;margin-top:10px;line-height:1.4;">Top holdings: Apple 4,5% / NVIDIA 4,5% / Microsoft 4,2% / Amazon 2,4% / Meta 1,5% / Google 1,5%. <strong>Le top 10 sono tutte US tech</strong>.</p>
     </div>
     <div class="card card--glow-red" style="padding:16px;">
-      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-red);margin-bottom:10px;">⚠ EEM (Emerging Markets) top 10</div>
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:10px;">△ EEM (Emerging Markets) top 10</div>
       <table style="width:100%;font-family:var(--font-mono);font-size:12px;">
         <tr><td style="padding:3px 0;color:var(--text-primary);font-weight:700;">🇹🇼 TSMC</td><td style="text-align:right;color:var(--accent-red);font-weight:700;">14,4%</td></tr>
         <tr><td style="padding:3px 0;">🇰🇷 Samsung Elec</td><td style="text-align:right;color:var(--accent-yellow);">6,1%</td></tr>
@@ -117,12 +274,12 @@
         <tr><td style="padding:3px 0;">🇮🇳 Reliance</td><td style="text-align:right;">0,8%</td></tr>
       </table>
       <p class="muted" style="font-size:11px;margin-top:10px;line-height:1.4;">
-        <strong style="color:var(--accent-red);">TSMC + Samsung + SK Hynix + Delta + MediaTek = 27%</strong> dell'EEM è <strong>semi/AI supply chain US</strong>. È un finto Emerging Markets.
-        Compri <strong>NVIDIA travestita da Taiwan</strong>: TSMC produce i chip per NVIDIA, Apple, AMD; SK Hynix fa la HBM3e per H100.
+        <strong style="color:var(--accent-yellow);">TSMC + Samsung + SK Hynix + Delta + MediaTek = 27%</strong> dell'EEM appartiene di fatto alla <strong>supply chain semi/AI US</strong>. L'etichetta "Emerging Markets" racconta solo una parte della storia:
+        comprandolo si prende anche molta esposizione indiretta a <strong>NVIDIA &amp; co.</strong> — TSMC produce i chip per NVIDIA, Apple, AMD; SK Hynix fa la HBM3e per H100.
       </p>
     </div>
     <div class="card card--glow-red" style="padding:16px;">
-      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-red);margin-bottom:10px;">⚠ Europa vs USA · 15 anni</div>
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:10px;">△ Europa vs USA · 15 anni</div>
       <table class="data-table" style="font-size:12px;">
         <thead>
           <tr><th style="padding:6px 8px;">ETF</th><th class="num" style="padding:6px 8px;">CAGR 15y</th><th class="num" style="padding:6px 8px;">Total</th></tr>
@@ -136,22 +293,18 @@
         </tbody>
       </table>
       <p class="muted" style="font-size:11px;margin-top:10px;line-height:1.4;">
-        Europa ha sottoperformato gli US di <strong style="color:var(--accent-red);">−8,45 punti CAGR</strong> per 15 anni consecutivi.
-        Emerging Markets di <strong style="color:var(--accent-red);">−11,65 pp</strong>. Diversificare geograficamente costa 8-12 punti di CAGR ogni anno.
+        Europa ha sottoperformato gli US di <strong style="color:var(--accent-yellow);">−8,45 punti CAGR</strong> per 15 anni consecutivi.
+        Emerging Markets di <strong style="color:var(--accent-yellow);">−11,65 pp</strong>. Nell'ultimo ciclo, diversificare geograficamente ha pesato per 8-12 punti di CAGR all'anno.
       </p>
     </div>
   </div>
   <p class="lead" style="font-size:15px;line-height:1.45;">
-    La <span class="emphasis-box--red">"diversificazione globale" è una bugia di marketing</span>. VWCE è 64% US tech mega-cap. EEM è 27% supply chain semi US. Europa e EM hanno sottoperformato per 15 anni.
-    Quando crolla il S&amp;P, crolla tutto: TSMC dipende dai dollari di NVIDIA, Samsung dai dollari di Apple, l'Europa dalle esportazioni US.
+    La <span class="emphasis-box">"diversificazione globale" è più un'etichetta che una realtà</span>. VWCE è 64% US tech mega-cap, EEM è 27% supply chain semi US, Europa e EM hanno sottoperformato per 15 anni. E nei drawdown sistemici la correlazione converge: TSMC dipende dai dollari di NVIDIA, Samsung dai dollari di Apple, l'Europa dalle esportazioni US.
   </p>
   <div class="source">Fonte: Vanguard fact sheet 2025-Q3 (VWCE) · iShares EEM holdings live · backtest yfinance 2010-2024</div>
 </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- V4 · NUOVO · Cos'è INTL/EAFE/EM + 5 epoche regime 1985-2026 -->
-<!-- ============================================================ -->
 <section class="slide" data-id="22c" style="padding-top:50px;padding-bottom:80px;">
 <div class="slide-inner" style="gap:14px;">
   <div class="eyebrow">Capitolo 8D · Glossario + storia</div>
@@ -208,9 +361,6 @@
 </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- V4 · NUOVO · Deep-dive 2003-2009: cosa vinse e perché US perse -->
-<!-- ============================================================ -->
 <section class="slide" data-id="22d" style="padding-top:50px;padding-bottom:80px;">
 <div class="slide-inner" style="gap:14px;">
   <div class="eyebrow">Capitolo 8E · Deep-dive</div>
@@ -245,7 +395,7 @@
     </div>
 
     <div class="card card--glow-red" style="padding:16px;">
-      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-red);margin-bottom:10px;">💀 Perché US andò sotto zero</div>
+      <div class="muted" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-red);margin-bottom:10px;">△ Perché US andò sotto zero</div>
       <p style="font-size:13px;line-height:1.55;color:var(--text-secondary);margin:0;">
         <strong style="color:var(--accent-red);">1. Doppio crash in 1 decennio</strong> — Dot-com (mar 2000 → ott 2002): SPY <strong style="color:var(--text-primary);">−49%</strong>, NASDAQ <strong style="color:var(--text-primary);">−78%</strong>. GFC (ott 2007 → mar 2009): SPY <strong style="color:var(--text-primary);">−57%</strong>. Mai più due crash di quel calibro in 7 anni.<br><br>
         <strong style="color:var(--accent-red);">2. Punto di partenza pessimo</strong> — Inizio 2003: SPY appena fuori dal dotcom bust, CAPE ancora <strong style="color:var(--text-primary);">~28</strong> (sopravvalutato). Fine 2007: nuovo peak, ma su fondamentali deboli (housing bubble).<br><br>
@@ -295,69 +445,26 @@
 </div>
 </section>
 
-<section class="slide" data-id="10">
-<div class="slide-inner">
-  <div class="eyebrow">Capitolo 8C · Concentration alpha</div>
-  <h2 class="h2">Stesso pool. Stessi titoli.<br>Solo concentrazione.</h2>
-  <div class="vs-grid">
-    <div class="vs-card vs-card--loss">
-      <span class="vs-card__label">Equal-weight Top 3</span>
-      <span class="vs-card__title">3 titoli, 33% ognuno</span>
-      <span class="vs-card__value" style="color:var(--accent-yellow);">+34,6%</span>
-      <span class="vs-card__sub">CAGR 8 anni · €1,03M finale · Sharpe 1,05</span>
-    </div>
-    <div class="vs-divider">VS</div>
-    <div class="vs-card vs-card--win">
-      <span class="vs-card__label">Top1ByVol concentration</span>
-      <span class="vs-card__title">100% sul winner ATR×Vol</span>
-      <span class="vs-card__value">+50,7%</span>
-      <span class="vs-card__sub">CAGR 8 anni · €2,55M finale · Sortino 2,28</span>
-    </div>
-  </div>
-  <p class="lead" style="margin-top:24px;">
-    <strong>+16,1 punti di CAGR di delta</strong>, solo per non diluire il capitale su titoli mediocri.
-    Concentrazione informata <span class="accent-cyan">batte sempre</span> "diversificazione" su 3-5 titoli.
-  </p>
-  <div class="source">Fonte: guides/strategie/adopted/top1_by_vol.md · backtest 8y 2018-2025 · realistic mode</div>
-</div>
-</section>
-
 <section class="slide" data-id="23" style="padding-top:60px;padding-bottom:90px;">
 <div class="slide-inner" style="gap:16px;">
-  <div class="eyebrow">Capitolo 8B · Why crashes happen</div>
-  <h2 class="h2" style="font-size:clamp(28px,3.4vw,46px);">Quando crolla, crolla tutto. <span class="accent-yellow">$120 miliardi</span> di selling meccanico.</h2>
+  <div class="eyebrow">Capitolo 8B · Perché i crash accelerano</div>
+  <h2 class="h2" style="font-size:clamp(28px,3.4vw,46px);">Quando il mercato scende, scende quasi tutto insieme. <span class="accent-yellow">$120 miliardi</span> di selling meccanico.</h2>
   <div class="chart-wrapper" style="height:320px;">
     <canvas id="chart-volcontrol"></canvas>
   </div>
   <p class="lead" style="font-size:15px;line-height:1.45;">
     I fondi <strong>Vol Control</strong> (target volatilità) vendono meccanicamente quando il VIX sale.
     A questo si aggiungono Risk Parity ($200-400B AUM) e CTA trend-following ($350B AUM).
-    <span class="emphasis-box--red">Stessi trigger, stesso giorno</span> → cascade selling.
-    Gli ETF amplificano questo movimento perché sono il veicolo passivo che gli algoritmi usano per liquidare.
+    <span class="emphasis-box">Stessi trigger, stesso giorno</span> → cascade selling.
+    Gli ETF tendono ad amplificare questo movimento perché sono il veicolo passivo che gli algoritmi usano per liquidare.
   </p>
   <div class="source">Fonte: algorithm/04_vol_control.md:67-80 · stime Morgan Stanley/Kolanovic</div>
 </div>
 </section>
 
-<section class="slide" data-id="24">
-<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
-  <div class="eyebrow accent-red" style="border-color:rgba(255,71,87,0.3);background:rgba(255,71,87,0.08);color:var(--accent-red);">Capitolo 9 · Leverage</div>
-  <h2 class="h2" style="text-align:center;">UPRO (S&amp;P 500 leva 3×).<br>COVID 2020.</h2>
-  <div class="big-number big-number--red" data-counter="96.4" data-prefix="−" data-suffix="%" data-decimals="1">−0%</div>
-  <p class="lead" style="text-align:center;max-width:880px;">
-    Da €100.000 a <strong>€3.600</strong> in 4 settimane. Servirebbe un +2.400% per recuperare.
-    <span class="emphasis-box--red">Non succederà mai</span>.<br><br>
-    Bull market 2009-2020: UPRO +20,8%/anno (sembra magic).<br>
-    Singolo crash COVID: bruciato un decennio di gain.<br>
-    <strong>Volatility decay</strong>: il leverage daily reset distrugge il capitale nei mercati laterali.
-  </p>
-  <div class="source">Fonte: guides/strategie/06_levered.md:15-42 · guides/strategie/09_lezioni.md:18</div>
-</div>
-</section>
-
 <section class="slide" data-id="24b">
 <div class="slide-inner layout-center" style="text-align:center;align-items:center;">
-  <div class="eyebrow">⚠ Capitolo 9 · Crash test</div>
+  <div class="eyebrow">Capitolo 9 · Crash test</div>
   <h2 class="h2" style="text-align:center;">«Sì, ma il NoRot2 ha drawdown −49%.<br>L'ETF <span class="accent-cyan">protegge</span> di più, no?»</h2>
   <p class="lead" style="text-align:center;max-width:980px;">
     Domanda legittima. Ma c'è un <strong>dettaglio cruciale</strong> che la narrativa "ETF protegge meglio" ignora: <em>da che livello stai cadendo?</em><br><br>
@@ -428,7 +535,7 @@
         <p class="lead" style="font-size:13px;line-height:1.45;">
           <strong class="accent-cyan">Verdetto:</strong> GFC è il test più brutale (Lehman, VIX 80). Entry 1y prima:
           <strong>P/E Switch</strong> <span class="accent-yellow">−21%</span> (TS-15% scatta in tempo), SPY <span class="accent-red">−42%</span>, NoRot2 <span class="accent-red">−58%</span>.
-          In crash sistemici NoRot2 puro cade troppo: <span class="emphasis-box--red">P/E Switch + TS è la difesa migliore</span>.
+          In crash sistemici NoRot2 puro cade più del lecito: <span class="emphasis-box">P/E Switch + TS dà la difesa più solida</span>.
         </p>
       </div>
     </div>
@@ -582,107 +689,6 @@
     gli ETF lasciano sul tavolo <span class="emphasis-box">+5-25% di CAGR all'anno</span>.
     Cumulato a 30 anni: la differenza tra una pensione decorosa e diventare ricchi.
   </p>
-</div>
-</section>
-
-<section class="slide" data-id="25b">
-<div class="slide-inner">
-  <div class="eyebrow">Recap · 12 minuti in 4 numeri</div>
-  <h2 class="h2">Se ricordi <span class="accent-cyan">solo 4 cose</span><br>di questo video, sono queste.</h2>
-  <div class="split-2" style="gap:24px;">
-    <div class="card card--glow-green" style="text-align:center;padding:36px 28px;">
-      <div class="muted" style="margin-bottom:8px;">delta SPY vs NVDA+AVGO 16y</div>
-      <div class="big-number big-number--green" style="font-size:72px;">+€18,65M</div>
-      <div class="muted" style="font-size:14px;margin-top:12px;">€675K (SPY) vs €19,33M (NoRot2)<br>Stesso PAC. Stessi anni.</div>
-    </div>
-    <div class="card card--glow-red" style="text-align:center;padding:36px 28px;">
-      <div class="muted" style="margin-bottom:8px;">Alphabet duplicato in ETF momentum</div>
-      <div class="big-number big-number--red" style="font-size:72px;">4,65%</div>
-      <div class="muted" style="font-size:14px;margin-top:12px;">Class A 2,54% + Class C 2,11%<br>Stessa azienda. Due volte.</div>
-    </div>
-    <div class="card card--glow-cyan" style="text-align:center;padding:36px 28px;">
-      <div class="muted" style="margin-bottom:8px;">Concentrazione vs equal-weight (8y)</div>
-      <div class="big-number big-number--cyan" style="font-size:72px;">+16pp</div>
-      <div class="muted" style="font-size:14px;margin-top:12px;">+50,7% Top1ByVol vs +34,6% E-W<br>Stesso pool. Solo concentrazione.</div>
-    </div>
-    <div class="card card--glow-red" style="text-align:center;padding:36px 28px;">
-      <div class="muted" style="margin-bottom:8px;">UPRO 3× S&amp;P 500 in COVID 2020</div>
-      <div class="big-number big-number--red" style="font-size:72px;">−96,4%</div>
-      <div class="muted" style="font-size:14px;margin-top:12px;">€100k → €3.600 in 4 settimane<br>Recovery needed: +2.400%.</div>
-    </div>
-  </div>
-  <p class="lead" style="text-align:center;font-size:20px;margin-top:8px;">
-    <strong>Il problema non è l'ETF in sé</strong>. È che ti vendono la pigrizia con la maschera della razionalità.
-  </p>
-</div>
-</section>
-
-<section class="slide" data-id="26">
-<div class="slide-inner">
-  <div class="eyebrow accent-cyan">Cosa fare adesso</div>
-  <h2 class="h2">Non comprare un servizio.<br><span class="accent-cyan">Apri lo strumento</span>.</h2>
-  <div class="split-2" style="align-items:center;">
-    <div>
-      <p class="lead">
-        <strong>stockpickers.app</strong> è la piattaforma open che uso io.
-        Niente abbonamenti, niente affiliate, niente corsi.
-      </p>
-      <ul class="bullet-list" style="margin-top:24px;">
-        <li><strong class="accent-cyan">87+ strategie backtested</strong> su 20 anni di dati</li>
-        <li><strong class="accent-cyan">3.500+ titoli</strong> scansionati ogni giorno</li>
-        <li><strong class="accent-cyan">15 algoritmi istituzionali</strong> tracciati (Vol Control, Risk Parity, CTA, MOC flows)</li>
-        <li><strong class="accent-cyan">Crash detection</strong> real-time + Wyckoff pattern recognition</li>
-        <li><strong class="accent-cyan">Buy-the-dip alerts</strong> via Telegram</li>
-        <li><strong>Codice open source</strong> · forkalo · contesta i numeri</li>
-      </ul>
-    </div>
-    <div class="card card--glow-cyan" style="text-align:center;padding:48px 36px;">
-      <div class="muted" style="margin-bottom:8px;">VAI ORA SU</div>
-      <div class="h1" style="font-size:54px;color:var(--accent-cyan);text-shadow:0 0 40px rgba(0,217,255,0.6);">stockpickers<br><span style="color:var(--text-primary);">.app</span></div>
-      <div style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <span class="emphasis-box" style="font-size:14px;">100% gratis</span>
-        <span class="emphasis-box--green" style="font-size:14px;">Open source</span>
-        <span class="emphasis-box" style="font-size:14px;">Italiano</span>
-      </div>
-      <p class="muted" style="margin-top:24px;font-size:13px;">«Apri il Report Completo» → click,<br>e vedi i 3.500 titoli rankati real-time.</p>
-    </div>
-  </div>
-</div>
-</section>
-
-<section class="slide" data-id="27">
-<div class="slide-inner layout-center" style="text-align:center;align-items:center;">
-  <div class="eyebrow">Outro · 3 cose</div>
-  <h2 class="h2" style="text-align:center;">Se sei arrivato qui,<br>vuoi essere il <span class="accent-cyan">secondo tipo</span>.</h2>
-  <ul class="bullet-list bullet-list--numbered" style="max-width:780px;text-align:left;">
-    <li><strong>Iscriviti</strong> al canale per il prossimo video: come si costruisce un portfolio di 2-5 titoli che batte sistematicamente l'ETF.</li>
-    <li><strong>Commenta qui sotto</strong> qual è il tuo ETF principale. Nel prossimo video calcolo quanto ti sta costando in opportunity cost.</li>
-    <li><strong>Apri stockpickers.app</strong>. Nessun abbonamento, niente affiliate, niente corsi. Open source. <em>I dati parlano. Tu decidi.</em></li>
-  </ul>
-  <p class="lead" style="text-align:center;max-width:920px;font-size:18px;color:var(--text-muted);font-style:italic;border-top:1px solid var(--border-subtle);padding-top:32px;margin-top:24px;">
-    <strong style="color:var(--text-secondary);">Disclaimer:</strong> Questo contenuto ha finalità educative.
-    Non costituisce consulenza finanziaria, raccomandazione di investimento, né sollecitazione all'acquisto o vendita.
-    Le performance passate non garantiscono risultati futuri. Ogni investimento comporta rischi, inclusa la perdita del capitale.
-    Studia, fai i tuoi backtest, decidi tu.
-  </p>
-</div>
-</section>
-
-<section class="slide" data-id="28">
-<div class="slide-inner layout-center" style="text-align:center;align-items:center;gap:48px;">
-  <div class="eyebrow">Fine.</div>
-  <h1 class="h1" style="font-size:clamp(64px,10vw,160px);">Grazie.</h1>
-  <p class="lead" style="text-align:center;font-size:24px;">
-    Hai appena fatto un'ora di studio<br>
-    che il tuo "consulente" non farà mai per te.
-  </p>
-  <div class="card card--glow-cyan" style="padding:32px 48px;">
-    <div class="muted" style="margin-bottom:8px;">CONTINUA SU</div>
-    <div class="h2" style="color:var(--accent-cyan);">stockpickers.app</div>
-  </div>
-  <div class="muted" style="margin-top:16px;">
-    Built with data · zero guru · 2026
-  </div>
 </div>
 </section>
 
@@ -1002,7 +1008,7 @@ window.buildChart = function(canvas) {
               annotations: {
                 emRegime: {
                   type: 'box',
-                  xMin: '2003', xMax: '2009',
+                  xMin: 2003, xMax: 2009,
                   backgroundColor: 'rgba(255,165,2,0.10)',
                   borderColor: 'rgba(255,165,2,0.4)',
                   borderWidth: 1,
@@ -1015,7 +1021,7 @@ window.buildChart = function(canvas) {
                 },
                 usRegime: {
                   type: 'box',
-                  xMin: '2010', xMax: '2026',
+                  xMin: 2010, xMax: 2026,
                   backgroundColor: 'rgba(10,132,255,0.07)',
                   borderColor: 'rgba(10,132,255,0.4)',
                   borderWidth: 1,

@@ -80,11 +80,29 @@ VIDEOS = [
         "file": "v4-diversificazione.html",
         "title": "V4 · La diversificazione non ha senso",
         "slides": [
-            "@v4_title", "22", "22b", "10", "23", "24",
-            "24b", "24c", "24d", "24e", "24f", "24g",
-            "25", "25b", "26", "27", "28",
+            "@v4_title", "22", "22b",
+            "@v4_chapter_8d_glossario",  # 22c — INTL/EAFE/EM glossario + 5 epoche regime 1985-2026
+            "@v4_chapter_8e_deepdive",   # 22d — 2003-2009 EM +150% (commodity supercycle + gold +170%)
+            # Nascoste 2026-05-28: 10 (Concentration alpha 8C), 23-28 (crash test 9 + bear strategies).
+            # Da rivalutare prima di rimetterle in produzione.
         ],
         "data": ["crash-data"],
+    },
+    {
+        "file": "v5-anatomia-crash.html",
+        "title": "V5 · Anatomia di 7 crash · come reagisce il sistema",
+        "slides": [
+            "@v5_title", "@v5_how_it_works", "@v5_overview",
+            "@v5_crash_01_1990_gulf_war",
+            "@v5_crash_02_2000_dotcom",
+            "@v5_crash_03_2007_gfc",
+            "@v5_crash_04_2018_powell_q4",
+            "@v5_crash_05_2020_covid",
+            "@v5_crash_06_2022_inflation",
+            "@v5_crash_07_2025_liberation_day",
+            "@v5_outro",
+        ],
+        "data": ["crash-anatomy-data", "crash-anatomy-narratives"],
     },
 ]
 
@@ -198,6 +216,8 @@ def parse_chart_cases(build_chart_fn: str) -> tuple[str, dict]:
             cases[cm.group(1)] = block
         elif "startsWith('chart-crash-')" in cond:
             cases["__crash__"] = block
+        elif "startsWith('chart-anatomy-')" in cond:
+            cases["__anatomy__"] = block
         else:
             print(f"  WARN: blocco buildChart non riconosciuto: {cond[:60]!r}", file=sys.stderr)
         idx = brace_end + 1
@@ -314,6 +334,9 @@ def build_video(video: dict, sections: dict, data_scripts: dict,
         elif cid.startswith("chart-crash-"):
             if "__crash__" not in needed:
                 needed.append("__crash__")
+        elif cid.startswith("chart-anatomy-"):
+            if "__anatomy__" not in needed:
+                needed.append("__anatomy__")
         else:
             print(f"  WARN: {video['file']}: nessun chart case per '{cid}'", file=sys.stderr)
     chart_blocks = "\n\n".join(cases[c] for c in needed)
@@ -400,6 +423,8 @@ def main():
 
     # landing CSS extra (series-grid / series-card) appeso a deck.css
     css += "\n\n" + LANDING_CSS
+    # crash anatomy CSS extra (V5)
+    css += "\n\n" + CRASH_ANATOMY_CSS
 
     (ASSETS / "deck.css").write_text(css + "\n", encoding="utf-8")
     (ASSETS / "deck.js").write_text(framework_js + "\n", encoding="utf-8")
@@ -437,6 +462,100 @@ LANDING_CSS = """/* --- landing serie --- */
 .series-card__num { font-family: 'JetBrains Mono', monospace; font-size: 13px;
   color: var(--accent-cyan, #00d9ff); }
 .series-card__title { font-size: 16px; font-weight: 700; color: #f0f0f5; line-height: 1.3; }"""
+
+
+CRASH_ANATOMY_CSS = """/* --- V5 crash anatomy --- */
+.crash-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; align-items: stretch; }
+.crash-side { display: flex; flex-direction: column; gap: 10px; }
+
+.verdict-card { padding: 14px 16px; border-radius: 12px; background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 4px; }
+.verdict-card--win   { border-color: rgba(0,210,106,0.45);   background: rgba(0,210,106,0.10); }
+.verdict-card--early { border-color: rgba(0,217,255,0.45);   background: rgba(0,217,255,0.10); }
+.verdict-card--miss  { border-color: rgba(255,165,2,0.45);   background: rgba(255,165,2,0.10); }
+.verdict-card--skip  { border-color: rgba(180,180,200,0.30); background: rgba(180,180,200,0.06); }
+.verdict-card--na    { border-color: rgba(180,180,200,0.20); background: rgba(180,180,200,0.04); }
+.verdict-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.10em;
+  color: #7a7a90; text-transform: uppercase; }
+.verdict-value { font-size: 19px; font-weight: 700; color: #f0f0f5; line-height: 1.15;
+  letter-spacing: -0.01em; }
+.verdict-sub { font-size: 12px; color: #b0b0c0; font-family: 'JetBrains Mono', monospace; }
+
+.delta-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.delta-cell { padding: 12px 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px; display: flex; flex-direction: column; gap: 4px; text-align: center; }
+.delta-num { font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700;
+  letter-spacing: -0.02em; line-height: 1; color: #00d26a; }
+.delta-num--zero { color: #7a7a90; }
+.delta-num--red { color: #ff4757; }
+.delta-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #7a7a90; }
+
+.fire-state { padding: 12px 14px; background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0,217,255,0.18); border-radius: 10px; }
+.fire-state__title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em;
+  color: #00d9ff; text-transform: uppercase; margin-bottom: 8px; display: block; }
+.fire-state__list { list-style: none; display: flex; flex-direction: column; gap: 5px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #b0b0c0; }
+.fire-state__list li { display: flex; justify-content: space-between; gap: 10px; }
+.fire-state__list li b { color: #f0f0f5; font-weight: 700; }
+.fire-state__voters { display: block; margin-top: 8px; padding-top: 8px;
+  border-top: 1px dashed rgba(255,255,255,0.08); font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; color: #00d26a; line-height: 1.4; }
+.fire-state__voters b { color: #00d26a; }
+
+.skip-state { padding: 12px 14px; background: rgba(180,180,200,0.04);
+  border: 1px solid rgba(180,180,200,0.20); border-radius: 10px; font-size: 12.5px;
+  line-height: 1.45; color: #b0b0c0; }
+.skip-state b { color: #f0f0f5; font-weight: 700; }
+
+.events-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 6px; font-size: 11px; line-height: 1.35; color: #b0b0c0; margin-top: 2px; }
+.events-strip__cell { padding: 8px 10px; background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; }
+.events-strip__date { font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: #00d9ff; letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
+.events-strip__label { color: #f0f0f5; font-weight: 700; display: block; margin-bottom: 2px;
+  font-size: 11.5px; }
+
+/* Term tooltip — hover to expand */
+.term { border-bottom: 1px dotted rgba(0,217,255,0.55); cursor: help; position: relative;
+  color: #6bd5ff; font-weight: 500; }
+.term::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 10px); left: 50%;
+  transform: translateX(-50%) translateY(8px); background: #1a1a36;
+  border: 1px solid rgba(0,217,255,0.40); padding: 12px 14px; border-radius: 10px;
+  font-size: 12.5px; font-weight: 400; line-height: 1.5; width: 320px; z-index: 1000;
+  text-align: left; color: #f0f0f5; white-space: normal; opacity: 0; pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease; box-shadow: 0 16px 48px rgba(0,0,0,0.55);
+  font-family: 'Inter', sans-serif; }
+.term:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* V5 overview table */
+.overview-table { width: 100%; border-collapse: separate; border-spacing: 0;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+.overview-table th { background: rgba(0,217,255,0.06); color: #00d9ff;
+  padding: 10px 12px; text-align: left; font-size: 11px; letter-spacing: 0.08em;
+  text-transform: uppercase; font-weight: 600; border-bottom: 1px solid rgba(0,217,255,0.2); }
+.overview-table td { padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); color: #d0d0e0; }
+.overview-table td.num { text-align: right; font-weight: 700; }
+.overview-table tr.row--win td { color: #f0f0f5; }
+.overview-table tr.row--miss { opacity: 0.65; }
+.overview-table tr.row--skip { opacity: 0.5; }
+.overview-table .pill { display: inline-block; padding: 2px 8px; border-radius: 100px;
+  font-size: 10px; letter-spacing: 0.06em; font-weight: 700; }
+.overview-table .pill--win   { background: rgba(0,210,106,0.18); color: #4ade80; }
+.overview-table .pill--early { background: rgba(0,217,255,0.18); color: #6bd5ff; }
+.overview-table .pill--miss  { background: rgba(255,165,2,0.18); color: #ffc16b; }
+.overview-table .pill--skip  { background: rgba(180,180,200,0.14); color: #b0b0c0; }
+.overview-table .pill--na    { background: rgba(180,180,200,0.10); color: #7a7a90; }
+.overview-table .delta-pos { color: #00d26a; }
+.overview-table .delta-zero { color: #7a7a90; }
+
+@media (max-width: 900px) {
+  .crash-layout { grid-template-columns: 1fr; }
+  .delta-pair { grid-template-columns: 1fr 1fr; }
+  .term::after { width: 240px; }
+}"""
 
 
 if __name__ == "__main__":
